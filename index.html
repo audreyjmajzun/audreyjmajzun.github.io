@@ -653,6 +653,66 @@ body.lefty .toast,body.lefty .undo{left:16px;transform:none}
 @keyframes crStomp{0%{left:-90px}100%{left:calc(100% + 40px)}}
 body.quake #main{animation:quake .35s ease-in-out 5}
 @keyframes quake{0%,100%{transform:translate(0)}25%{transform:translate(-3px,1px)}50%{transform:translate(3px,-1px)}75%{transform:translate(-2px,2px)}}
+.set-search{position:sticky;top:-20px;z-index:2;background:var(--s1);padding:6px 0 10px}
+.set-search input{width:100%}
+details.sgroup{border:1px solid var(--line);border-radius:14px;margin-bottom:10px;background:var(--s1)}
+details.sgroup>summary{cursor:pointer;padding:12px 14px;font-family:var(--h3font);font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between}
+details.sgroup>summary::after{content:'▾';color:var(--dim);transition:transform .2s}
+details.sgroup[open]>summary::after{transform:rotate(180deg)}
+details.sgroup>summary::-webkit-details-marker,details.xgroup>summary::-webkit-details-marker{display:none}
+.sg-body{padding:0 14px 4px}
+details.sgroup[data-g="✨ Make it sexier"] .set-blk>h3{display:none}
+details.xgroup{border-top:1px solid var(--line);padding:2px 0}
+details.xgroup>summary{cursor:pointer;padding:10px 0;font-weight:600;font-size:14px;list-style:none}
+details.xgroup[open]>summary{color:var(--acc)}
+.faq{border-bottom:1px solid var(--line);padding:10px 0}
+.faq summary{cursor:pointer;font-weight:600}
+.faq p{color:var(--mut);margin:8px 0 2px;font-size:14px}
+.news h3{font-size:16px;margin-bottom:6px}
+.news ul{margin:0 0 12px;padding-left:20px}
+.news li{margin-bottom:4px}
+.news.old{opacity:.7;border-top:1px solid var(--line);padding-top:10px}
+.tidy{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}
+.tidy b{display:block}
+.tidy span{font-size:13px;color:var(--mut)}
+.prog-card{margin-bottom:14px}
+.prog-list{margin-bottom:14px}
+.prog-list summary{cursor:pointer}
+.prog-opt{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line);margin-top:8px}
+.prog-opt b{display:block}
+.prog-opt span{font-size:12.5px;color:var(--mut);display:block}
+.prog-opt em{font-style:normal;font-size:12px;color:var(--up)}
+.quest-card{display:flex;align-items:center;gap:12px;margin-bottom:14px;border-color:var(--acc);background:linear-gradient(120deg,var(--acc-bg),transparent),var(--s1)}
+.quest-card.done{border-color:var(--up-bd);background:var(--up-bg)}
+.q-ico{font-size:30px}
+.q-body{flex:1;display:flex;flex-direction:column;gap:1px}
+.q-body b{font-size:15px}
+.shop-btn{float:right;margin-left:8px}
+.pet-x{position:absolute;line-height:1;pointer-events:none}
+.pet-x.friend{animation:bob 2.6s ease-in-out infinite}
+.px-dolphin{animation:hop 2.4s ease-in-out infinite!important}
+.px-crab{animation:crShake .4s linear infinite alternate!important}
+.axo{display:inline-block;vertical-align:middle}
+.coinbar{background:var(--acc-bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:15px}
+.coinbar b{font-family:var(--nfont);font-size:20px}
+.sh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+.sh-item{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;padding:12px 8px;border-radius:14px;background:var(--s2);border:1px solid var(--line)}
+.sh-item.own{border-color:var(--up-bd)}
+.sh-e{font-size:36px;line-height:1.1}
+.sh-item b{font-size:13.5px}
+.sh-item .btn{margin-top:4px}
+.sh-wear{display:flex;gap:4px;margin-top:4px}
+.sh-wear .btn{padding:5px 8px;font-size:12px}
+.mystery-card{display:flex;align-items:center;gap:12px;width:100%;text-align:left;margin-bottom:14px;border-color:var(--acc);background:linear-gradient(120deg,var(--lo-bg),var(--up-bg)),var(--s1);cursor:pointer}
+.mystery-card div{display:flex;flex-direction:column}
+.mb-box{font-size:34px;animation:boxwiggle 1.6s ease-in-out infinite}
+@keyframes boxwiggle{0%,80%,100%{transform:rotate(0)}85%{transform:rotate(-12deg)}90%{transform:rotate(12deg)}95%{transform:rotate(-8deg)}}
+.box-sheet{text-align:center;position:relative;min-height:260px}
+.box-anim{font-size:90px;animation:boxshake .9s ease-in-out,boxpop .3s 1s forwards}
+@keyframes boxshake{0%,100%{transform:rotate(0)}20%{transform:rotate(-14deg)}40%{transform:rotate(14deg)}60%{transform:rotate(-10deg)}80%{transform:rotate(10deg)}}
+@keyframes boxpop{to{transform:scale(1.6);opacity:0;height:0}}
+.box-reveal{opacity:0;animation:fadein .5s 1.15s forwards}
+.box-e{font-size:72px;animation:eggin .6s 1.15s cubic-bezier(.2,1.5,.4,1) both}
 .notes{margin-top:18px}
 .notes textarea{width:100%;min-height:64px;resize:vertical}
 .savebar{position:sticky;bottom:calc(72px + env(safe-area-inset-bottom));margin-top:18px;z-index:10;display:flex;gap:10px;align-items:center;background:var(--sbar);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:10px 10px 10px 16px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
@@ -893,7 +953,7 @@ const gid=()=>'w'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 const unit=()=>S.profile.unit||'lbs';
 const clone=o=>JSON.parse(JSON.stringify(o));
 
-function normProfile(p){p=clone(p||{});return {custom:p.custom||{},hidden:p.hidden||[],goal:p.goal||3,unit:p.unit||'lbs',lunit:p.lunit||'in',lastBackup:p.lastBackup||0,snooze:p.snooze||0,customRest:p.customRest||[],theme:p.theme||null,stepsOn:p.stepsOn!==false,stepsAuto:!!p.stepsAuto,bodyGoalsOn:!!p.bodyGoalsOn,goals:{steps:8000,cardio:90,lifts:[],body:{},...(p.goals||{})},routines:Array.isArray(p.routines)?p.routines:[],extras:{effort:true,plates:true,supersets:true,nudges:true,balance:true,badges:true,timer:true,builder:true,injury:true,challenges:true,water:true,confetti:true,levels:true,garden:true,wrapped:true,gym:true,jar:true,letters:true,loose:true,glance:true,drinks:false,rating:true,tags:true,location:true,checklist:true,supps:true,finals:true,contrast:false,lefty:false,favorites:true,repeat:true,undo:true,convert:true,howto:true,tour:true,pet:true,glowup:true,greeting:true,transitions:true,squish:true,outfits:true,flip:true,forecast:true,pep:true,splash:true,stickers:true,pump:true,seasonal:true,...(p.extras||{})},badges:Array.isArray(p.badges)?p.badges:null,bodyType:p.bodyType==='m'?'m':'f',plan:(p.plan&&typeof p.plan==='object')?p.plan:{},rest:{secs:90,auto:true,sound:true,...(p.rest&&typeof p.rest==='object'?p.rest:{})},injuries:Array.isArray(p.injuries)?p.injuries:[],mode:['light','dark'].includes(p.mode)?p.mode:'auto',rewards:Array.isArray(p.rewards)?p.rewards:[],whale:p.whale||null,preset:p.preset||'everything',customTags:Array.isArray(p.customTags)?p.customTags:[],locs:Array.isArray(p.locs)?p.locs:['Home','Campus gym','Gym','Outdoors'],lastLoc:p.lastLoc||'',checkItems:Array.isArray(p.checkItems)?p.checkItems:['🧘 Stretch','😴 8 hours of sleep','🧴 Skincare','🌳 Time outside','🧠 Meditate'],supps:Array.isArray(p.supps)?p.supps:['💊 Supplements'],suppTime:p.suppTime||'09:00',finals:p.finals||null,tabs:{today:true,progress:true,consistency:true,history:true,...(p.tabs||{})},favs:Array.isArray(p.favs)?p.favs:[],formNotes:(p.formNotes&&typeof p.formNotes==='object')?p.formNotes:{},toured:!!p.toured,name:p.name||'',eggs:(p.eggs&&typeof p.eggs==='object')?p.eggs:{},birthday:p.birthday||'',rainbowHawk:!!p.rainbowHawk,jelly:!!p.jelly,waterPerDrink:p.waterPerDrink!==false,letters:Array.isArray(p.letters)?p.letters:[],pepVibe:p.pepVibe||'bestie',season:p.season||'auto',stickerPage:Array.isArray(p.stickerPage)?p.stickerPage:[],lastLevel:p.lastLevel||0,challenges:Array.isArray(p.challenges)?p.challenges:[],pauses:Array.isArray(p.pauses)?p.pauses:[],water:{goal:8,size:'8 oz',nudge:true,from:8,to:22,...(p.water&&typeof p.water==='object'?p.water:{})}}}
+function normProfile(p){p=clone(p||{});return {custom:p.custom||{},hidden:p.hidden||[],goal:p.goal||3,unit:p.unit||'lbs',lunit:p.lunit||'in',lastBackup:p.lastBackup||0,snooze:p.snooze||0,customRest:p.customRest||[],theme:p.theme||null,stepsOn:p.stepsOn!==false,stepsAuto:!!p.stepsAuto,bodyGoalsOn:!!p.bodyGoalsOn,goals:{steps:8000,cardio:90,lifts:[],body:{},...(p.goals||{})},routines:Array.isArray(p.routines)?p.routines:[],extras:{effort:true,plates:true,supersets:true,nudges:true,balance:true,badges:true,timer:true,builder:true,injury:true,challenges:true,water:true,confetti:true,levels:true,garden:true,wrapped:true,gym:true,jar:true,letters:true,loose:true,glance:true,drinks:false,programs:true,quests:true,shop:true,mystery:true,whatsnew:true,rating:true,tags:true,location:true,checklist:true,supps:true,finals:true,contrast:false,lefty:false,favorites:true,repeat:true,undo:true,convert:true,howto:true,tour:true,pet:true,glowup:true,greeting:true,transitions:true,squish:true,outfits:true,flip:true,forecast:true,pep:true,splash:true,stickers:true,pump:true,seasonal:true,...(p.extras||{})},badges:Array.isArray(p.badges)?p.badges:null,bodyType:p.bodyType==='m'?'m':'f',plan:(p.plan&&typeof p.plan==='object')?p.plan:{},rest:{secs:90,auto:true,sound:true,...(p.rest&&typeof p.rest==='object'?p.rest:{})},injuries:Array.isArray(p.injuries)?p.injuries:[],mode:['light','dark'].includes(p.mode)?p.mode:'auto',rewards:Array.isArray(p.rewards)?p.rewards:[],whale:p.whale||null,preset:p.preset||'everything',program:p.program||null,programsDone:Array.isArray(p.programsDone)?p.programsDone:[],quests:(p.quests&&typeof p.quests==='object')?p.quests:{},spent:p.spent||0,bonusCoins:p.bonusCoins||0,owned:Array.isArray(p.owned)?p.owned:[],petWear:{wally:null,teddy:null,...(p.petWear||{})},hiddenDecor:Array.isArray(p.hiddenDecor)?p.hiddenDecor:[],fed:(p.fed&&typeof p.fed==='object')?p.fed:{},boxes:(p.boxes&&typeof p.boxes==='object')?p.boxes:{},rareStickers:Array.isArray(p.rareStickers)?p.rareStickers:[],seenV:p.seenV||'',customTags:Array.isArray(p.customTags)?p.customTags:[],locs:Array.isArray(p.locs)?p.locs:['Home','Campus gym','Gym','Outdoors'],lastLoc:p.lastLoc||'',checkItems:Array.isArray(p.checkItems)?p.checkItems:['🧘 Stretch','😴 8 hours of sleep','🧴 Skincare','🌳 Time outside','🧠 Meditate'],supps:Array.isArray(p.supps)?p.supps:['💊 Supplements'],suppTime:p.suppTime||'09:00',finals:p.finals||null,tabs:{today:true,progress:true,consistency:true,history:true,...(p.tabs||{})},favs:Array.isArray(p.favs)?p.favs:[],formNotes:(p.formNotes&&typeof p.formNotes==='object')?p.formNotes:{},toured:!!p.toured,name:p.name||'',eggs:(p.eggs&&typeof p.eggs==='object')?p.eggs:{},birthday:p.birthday||'',rainbowHawk:!!p.rainbowHawk,jelly:!!p.jelly,waterPerDrink:p.waterPerDrink!==false,letters:Array.isArray(p.letters)?p.letters:[],pepVibe:p.pepVibe||'bestie',season:p.season||'auto',stickerPage:Array.isArray(p.stickerPage)?p.stickerPage:[],lastLevel:p.lastLevel||0,challenges:Array.isArray(p.challenges)?p.challenges:[],pauses:Array.isArray(p.pauses)?p.pauses:[],water:{goal:8,size:'8 oz',nudge:true,from:8,to:22,...(p.water&&typeof p.water==='object'?p.water:{})}}}
 S.profile=normProfile(S.profile);
 function exercisesFor(cat){
   const hid=new Set(S.profile.hidden||[]);
@@ -1495,7 +1555,7 @@ function waterGoalCard(){
 function waterSettings(p){const W=p.water;return `<div class="xt sub-xt"><div><b>Daily goal</b><span>Glasses per day.</span></div><div class="stepper sm"><button data-act="waterGoal" data-v="-1">−</button><b>${W.goal}</b><button data-act="waterGoal" data-v="1">+</button></div></div>
   <div class="xt sub-xt"><div><b>Glass size</b><span>Just a label.</span></div><div class="seg">${['8 oz','12 oz','16 oz','250 ml','500 ml'].map(s=>`<button class="${W.size===s?'on':''}" data-act="waterSize" data-v="${s}">${s}</button>`).join('')}</div></div>
   <div class="xt sub-xt"><div><b>In-app reminders</b><span>Tells you when you're behind pace (between ${W.from}:00 and ${W.to}:00) and pops a reminder every 2 hours while the app is open.</span></div><button class="tgl ${W.nudge?'on':''}" data-act="waterNudge"><i></i></button></div>
-  <div class="sub" style="padding:0 0 10px 14px">Web apps can't send phone notifications on their own. For reminders when the app is closed, set a repeating reminder in your iPhone's Reminders app.</div>`}
+  <div class="sub sub-xt" style="padding:0 0 10px 14px">Web apps can't send phone notifications on their own. For reminders when the app is closed, set a repeating reminder in your iPhone's Reminders app.</div>`}
 let lastWaterPing=Date.now();
 setInterval(()=>{try{const W=S.profile.water;if(!S.profile.extras.water||!W.nudge||activePause()||document.hidden)return;const hr=new Date().getHours();if(hr<W.from||hr>=W.to)return;if(Date.now()-lastWaterPing<2*3600e3)return;lastWaterPing=Date.now();if(waterOf(todayISO())<W.goal)toast('💧 Water break! Tap + Glass on the Today tab.')}catch(e){}},60000);
 
@@ -1642,6 +1702,8 @@ function computeXP(){
   const sg=S.steps.filter(s=>s.n>=(S.profile.goals.steps||8000)).length;if(S.profile.stepsOn||sg)b['Step goals hit']=[sg,sg*20];
   const pr=computePRs().prs.length;b['PRs']=[pr,pr*50];
   const ch=S.profile.challenges.filter(j=>j.closed==='done').length;if(ch)b['Challenges']=[ch,ch*200];
+  const qd=Object.values(S.profile.quests||{}).filter(q=>q.done).length;if(qd)b['Daily quests']=[qd,qd*40];
+  const pd=(S.profile.programsDone||[]).length;if(pd)b['Programs finished']=[pd,pd*300];
   const bd=(S.profile.badges||[]).length;if(S.profile.extras.badges)b['Badges']=[bd,bd*50];
   const xp=Object.values(b).reduce((a,x)=>a+x[1],0);return {xp,b};
 }
@@ -1828,6 +1890,7 @@ function earnedStickers(){
   const out=[];const seen=new Set();const add=(e,n)=>{if(!seen.has(e)){seen.add(e);out.push({e,n})}};
   add('🌺','Welcome');
   if(S.profile.whale)add('🐳','Secret whale');
+  for(const r of S.profile.rareStickers||[])add(r,'Rare sticker');
   if(S.profile.extras.badges)for(const b of computeBadges())if(b.earned)add(b.icon,b.name);
   if(S.profile.extras.levels){const L=levelOf(computeXP().xp);LEVELS.forEach(([x,n,i],k)=>{if(k<L.n)add(i,n)})}
   for(const j of S.profile.challenges.filter(j=>j.closed==='done')){const c=CHAL.find(x=>x.id===j.id);if(c)add(c.icon,c.name)}
@@ -1972,7 +2035,9 @@ function dailySurprises(){
   if(!S.loaded)return;
   if(S.profile.extras.tour&&!S.profile.toured){S.tourI=0;renderTour();return}const t=todayISO();const once=k=>{try{if(localStorage.getItem(k))return false;localStorage.setItem(k,'1')}catch(e){}return true};
   if(isBirthday()&&once('liftlog_bday_'+t)){popEgg({e:'🎂',title:'Happy birthday!',sub:'Make a wish, then go crush it. 🎉',rain:['🎈','🎉','🎁','🎂','✨'],n:30,cls:'bday',ms:3600});celebrate(1.2);foundEgg('birthday',true);return}
-  const hd=holidayToday();if(hd&&once('liftlog_hol_'+t)){popEgg({e:hd.e,title:hd.t,sub:hd.s,rain:hd.rain,n:26,ms:3200});foundEgg('holiday',true)}
+  const hd=holidayToday();if(hd&&once('liftlog_hol_'+t)){popEgg({e:hd.e,title:hd.t,sub:hd.s,rain:hd.rain,n:26,ms:3200});foundEgg('holiday',true);return}
+  if(S.profile.extras.whatsnew&&S.profile.seenV!==CHANGELOG[0].v)setTimeout(()=>{if(!S.modal)renderNews(true)},400);
+  checkProgramDone();
 }
 
 /* ----- Wettest day ----- */
@@ -2010,10 +2075,10 @@ function drinkTip(){if(!S.profile.extras.drinks)return '';const y=iso(addDays(ne
 
 
 /* ----- Presets ----- */
-const XKEYS=['rating','tags','location','checklist','supps','finals','effort','plates','supersets','nudges','balance','badges','timer','builder','injury','challenges','water','confetti','levels','garden','wrapped','gym','jar','letters','forecast','pep','splash','stickers','pump','seasonal','loose','glance','favorites','repeat','undo','convert','howto','tour','pet','glowup','greeting','transitions','squish','outfits','flip'];
+const XKEYS=['programs','quests','shop','mystery','whatsnew','rating','tags','location','checklist','supps','finals','effort','plates','supersets','nudges','balance','badges','timer','builder','injury','challenges','water','confetti','levels','garden','wrapped','gym','jar','letters','forecast','pep','splash','stickers','pump','seasonal','loose','glance','favorites','repeat','undo','convert','howto','tour','pet','glowup','greeting','transitions','squish','outfits','flip'];
 const PRESET_ON={
-  simple:['timer','undo','convert','howto','favorites','repeat','transitions','squish','rating'],
-  standard:['rating','tags','location','checklist','supps','finals','timer','effort','plates','supersets','nudges','balance','badges','builder','injury','water','glance','loose','favorites','repeat','undo','convert','howto','greeting','transitions','squish','confetti','levels','gym','pump','tour'],
+  simple:['whatsnew','timer','undo','convert','howto','favorites','repeat','transitions','squish','rating'],
+  standard:['programs','quests','whatsnew','rating','tags','location','checklist','supps','finals','timer','effort','plates','supersets','nudges','balance','badges','builder','injury','water','glance','loose','favorites','repeat','undo','convert','howto','greeting','transitions','squish','confetti','levels','gym','pump','tour'],
 };
 function applyPreset(k){
   const X={...S.profile.extras};
@@ -2162,13 +2227,13 @@ function petMood(){
 function petCard(){
   if(!S.profile.extras.pet)return '';
   const mood=petMood(),L=S.profile.extras.levels?levelOf(computeXP().xp):{n:1},sc=1+Math.min(.5,(L.n-1)*.05);
-  const lines=PET_LINES[mood];const line=S.petLine&&S.petLine.mood===mood?S.petLine.text:lines[(new Date().getDate())%lines.length];
-  const acc=PET_ACC[outfitNow()]||'';
+  const lines=PET_LINES[mood];const fedT=(S.profile.fed||{})[todayISO()]||[];const line=S.petLine&&S.petLine.mood===mood?S.petLine.text:(fedT.length?`${fedT.map(id=>shopItem(id)?.e||'').join('')} Full and happy! Thanks for the snacks.`:lines[(new Date().getDate())%lines.length]);
+  const hol=PET_ACC[outfitNow()]||'';const acc=hol||(S.profile.extras.shop&&S.profile.petWear.wally?shopItem(S.profile.petWear.wally)?.e:'')||'';const accT=hol?'':(S.profile.extras.shop&&S.profile.petWear.teddy?shopItem(S.profile.petWear.teddy)?.e:'')||'';
   return `<div class="card pet-card mood-${mood}"><div class="pet-scene"><div class="pet-sun">${mood==='sleepy'||mood==='away'?'🌙':'☀️'}</div><div class="pet-sea"></div><div class="pet-sand"></div>
     <button class="pet wally" data-act="petWally" style="--s:${sc}" aria-label="Pet Wally">${acc?`<span class="pet-acc">${acc}</span>`:''}<span class="pet-e">🐳</span>${mood==='ecstatic'?'<span class="pet-splash">💦</span>':''}${mood==='sleepy'?'<span class="pet-z">💤</span>':''}</button>
-    <button class="pet teddy" data-act="petTeddy" aria-label="Hug Teddy">${acc&&acc!=='🎂'?'':(acc?`<span class="pet-acc">🎈</span>`:'')}<span class="pet-e">🧸</span>${mood==='rest'?'<span class="pet-heart">💛</span>':''}</button>
-    <div class="pet-hearts" id="petHearts"></div></div>
-    <div class="pet-txt"><b>Wally & Teddy</b> <span class="sub">${L.n>1?`· Wally is ${L.n>=10?'huge':L.n>=5?'growing big':'growing'} (Lv ${L.n})`:''}</span><div>${esc(line)}</div></div></div>`;
+    <button class="pet teddy" data-act="petTeddy" aria-label="Hug Teddy">${hol?(hol==='🎂'?`<span class="pet-acc">🎈</span>`:''):(accT?`<span class="pet-acc">${accT}</span>`:'')}<span class="pet-e">🧸</span>${mood==='rest'?'<span class="pet-heart">💛</span>':''}</button>
+    ${petExtras()}<div class="pet-hearts" id="petHearts"></div></div>
+    <div class="pet-txt">${S.profile.extras.shop?`<button class="btn sm pri shop-btn" data-act="shopOpen">🛍️ Shop · 🪙 ${coins()}</button>`:''}<b>Wally & Teddy</b> <span class="sub">${L.n>1?`· Wally is ${L.n>=10?'huge':L.n>=5?'growing big':'growing'} (Lv ${L.n})`:''}</span><div>${esc(line)}</div></div></div>`;
 }
 function petBurst(e){const box=$('#petHearts');if(!box)return;for(let i=0;i<6;i++){const s=document.createElement('i');s.textContent=e;s.style.left=(30+Math.random()*40)+'%';s.style.animationDelay=(i*.08)+'s';box.appendChild(s);setTimeout(()=>s.remove(),1600)}}
 const PET_TAP={wally:['Wally: "Splash! 💦"','Wally does a happy little spin. 🐳','Wally blows a heart-shaped spout. 💙','Wally: "You got this!"'],teddy:['Teddy hugs you tight. 🧸💛','Teddy: "Proud of you!"','Teddy offers you a juice box. 🧃','Teddy waves hello. 👋']};
@@ -2268,6 +2333,213 @@ function renderStretch(){S.modal='stretch';$('#modal').innerHTML=`<div class="ov
   <div class="ck-list">${STUDY_STRETCH.map((s,i)=>`<button class="ck" data-act="stretchTick" data-i="${i}"><span class="ckb"></span>${esc(s)}</button>`).join('')}</div>
   <div class="sub" style="margin-top:10px">Tap each one as you go. Then back to the books 📖</div></div></div>`}
 
+
+/* ----- Settings organization ----- */
+const SGROUPS=[['⚙️ Basics',/App mode|Your name|Birthday|Theme|Weekly goal|Weight unit|Measurement unit|Pause/],['📊 Tracking',/Step tracking|Exercises|recovery activities/],['✨ Make it sexier',/Make it sexier/],['🧰 Data & help',/tidy|Help|Backup/]];
+const XGROUP={'🏋️ Workout tools':['timer','effort','plates','supersets','nudges','gym','builder','injury','favorites','repeat','undo','convert','howto','rating','tags','location','programs'],
+  '☀️ Today & habits':['water','loose','glance','checklist','supps','drinks','finals','jar','letters','pep','quests'],
+  '🏆 Progress & rewards':['balance','badges','challenges','confetti','levels','garden','wrapped','stickers','pump','forecast','glowup','mystery'],
+  '🐳 Wally & Teddy':['pet','shop','outfits'],
+  '🎨 Look & feel':['splash','seasonal','greeting','transitions','squish','flip','contrast','lefty','tour','whatsnew']};
+function organizeSettings(){
+  const sheet=document.querySelector('#modal .sheet');if(!sheet)return;S.setOpen=S.setOpen||{'⚙️ Basics':true};
+  const blks=[...sheet.querySelectorAll(':scope > .set-blk')];
+  const search=document.createElement('div');search.className='set-search';search.innerHTML=`<input type="search" id="setQ" placeholder="🔍 Search settings" value="${esc(S.setQ||'')}">`;
+  sheet.querySelector('.sh-h').after(search);
+  let anchor=search;
+  for(const [g,re] of SGROUPS){
+    const d=document.createElement('details');d.className='sgroup';d.dataset.g=g;if(S.setOpen[g])d.open=true;
+    d.innerHTML=`<summary>${g}</summary><div class="sg-body"></div>`;const body=d.querySelector('.sg-body');
+    for(const b of blks){const t=b.querySelector('h3')?.textContent||'';if(!b.dataset.grouped&&re.test(t)){b.dataset.grouped='1';body.appendChild(b)}}
+    if(body.children.length){anchor.after(d);anchor=d}
+    d.addEventListener('toggle',()=>{S.setOpen[g]=d.open});
+  }
+  for(const b of blks)if(!b.dataset.grouped){anchor.after(b);anchor=b}
+  // subgroup the extras
+  const xb=[...sheet.querySelectorAll('.set-blk')].find(b=>/Make it sexier/.test(b.querySelector('h3')?.textContent||''));
+  if(xb){const rows=[...xb.children].filter(c=>c.classList.contains('xt')||c.classList.contains('sub-xt'));const units=[];let cur=null;
+    for(const r of rows){if(r.classList.contains('xt')&&!r.classList.contains('sub-xt')){cur={k:r.querySelector('[data-act=tglExtra]')?.dataset.v,els:[r]};units.push(cur)}else if(cur)cur.els.push(r)}
+    for(const [g,keys] of Object.entries(XGROUP)){const us=units.filter(u=>keys.includes(u.k));if(!us.length)continue;const d=document.createElement('details');d.className='xgroup';if(S.setOpen[g])d.open=true;
+      d.innerHTML=`<summary>${g} <span class="sub">${us.filter(u=>S.profile.extras[u.k]).length}/${us.length} on</span></summary>`;for(const u of us)for(const e of u.els)d.appendChild(e);xb.appendChild(d);d.addEventListener('toggle',()=>{S.setOpen[g]=d.open})}
+    const rest=units.filter(u=>!Object.values(XGROUP).flat().includes(u.k));if(rest.length){const d=document.createElement('details');d.className='xgroup';d.innerHTML='<summary>🧩 More</summary>';for(const u of rest)for(const e of u.els)d.appendChild(e);xb.appendChild(d)}}
+  const q=$('#setQ');q.addEventListener('input',()=>{S.setQ=q.value;filterSettings()});if(S.setQ)filterSettings();
+}
+function filterSettings(){
+  const q=(S.setQ||'').trim().toLowerCase(),sheet=document.querySelector('#modal .sheet');if(!sheet)return;
+  sheet.querySelectorAll('details.sgroup,details.xgroup').forEach(d=>{if(q){d.dataset.was=d.open?'1':'';d.open=true}});
+  sheet.querySelectorAll('.set-blk').forEach(b=>{const xs=[...b.querySelectorAll('.xt:not(.sub-xt)')];
+    if(xs.length&&/Make it sexier/.test(b.querySelector('h3')?.textContent||'')){let any=false;xs.forEach(x=>{const m=!q||x.textContent.toLowerCase().includes(q);x.style.display=m?'':'none';let n=x.nextElementSibling;while(n&&n.classList.contains('sub-xt')){n.style.display=m?'':'none';n=n.nextElementSibling}if(m)any=true});
+      b.querySelectorAll('details.xgroup').forEach(d=>{d.style.display=[...d.querySelectorAll('.xt:not(.sub-xt)')].some(x=>x.style.display!=='none')?'':'none'});b.style.display=any||!q?'':'none'}
+    else b.style.display=!q||b.textContent.toLowerCase().includes(q)?'':'none'});
+  sheet.querySelectorAll('details.sgroup').forEach(d=>{d.style.display=[...d.querySelectorAll('.set-blk')].some(b=>b.style.display!=='none')?'':'none'});
+}
+
+/* ----- Help ----- */
+const HELP=[
+  ['Where is my data saved?','Inside Claude, your data is saved privately to your Claude account and syncs between your devices. On your GitHub version, it\'s saved in that browser on that device only. Either way, make regular backups (Settings → Backup).'],
+  ['How do backups work?','Settings → Backup → Copy backup copies everything as text. Paste it into a personal note or email. To restore, paste it into the box under Backup and tap Import. Importing adds to what\'s already there; it doesn\'t erase anything.'],
+  ['How do I set up automatic steps?','Turn on Step tracking and Automatic import in Settings, then follow the steps shown there. An iPhone Shortcut reads your steps from Apple Health and opens Lift Log with the number. It works best with your GitHub version.'],
+  ['What do Simple, Standard and Everything do?','They\'re presets that turn features on or off and choose which tabs show. Nothing is ever deleted when you hide a feature; turning it back on brings everything back.'],
+  ['How do routines, the weekly plan and programs fit together?','A routine is a saved workout. The weekly plan puts routines on days. A program is a multi-week plan that creates its routines, fills your weekly plan and makes the targets harder each week.'],
+  ['What are coins for?','You earn coins for workouts, rest days, goals, PRs and quests. Spend them in Wally & Teddy\'s shop on food, outfits, beach decor and new friends.'],
+  ['Will switching lbs/kg mess up my numbers?','If "Real lbs/kg conversion" is on, the app asks whether to convert everything or just change the label. Convert updates every number you\'ve logged.'],
+  ['Something looks off in my history.','Try Settings → Data tidy-up. It finds duplicates, empty sets and mismatched exercise names and fixes them for you.'],
+  ['Are there secrets?','Maybe. 🥚 The secret themes in Settings show how many easter eggs you\'ve found.'],
+];
+function renderHelp(){S.modal='help';$('#modal').innerHTML=`<div class="ov" data-act="closeModal"><div class="sheet" data-stop="1" style="max-width:560px"><div class="sh-h"><h2>❓ Help</h2><button class="x" data-act="closeModal">✕</button></div>
+  ${HELP.map(([q,a])=>`<details class="faq"><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}
+  <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" data-act="newsOpen">✨ What's new</button>${S.profile.extras.tour?'<button class="btn sm" data-act="tourStart">▶ Replay tour</button>':''}</div></div></div>`}
+
+/* ----- What's new ----- */
+const CHANGELOG=[
+  {v:'2026.11.19-h',t:'Shop, quests, programs & more',items:['🛍️ Wally & Teddy\'s shop: food, outfits, beach decor and new friends (frog, axolotl, otter…)','🗺️ Daily quests for bonus XP and coins','📚 Multi-week programs in Routines','🎁 Weekly mystery box when you hit your goal','🧹 Data tidy-up and ❓ Help in Settings','⚙️ Settings are now organized into sections, with search']},
+  {v:'2026.11.19-g',t:'Animal easter eggs',items:['13 animal friends hide around the app 🐒🦩🦀🐇🐕🐙🐌🦖🦆🦥🐈🐝🐢']},
+  {v:'2026.11.19-f',t:'Workout extras',items:['⭐ Rate workouts, 🏷️ tags and 📍 locations, with History filters','✅ Daily wellness checklist and 💊 supplement reminders','📚 Finals week mode','High contrast and left-handed layouts']},
+  {v:'2026.11.19-e',t:'Simple mode & friends',items:['📱 Simple / Standard / Everything modes','⭐ Favorites, ↻ repeat, ↩︎ undo, ⓘ how-to','🐳🧸 Wally & Teddy, ✨ glow-up card, holiday outfits']},
+];
+function renderNews(auto){S.modal='news';if(S.profile.seenV!==CHANGELOG[0].v){S.profile.seenV=CHANGELOG[0].v;Store.saveProfile()}$('#modal').innerHTML=`<div class="ov" data-act="closeModal"><div class="sheet" data-stop="1" style="max-width:520px"><div class="sh-h"><h2>✨ What's new</h2><button class="x" data-act="closeModal">✕</button></div>
+  ${CHANGELOG.slice(0,auto?1:CHANGELOG.length).map((c,i)=>`<div class="news ${i?'old':''}"><h3>${esc(c.t)}</h3><ul>${c.items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`).join('')}
+  <div style="display:flex;justify-content:space-between;gap:10px;margin-top:12px">${auto&&CHANGELOG.length>1?'<button class="btn sm ghost" data-act="newsOpen">See older updates</button>':'<span></span>'}<button class="btn pri" data-act="closeModal">Nice 🌺</button></div></div></div>`}
+
+/* ----- Data tidy-up ----- */
+const normEx=s=>String(s).toLowerCase().replace(/[^a-z0-9]/g,'');
+function tidyScan(){
+  const sig=w=>w.date+'|'+JSON.stringify((w.entries||[]).map(e=>[e.ex,(e.sets||[]).map(s=>[s.r,s.w,s.t,s.d])]));
+  const seen={},dups=[];for(const w of sortedAsc()){const k=sig(w);if(seen[k])dups.push(w);else seen[k]=1}
+  let empty=0;const emptyW=new Set();for(const w of S.workouts)for(const e of w.entries||[]){const n=(e.sets||[]).filter(s=>!hasVal(s)).length;if(n||!(e.sets||[]).length){empty+=n||1;emptyW.add(w.id)}}
+  const names={};for(const w of S.workouts)for(const e of w.entries||[]){const k=normEx(e.ex);(names[k]=names[k]||{})[e.ex]=((names[k]||{})[e.ex]||0)+1}
+  const known=new Set(CATS.flatMap(c=>[...(DEFAULTS[c.key]||[]),...(S.profile.custom[c.key]||[])]));
+  const merges=Object.values(names).filter(o=>Object.keys(o).length>1).map(o=>{const arr=Object.entries(o).sort((a,b)=>(known.has(b[0])-known.has(a[0]))||(b[1]-a[1]));return {to:arr[0][0],from:arr.slice(1).map(x=>x[0])}});
+  const emptyRest=S.rest.filter(r=>!(r.acts||[]).length&&!r.feel&&!(r.note||'').trim());
+  return {dups,empty,emptyW:[...emptyW],merges,emptyRest};
+}
+function renderTidy(){
+  const r=tidyScan();S.modal='tidy';const ok=!r.dups.length&&!r.empty&&!r.merges.length&&!r.emptyRest.length;
+  $('#modal').innerHTML=`<div class="ov" data-act="closeModal"><div class="sheet" data-stop="1" style="max-width:520px"><div class="sh-h"><h2>🧹 Data tidy-up</h2><button class="x" data-act="closeModal">✕</button></div>
+  ${ok?'<div class="card empty"><h3>Sparkly clean ✨</h3>No duplicates, empty sets or mismatched names found.</div>':''}
+  ${r.dups.length?`<div class="tidy"><div><b>${r.dups.length} duplicate workout${r.dups.length>1?'s':''}</b><span>${r.dups.slice(0,4).map(w=>fmtD(w.date)).join(', ')}${r.dups.length>4?'…':''}</span></div><button class="btn sm pri" data-act="tidyDups">Remove copies</button></div>`:''}
+  ${r.empty?`<div class="tidy"><div><b>${r.empty} empty set${r.empty>1?'s':''}</b><span>in ${r.emptyW.length} workout${r.emptyW.length>1?'s':''}</span></div><button class="btn sm pri" data-act="tidyEmpty">Clean up</button></div>`:''}
+  ${r.merges.map((m,i)=>`<div class="tidy"><div><b>Merge names</b><span>${m.from.map(esc).join(', ')} → <b>${esc(m.to)}</b></span></div><button class="btn sm pri" data-act="tidyMerge" data-i="${i}">Merge</button></div>`).join('')}
+  ${r.emptyRest.length?`<div class="tidy"><div><b>${r.emptyRest.length} empty rest day${r.emptyRest.length>1?'s':''}</b><span>no activities, feeling or note</span></div><button class="btn sm pri" data-act="tidyRest">Remove</button></div>`:''}
+  <div class="sub" style="margin-top:10px">Tip: make a backup first if you're unsure.</div></div></div>`;
+  S.tidy=r;
+}
+
+/* ----- Programs ----- */
+const PG=(name,type,items)=>({name,type,items:items.map(([cat,ex,sets,reps])=>({cat,ex,sets,reps,note:''}))});
+const PROGRAMS=[
+  {id:'glute8',icon:'🍑',name:'8-week glute builder',weeks:8,days:[0,2,4],desc:'3 days a week: two glute-focused lower days and one upper day.',sessions:[PG('Glutes A','Lower',[['hinge','hip thrust',4,'8-10'],['hinge','romanian deadlift',3,'8-10'],['lunge','bulgarian split squat',3,'10 each'],['liso','hip abduction',3,'15']]),PG('Upper','Upper',[['vpull','lat pulldown',3,'10'],['hpush','dumbbell bench press',3,'10'],['hpull','seated cable row',3,'10'],['uiso','lateral raise',3,'15']]),PG('Glutes B','Lower',[['squat','goblet squat',3,'10'],['hinge','glute bridge',4,'12'],['lunge','step-up',3,'10 each'],['hinge','back extension',3,'12']])]},
+  {id:'full6',icon:'🌱',name:'6-week beginner full body',weeks:6,days:[0,2,4],desc:'3 days a week of simple full-body workouts. Great for building the habit.',sessions:[PG('Full Body A','Full body',[['squat','goblet squat',3,'10'],['hpush','push-up',3,'8-12'],['hpull','dumbbell row',3,'10 each'],['core','plank',3,'30 sec']]),PG('Full Body B','Full body',[['hinge','romanian deadlift',3,'10'],['vpush','dumbbell shoulder press',3,'10'],['vpull','lat pulldown',3,'10'],['carry',"farmer's carry",3,'40 yd']])]},
+  {id:'ppl8',icon:'💪',name:'8-week push · pull · legs',weeks:8,days:[0,2,4],desc:'A classic 3-day split for getting stronger everywhere.',sessions:[PG('Push','Upper',[['hpush','bench press',4,'6-8'],['vpush','overhead press',3,'8'],['hpush','incline dumbbell press',3,'10'],['uiso','tricep pushdown',3,'12']]),PG('Pull','Upper',[['vpull','pull-up',4,'6-8'],['hpull','barbell row',3,'8'],['uiso','face pull',3,'15'],['uiso','bicep curl',3,'12']]),PG('Legs','Lower',[['squat','back squat',4,'6-8'],['hinge','romanian deadlift',3,'8'],['lunge','walking lunge',3,'12 each'],['liso','calf raise',3,'15']])]},
+  {id:'cardio6',icon:'🏃',name:'6-week cardio base',weeks:6,days:[1,3,5],desc:'3 cardio sessions a week that slowly get longer.',sessions:[PG('Cardio · Stairs','Cardio',[['cmach','stairmaster',1,'15 min']]),PG('Cardio · Incline walk','Cardio',[['cmach','treadmill',1,'20 min']]),PG('Cardio · Bike','Cardio',[['cmach','stationary bike',1,'20 min']])]},
+];
+function activeProgram(){const p=S.profile.program;if(!S.profile.extras.programs||!p)return null;const P=PROGRAMS.find(x=>x.id===p.id);if(!P)return null;const w=Math.floor(daysBetween(p.start,todayISO())/7)+1;return {P,p,w}}
+function progScheme(P,w){
+  const last=P.weeks;if(P.id==='cardio6'){const f=1+0.15*(w-1);return {w,cardio:f,note:w===last?`last week, longest sessions!`:`about ${Math.round((f-1)*100)}% longer than week 1`}}
+  if(w>=last)return {w,sets:2,reps:'10',note:'deload week, go lighter and recover'};
+  if(w<=2)return {w,sets:3,reps:'10',note:'learn the moves, 3 × 10'};
+  if(w<=4)return {w,sets:3,reps:'8',note:'heavier! add 5–10 lbs to main lifts'};
+  if(w<=last-2)return {w,sets:4,reps:'8',note:'an extra set on main lifts'};
+  return {w,sets:4,reps:'6',note:'heaviest week, push it!'};
+}
+function progWeekFor(r){const a=activeProgram();if(!a||a.p.id!==r.prog)return null;return progScheme(a.P,a.w)}
+function progItem(it,s){
+  if(isCardioCat(it.cat)){if(!s.cardio)return it;const m=parseInt(it.reps)||20;return {...it,reps:`${Math.round(m*s.cardio)} min`}}
+  if(!COMPOUND.has(it.cat))return it;return {...it,sets:s.sets,reps:s.reps};
+}
+function progDone(a){const names=new Set(a.P.sessions.map(s=>`${a.P.icon} ${s.name}`));return S.workouts.filter(w=>w.date>=a.p.start&&names.has(w.routine)).length}
+function programCard(){
+  const a=activeProgram();if(!a)return '';const total=a.P.weeks*a.P.days.length,done=progDone(a),s=progScheme(a.P,Math.min(a.w,a.P.weeks));
+  return `<div class="card prog-card"><div class="g-h" style="margin-bottom:6px"><h3>${a.P.icon} ${esc(a.P.name)}</h3><span class="sub">Week ${Math.min(a.w,a.P.weeks)} of ${a.P.weeks}</span></div>${bar(done/total,COLORS.Upper)}
+    <div class="g-row sub"><span>${done}/${total} sessions</span><span>This week: ${esc(s.note)}</span></div></div>`;
+}
+function programsCard(){
+  if(!S.profile.extras.programs)return '';const a=activeProgram();
+  if(a)return `<div class="card prog-card"><div class="g-h"><h3>📚 ${a.P.icon} ${esc(a.P.name)}</h3><button class="btn sm ghost danger" data-act="progEnd">End</button></div><div class="sub">Week ${Math.min(a.w,a.P.weeks)} of ${a.P.weeks} · ${progDone(a)}/${a.P.weeks*a.P.days.length} sessions · this week: ${esc(progScheme(a.P,Math.min(a.w,a.P.weeks)).note)}. Your weekly plan below has the days.</div></div>`;
+  return `<details class="card prog-list"><summary><b>📚 Programs</b> <span class="sub">multi-week plans that get harder each week</span></summary>${PROGRAMS.map(P=>`<div class="prog-opt"><div><b>${P.icon} ${esc(P.name)}</b><span>${esc(P.desc)} ${P.days.map(d=>DOW[d]).join(' · ')}</span>${S.profile.programsDone.includes(P.id)?'<em>✓ finished before</em>':''}</div><button class="btn sm pri" data-act="progStart" data-id="${P.id}">Start</button></div>`).join('')}</details>`;
+}
+function startProgram(id){
+  const P=PROGRAMS.find(x=>x.id===id);if(!P)return;
+  const ids=P.sessions.map(s=>{const name=`${P.icon} ${s.name}`;let r=S.profile.routines.find(x=>x.name===name);if(!r){r={id:gid().replace(/^w/,'rt'),name,type:s.type,prog:P.id,items:clone(s.items)};S.profile.routines.push(r)}else r.prog=P.id;return r.id});
+  const plan={...S.profile.plan};P.days.forEach((d,i)=>{plan[d]=ids[i%ids.length]});S.profile.plan=plan;
+  const t=new Date(),ws=weekStart(t);S.profile.program={id,start:iso(ws)};Store.saveProfile();toast(`📚 ${P.name} started! Your weekly plan is set.`);celebrate(.6);render();
+}
+function checkProgramDone(){const a=activeProgram();if(!a||a.w<=a.P.weeks)return;S.profile.programsDone=[...new Set([...S.profile.programsDone,a.P.id])];S.profile.program=null;Store.saveProfile();setTimeout(()=>{toast(`🎓 You finished ${a.P.name}! Incredible.`);celebrate(1.6)},800)}
+
+/* ----- Daily quests ----- */
+const QUESTS=[
+  ['workout','Log any workout today',d=>S.workouts.some(w=>w.date===d)],
+  ['newex','Try an exercise you\'ve never logged before',d=>{const before=new Set();for(const w of S.workouts)if(w.date<d)for(const e of w.entries||[])before.add(e.ex);return S.workouts.some(w=>w.date===d&&(w.entries||[]).some(e=>!before.has(e.ex)))}],
+  ['water','Hit your water goal',d=>waterOf(d)>=S.profile.water.goal,'water'],
+  ['loose','Check in on how loose you feel',d=>looseOf(d)>0,'loose'],
+  ['steps','Hit your step goal',d=>(stepsOf(d)?.n||0)>=(S.profile.goals.steps||8000),'stepsOn'],
+  ['check','Finish your daily checklist',d=>{const c=ckOf(d);return S.profile.checkItems.every(i=>(c.done||[]).includes(i))},'checklist'],
+  ['rest','Log a rest day with something that made you better',d=>S.rest.some(r=>r.date===d&&(r.acts||[]).length)],
+  ['cardio','Do at least 10 minutes of cardio',d=>cardioRows().filter(r=>r.date===d).reduce((a,r)=>a+(r.t||0),0)>=10],
+  ['stretch','Stretch for 5 minutes',null],['walk','Take a walk outside',null],['oneset','Do one more set than last time on any lift',null],['friend','Invite a friend to work out with you',null],['glass','Drink a glass of water right now',null],['posture','Check your posture and roll your shoulders back',null],
+];
+function questAvail(q){if(!q[3])return true;if(q[3]==='stepsOn')return S.profile.stepsOn;return !!S.profile.extras[q[3]]}
+function questToday(){const d=todayISO();const cur=S.profile.quests[d];if(cur)return {q:QUESTS.find(x=>x[0]===cur.id)||QUESTS[0],st:cur};
+  const pool=QUESTS.filter(questAvail);let hsh=0;for(const ch of d)hsh=(hsh*31+ch.charCodeAt(0))>>>0;return {q:pool[hsh%pool.length],st:null}}
+function questCard(){
+  if(!S.profile.extras.quests||activePause())return '';const d=todayISO(),{q,st}=questToday();
+  const auto=q[2]&&q[2](d),done=st?.done||false;
+  if(auto&&!done){S.profile.quests={...S.profile.quests,[d]:{id:q[0],done:true}};Store.saveProfile();setTimeout(()=>{toast('🗺️ Quest complete! +40 XP · +15 🪙');celebrate(.5);checkLevel()},300)}
+  const isDone=done||auto;
+  return `<div class="card quest-card ${isDone?'done':''}"><div class="q-ico">🗺️</div><div class="q-body"><span class="sub">Daily quest</span><b>${esc(q[1])}</b><span class="sub">${isDone?'✓ Complete! +40 XP · +15 🪙':q[2]?'Completes automatically when you do it':'+40 XP · +15 🪙'}</span></div>${!isDone&&!q[2]?`<button class="btn sm pri" data-act="questDone" data-id="${q[0]}">Done ✓</button>`:''}</div>`;
+}
+
+/* ----- Coins & shop ----- */
+function coinsEarned(){const W=S.workouts.length,R=S.rest.length,wg=S.water.filter(w=>w.n>=S.profile.water.goal).length,sg=S.steps.filter(s=>s.n>=(S.profile.goals.steps||8000)).length,pr=computePRs().prs.length,q=Object.values(S.profile.quests||{}).filter(x=>x.done).length,c=S.profile.challenges.filter(j=>j.closed==='done').length;
+  return W*5+R*3+wg*2+sg*2+pr*10+q*15+c*30+(S.profile.bonusCoins||0)}
+function coins(){return Math.max(0,coinsEarned()-(S.profile.spent||0))}
+const AXO=`<svg class="axo" viewBox="0 0 44 30" width="1.25em" height=".85em" aria-label="axolotl"><path d="M36 18 Q44 13 43 22 Q39 22 36 20Z" fill="#f48fb1"/><ellipse cx="24" cy="19" rx="13" ry="6.5" fill="#f7a8c4"/><g fill="#e75a8d"><ellipse cx="5" cy="7" rx="4" ry="1.5" transform="rotate(-35 5 7)"/><ellipse cx="3.6" cy="11.5" rx="4" ry="1.5" transform="rotate(-8 3.6 11.5)"/><ellipse cx="5" cy="16" rx="4" ry="1.5" transform="rotate(22 5 16)"/><ellipse cx="21" cy="6.5" rx="3.6" ry="1.4" transform="rotate(35 21 6.5)"/><ellipse cx="22.6" cy="11" rx="3.6" ry="1.4" transform="rotate(8 22.6 11)"/></g><circle cx="13" cy="13" r="8.5" fill="#f9b8cf"/><circle cx="10.2" cy="12" r="1.3" fill="#3b2a3a"/><circle cx="15.8" cy="12" r="1.3" fill="#3b2a3a"/><path d="M10.5 16 Q13 18 15.5 16" stroke="#3b2a3a" stroke-width="1" fill="none" stroke-linecap="round"/><circle cx="8.6" cy="15" r="1.2" fill="#ff8fb1" opacity=".7"/><circle cx="17.4" cy="15" r="1.2" fill="#ff8fb1" opacity=".7"/><ellipse cx="19" cy="24.5" rx="2.2" ry="1.3" fill="#f48fb1"/><ellipse cx="30" cy="24.5" rx="2.2" ry="1.3" fill="#f48fb1"/></svg>`;
+const SHOP={
+  food:[['fish','🐟','Fish',5,'Wally'],['shrimp','🦐','Shrimp',8,'Wally'],['honey','🍯','Honey',6,'Teddy'],['berry','🍓','Strawberries',4,'Teddy'],['cookie','🍪','Cookie',5,'Teddy'],['melon','🍉','Watermelon',7,'both'],['icecream','🍦','Ice cream',9,'both']],
+  acc:[['shades','🕶️','Sunglasses',25],['bow','🎀','Bow',20],['cap','🧢','Cap',20],['tophat','🎩','Top hat',35],['flower','🌺','Hibiscus',15],['grad','🎓','Grad cap',50],['crown','👑','Crown',80]],
+  decor:[['shells','🐚','Seashells',10],['umbrella','⛱️','Beach umbrella',30],['floatie','🛟','Floatie',25],['palm','🌴','Palm tree',35],['castle','🏰','Sandcastle',40],['coral','🪸','Coral',30],['sunset','🌅','Sunset sky',60]],
+  friends:[['crab','🦀','Crabby',50],['frog','🐸','Ribbit',60],['axolotl',AXO,'Axie the axolotl',75],['turtle','🐢','Shelly',70],['otter','🦦','Otto',80],['penguin','🐧','Pip',90],['seal','🦭','Sealy',100],['dolphin','🐬','Flip',120]],
+};
+const shopItem=id=>{for(const [cat,arr] of Object.entries(SHOP)){const x=arr.find(i=>i[0]===id);if(x)return {cat,id:x[0],e:x[1],n:x[2],p:x[3],who:x[4]}}return null};
+const POS={shells:'right:22%;bottom:6px;font-size:16px',umbrella:'right:28%;bottom:30px;font-size:30px',floatie:'left:44%;bottom:16px;font-size:24px',palm:'right:2%;bottom:30px;font-size:40px',castle:'right:36%;bottom:8px;font-size:26px',coral:'left:6%;bottom:2px;font-size:20px',
+  crab:'right:30%;bottom:4px;font-size:22px',frog:'right:24%;bottom:26px;font-size:24px',axolotl:'left:58%;bottom:8px;font-size:26px',turtle:'right:44%;bottom:4px;font-size:24px',otter:'left:4%;bottom:24px;font-size:28px',penguin:'right:17%;bottom:30px;font-size:26px',seal:'left:32%;bottom:6px;font-size:28px',dolphin:'left:66%;bottom:30px;font-size:30px'};
+function petExtras(){
+  if(!S.profile.extras.shop)return '';const o=S.profile.owned,hid=S.profile.hiddenDecor;
+  return o.filter(id=>!hid.includes(id)&&POS[id]).map(id=>{const it=shopItem(id);return it?`<span class="pet-x ${it.cat==='friends'?'friend':''} px-${id}" style="${POS[id]}" title="${esc(it.n)}">${it.e}</span>`:''}).join('')+(o.includes('sunset')&&!hid.includes('sunset')?'<style>.pet-scene{background:linear-gradient(180deg,#ff9a76 0%,#ffcf91 35%,var(--s1) 100%)!important}</style>':'');
+}
+function renderShop(){
+  S.modal='shop';const tab=S.shopTab||'food',c=coins(),o=S.profile.owned;
+  const card=([id,e,n,p,who])=>{const own=o.includes(id),food=tab==='food',wearW=S.profile.petWear.wally===id,wearT=S.profile.petWear.teddy===id,hid=S.profile.hiddenDecor.includes(id);
+    let btn='';if(food)btn=`<button class="btn sm pri" data-act="shopBuy" data-id="${id}" ${c<p?'disabled':''}>Feed · ${p} 🪙</button>`;
+    else if(!own)btn=`<button class="btn sm pri" data-act="shopBuy" data-id="${id}" ${c<p?'disabled':''}>${p} 🪙</button>`;
+    else if(tab==='acc')btn=`<div class="sh-wear"><button class="btn sm ${wearW?'pri':''}" data-act="wear" data-who="wally" data-id="${id}">${wearW?'✓ ':''}Wally</button><button class="btn sm ${wearT?'pri':''}" data-act="wear" data-who="teddy" data-id="${id}">${wearT?'✓ ':''}Teddy</button></div>`;
+    else btn=`<button class="btn sm" data-act="decorTgl" data-id="${id}">${hid?'Show':'✓ Showing'}</button>`;
+    return `<div class="sh-item ${own&&!food?'own':''}"><span class="sh-e">${e}</span><b>${esc(n)}</b>${food?`<span class="sub">for ${esc(who)}</span>`:''}${btn}</div>`};
+  $('#modal').innerHTML=`<div class="ov" data-act="closeModal"><div class="sheet" data-stop="1" style="max-width:560px"><div class="sh-h"><h2>🛍️ Wally & Teddy's shop</h2><button class="x" data-act="closeModal">✕</button></div>
+    <div class="coinbar">🪙 <b>${c}</b> coins <span class="sub">· earn more from workouts, rest days, goals, PRs and quests</span></div>
+    <div class="seg" style="margin:10px 0">${[['food','🍓 Food'],['acc','🎀 Outfits'],['decor','🏰 Decor'],['friends','🐸 Friends']].map(([k,l])=>`<button class="${tab===k?'on':''}" data-act="shopTab" data-v="${k}">${l}</button>`).join('')}</div>
+    ${tab==='friends'?'<div class="sub" style="margin-bottom:8px">New friends move in to the beach with Wally & Teddy.</div>':''}
+    <div class="sh-grid">${SHOP[tab].map(card).join('')}</div></div></div>`;
+}
+
+/* ----- Mystery box ----- */
+const RARE=['🦄','🦋','💎','🪐','🍄','🌙','🧁','🫧','🪩','🌈'];
+function boxesReady(){
+  if(!S.profile.extras.mystery)return [];const goal=S.profile.goal||3,c={};for(const w of S.workouts){const k=iso(weekStart(parse(w.date)));c[k]=(c[k]||0)+1}
+  const recent=[0,1,2].map(i=>iso(addDays(weekStart(new Date()),-7*i)));return recent.filter(k=>(c[k]||0)>=goal&&!S.profile.boxes[k]);
+}
+function mysteryCard(){const r=boxesReady();if(!r.length)return '';return `<button class="card mystery-card" data-act="boxOpen" data-v="${r[0]}"><span class="mb-box">🎁</span><div><b>Mystery box ready!</b><span class="sub">You hit your goal the week of ${fmtD(r[0])}. Tap to open.</span></div></button>`}
+function openBox(wk){
+  const roll=Math.random();let rw;
+  const freeItems=[...SHOP.acc,...SHOP.decor].filter(i=>!S.profile.owned.includes(i[0]));const rare=RARE.filter(x=>!S.profile.rareStickers.includes(x));
+  if(roll<.25&&freeItems.length){const it=freeItems[Math.floor(Math.random()*freeItems.length)];S.profile.owned=[...S.profile.owned,it[0]];rw={e:it[1],t:`Free ${it[2]}!`,s:'Added to the shop. Equip or place it any time.'}}
+  else if(roll<.5&&rare.length&&S.profile.extras.stickers){const r=rare[Math.floor(Math.random()*rare.length)];S.profile.rareStickers=[...S.profile.rareStickers,r];rw={e:r,t:'Rare sticker!',s:'It\'s in your sticker book now.'}}
+  else{const n=20+Math.floor(Math.random()*7)*5;S.profile.bonusCoins=(S.profile.bonusCoins||0)+n;rw={e:'🪙',t:`${n} coins!`,s:'Spend them in Wally & Teddy\'s shop.'}}
+  S.profile.boxes={...S.profile.boxes,[wk]:rw.t};Store.saveProfile();
+  S.modal='box';$('#modal').innerHTML=`<div class="ov" data-act="closeModal"><div class="sheet box-sheet" data-stop="1" style="max-width:380px"><div class="box-anim">🎁</div><div class="box-reveal"><div class="box-e">${rw.e}</div><h2>${esc(rw.t)}</h2><p class="sub">${esc(rw.s)}</p><button class="btn pri" data-act="closeModal">Yay! 🎉</button></div></div></div>`;
+  setTimeout(()=>{celebrate(.9)},1300);render();
+}
+
 /* ----- At a glance ----- */
 function weekStreakNow(){
   const goal=S.profile.goal||3,byWeek={};for(const w of S.workouts){const k=iso(weekStart(parse(w.date)));byWeek[k]=(byWeek[k]||0)+1}
@@ -2322,7 +2594,7 @@ function looseCard(){
 function viewToday(){
   const t=todayISO(),ws=S.workouts.filter(w=>w.date===t),rs=S.rest.find(r=>r.date===t);
   let h=`<div class="view-title"><h2>${greeting()}</h2><span class="sub">${fmtD(t,{weekday:'long',month:'long',day:'numeric'})}</span></div>`;
-  h+=holidayBanner()+letterBanner()+todayPlanCard()+glanceRow()+petCard();
+  h+=holidayBanner()+letterBanner()+mysteryCard()+programCard()+todayPlanCard()+questCard()+glanceRow()+petCard();
   if(S.profile.extras.finals&&!activeFinals()){const m=new Date().getMonth();if(m===11||m===4||m===5||m===2)h+=`<div class="banner"><span>📚 Finals coming up? Turn on <b>finals week mode</b> to lighten your goals and protect your streaks.</span><button class="btn sm" data-act="finalsOn" data-v="7">Turn on</button></div>`}
   if(ws.length||rs)h+=`<div class="banner today-done"><span>✓ <b>Logged today:</b> ${[...ws.map(w=>esc(w.routine||w.type)),...(rs?['🌺 Rest day']:[])].join(' · ')}</span><button class="btn sm ghost" data-act="tab" data-v="history">View</button></div>`;
   const body=finalsCard()+suppCard()+checkCard()+drinkTip()+stepsCard()+waterCard()+looseCard()+drinksCard()+jarMini();
@@ -2405,7 +2677,7 @@ const mkRoutine=s=>({id:gid().replace(/^w/,'rt'),name:s.name,type:s.type,items:s
 function saveRoutines(){Store.saveProfile()}
 function viewRoutines(){
   const rs=S.profile.routines;
-  let h=`<div class="view-title"><h2>Routines</h2><span class="sub">Saved workouts you can start anytime</span></div>`+logModeSeg()+(S.profile.extras.builder?`<div class="card builder-cta"><div><h3>✨ Build me a workout</h3><div class="sub">Pick your time and focus, and get a workout made from your exercises.</div></div><button class="btn pri" data-act="openBuilder">Build</button></div>`:'')+planCard();
+  let h=`<div class="view-title"><h2>Routines</h2><span class="sub">Saved workouts you can start anytime</span></div>`+logModeSeg()+programsCard()+(S.profile.extras.builder?`<div class="card builder-cta"><div><h3>✨ Build me a workout</h3><div class="sub">Pick your time and focus, and get a workout made from your exercises.</div></div><button class="btn pri" data-act="openBuilder">Build</button></div>`:'')+planCard();
   if(!rs.length){
     h+=`<div class="card empty"><h3>No routines yet</h3>Build your own from scratch, or start with a few classics you can edit.<div style="display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap"><button class="btn pri" data-act="rtNew">+ New routine</button><button class="btn" data-act="rtStarters">Add starter routines</button></div></div>`;
     return h;
@@ -2444,14 +2716,16 @@ function viewRoutineEdit(){
 function startRoutine(r){
   const go=()=>{
     S.draft={id:null,date:todayISO(),type:r.type,notes:'',routine:r.name,entries:[]};
-    S.draft.entries=r.items.map(it=>{
+    const pw=r.prog?progWeekFor(r):null;
+    S.draft.entries=r.items.map(it0=>{
+      const it=pw?progItem(it0,pw):it0;
       const cardio=isCardioCat(it.cat);const last=lastFor(it.ex);
       const tw=last?last.sets.map(s=>num(s.w)).filter(x=>x!=null):[];
       const w=tw.length?String(Math.max(...tw)):'';
       const n=Math.min(10,Math.max(1,parseInt(it.sets)||1));
       return {id:gid(),cat:it.cat,ex:it.ex,note:it.note||'',ss:it.ss||'',target:it.reps||'',tsets:cardio?'':String(it.sets||''),sets:cardio?[blankSet(it.cat)]:[...Array(n)].map(()=>({r:'',w}))};
     });
-    setOpenForType(r.type,true);persistDraft();S.logMode='workout';window.scrollTo({top:0});render();toast(`📋 ${r.name} loaded`);
+    setOpenForType(r.type,true);persistDraft();S.logMode='workout';window.scrollTo({top:0});render();toast(pw?`📚 ${r.name} · week ${pw.w}: ${pw.note}`:`📋 ${r.name} loaded`);
   };
   if(S.draft.entries.length)confirmBox(`Replace the workout you're logging with ${r.name}?`,go,'Replace');else go();
 }
@@ -2924,7 +3198,7 @@ function renderSettings(){
   <div class="set-blk"><div class="g-h"><h3>🎂 Birthday</h3><input type="date" id="bday" value="${p.birthday?'2000-'+p.birthday:''}" style="max-width:170px"></div><div class="sub">Optional. Only the month and day are used, for a little surprise. 🎁</div></div>
   <div class="set-blk"><h3>⏸ Pause mode</h3>${pauseSettings(p)}</div>
   <div class="set-blk"><h3>✨ Make it sexier</h3><div class="sub" style="margin-bottom:8px">Optional extras. Turn on whatever you like.</div>
-    ${[['timer','Rest timer','Counts down between sets and buzzes when it\'s time to go.'],['effort','Effort rating','Tap 😌 easy / 💪 solid / 🔥 hard on each set.'],['plates','Plate calculator','A 🏋️ Plates button on each lift shows what goes on each side of the bar.'],['supersets','Supersets','Pair exercises (🔗 A, B…) in workouts and routines.'],['nudges','"Go up?" nudges','Suggests adding weight when you hit your reps on every set last time.'],['balance','Muscle balance','A body map in Consistency showing what you trained in the last 7 days.'],['badges','Badges','Milestones to unlock, with a 🏅 pop-up when you earn one.'],['builder','Build me a workout','Makes a workout from your exercises based on time and focus (in Routines).'],['injury','Injury notes','Note a sore spot; risky exercises get ⚠️ and swap ideas.'],['challenges','Challenges','Opt-in 2–4 week challenges in Goals.'],['water','Water tracker','Glasses per day on the Log tab, with in-app reminders.'],['confetti','Confetti','Petals burst for PRs, goals, badges and level-ups.'],['levels','Level up','Earn XP for everything you log and climb from Seedling to Ivy Queen.'],['garden','Your garden','A flower blooms for every day you train or recover (Consistency).'],['wrapped','Lift Log Wrapped','Your year in review, story-style (Consistency).'],['gym','Gym mode','Full-screen, one exercise at a time, big buttons for mid-set logging.'],['jar','Reward jar','Set a real-life prize and fill the jar with workouts (Goals).'],['rating','Rate your workout','Give each workout 1–5 stars and filter History to your best.'],['tags','Tags','Add tags like #sore or #withfriend to workouts and filter by them.'],['location','Location','Pick where you trained (Home, Campus gym…) and see where you train most.'],['checklist','Daily wellness checklist','Your own daily checkboxes on Today, with streaks.'],['supps','Supplement reminders','Mark supplements as taken each day, with an in-app reminder.'],['finals','Finals week mode','A button to lighten goals, protect streaks and get study-break workouts during exams.'],['contrast','High contrast','Stronger text and borders for bright gyms or outdoors.'],['lefty','Left-handed layout','Main buttons on the left for one-thumb use.'],['favorites','Favorites','Star ☆ exercises and they show in a row at the top of Log.'],['repeat','Repeat a workout','One tap to repeat a recent workout (Log and History).'],['undo','Undo after deleting','Delete right away with a 6-second Undo, instead of confirm pop-ups.'],['convert','Real lbs/kg conversion','Switching units converts everything you\'ve logged.'],['howto','Exercise how-to','An ⓘ on each exercise with muscles worked, form videos and your own cues.'],['tour','Welcome tour','A quick intro the first time the app opens (replay it any time).'],['pet','Wally & Teddy','Your pet whale and his teddy bear friend live on Today and react to your consistency.'],['glowup','Glow-up card','Your first month vs your latest month, side by side (Consistency).'],['greeting','Personal greeting','"Good morning, [name] 🌺" on Today.'],['transitions','Smooth page transitions','Pages slide in when you switch tabs.'],['squish','Squishy buttons','Buttons bounce a little when you tap them.'],['outfits','Holiday outfits','Your body map figure and Wally & Teddy dress up for holidays and your birthday.'],['flip','Flip the body','Muscle map shows one side at a time; tap to flip front ↔ back.'],['drinks','Drinks tracker','Private log of alcoholic drinks on Today, with your own patterns (no streaks, no judgment). Off by default.'],['glance','At a glance','A row of mini tiles on Today: weekly goal, streaks, level, badges, challenges and more.'],['loose','Looseness check-in','Rate how loose your body feels each day on Today, and see your loosest day.'],['letters','Letters to future you','Write a note that unlocks in 30, 90 or 180 days (Goals).'],['forecast','Forecasts','"At this rate you\'ll hit 150 by March" on lifts and lift goals.'],['pep','Pep talk button','A 📣 button on the Log tab for a quick hype line.'],['splash','Hibiscus splash','The logo blooms open when the app starts.'],['stickers','Sticker book','Earn stickers and decorate your own scrapbook page (Consistency).'],['pump','Today\'s pump','After saving, the muscles you trained glow on the body map.'],['seasonal','Seasonal themes','Falling petals, sunshine, leaves or snow depending on the season.']].map(([k,n,d])=>`<div class="xt"><div><b>${n}</b><span>${d}</span></div><button class="tgl ${p.extras[k]?'on':''}" data-act="tglExtra" data-v="${k}" aria-label="Toggle ${n}"><i></i></button></div>${k==='timer'&&p.extras.timer?timerSettings(p):''}${k==='checklist'&&p.extras.checklist?listEditor('checkItems','Checklist items','e.g. 🦷 Floss'):''}${k==='supps'&&p.extras.supps?listEditor('supps','Your supplements','e.g. Creatine, Vitamin D')+`<div class="xt sub-xt"><div><b>Reminder time</b><span>Shows a reminder on Today (and a pop-up while the app's open) if you haven't marked them yet.</span></div><input type="time" id="suppTime" value="${esc(p.suppTime)}" style="max-width:120px"></div>`:''}${k==='location'&&p.extras.location?listEditor('locs','Your locations','e.g. Hotel gym'):''}${k==='finals'&&p.extras.finals?`<div class="xt sub-xt"><div><b>Finals week</b><span>${activeFinals()?`On until ${fmtD(activeFinals().to)}`:'Off'}</span></div>${activeFinals()?'<button class="btn sm" data-act="finalsOff">End now</button>':'<button class="btn sm pri" data-act="finalsOn" data-v="7">Start (1 wk)</button><button class="btn sm" data-act="finalsOn" data-v="14">2 wks</button>'}</div>`:''}${k==='drinks'&&p.extras.drinks?`<div class="xt sub-xt"><div><b>Water per drink</b><span>Adds a glass to today's water goal for each drink.</span></div><button class="tgl ${p.waterPerDrink?'on':''}" data-act="wpd"><i></i></button></div>`:''}${k==='pep'&&p.extras.pep?`<div class="xt sub-xt"><div><b>Vibe</b><span>How your pep talks sound.</span></div><div class="seg">${Object.entries(PEP).map(([v,o])=>`<button class="${p.pepVibe===v?'on':''}" data-act="pepVibe" data-v="${v}">${o.label}</button>`).join('')}</div></div>`:''}${k==='seasonal'&&p.extras.seasonal?`<div class="xt sub-xt"><div><b>Season</b><span>Auto follows the calendar.</span></div><div class="seg">${[['auto','Auto'],['spring','🌸'],['summer','🏖️'],['fall','🍂'],['winter','❄️']].map(([v,l])=>`<button class="${p.season===v?'on':''}" data-act="season" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}${k==='water'&&p.extras.water?waterSettings(p):''}${k==='injury'&&p.extras.injury?injurySettings(p):''}${k==='balance'&&p.extras.balance?`<div class="xt sub-xt"><div><b>Body map</b><span>Which figure the muscle map uses.</span></div><div class="seg">${[['f','Female'],['m','Male']].map(([v,l])=>`<button class="${p.bodyType===v?'on':''}" data-act="bodyType" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}`).join('')}</div>
+    ${[['timer','Rest timer','Counts down between sets and buzzes when it\'s time to go.'],['effort','Effort rating','Tap 😌 easy / 💪 solid / 🔥 hard on each set.'],['plates','Plate calculator','A 🏋️ Plates button on each lift shows what goes on each side of the bar.'],['supersets','Supersets','Pair exercises (🔗 A, B…) in workouts and routines.'],['nudges','"Go up?" nudges','Suggests adding weight when you hit your reps on every set last time.'],['balance','Muscle balance','A body map in Consistency showing what you trained in the last 7 days.'],['badges','Badges','Milestones to unlock, with a 🏅 pop-up when you earn one.'],['builder','Build me a workout','Makes a workout from your exercises based on time and focus (in Routines).'],['injury','Injury notes','Note a sore spot; risky exercises get ⚠️ and swap ideas.'],['challenges','Challenges','Opt-in 2–4 week challenges in Goals.'],['water','Water tracker','Glasses per day on the Log tab, with in-app reminders.'],['confetti','Confetti','Petals burst for PRs, goals, badges and level-ups.'],['levels','Level up','Earn XP for everything you log and climb from Seedling to Ivy Queen.'],['garden','Your garden','A flower blooms for every day you train or recover (Consistency).'],['wrapped','Lift Log Wrapped','Your year in review, story-style (Consistency).'],['gym','Gym mode','Full-screen, one exercise at a time, big buttons for mid-set logging.'],['jar','Reward jar','Set a real-life prize and fill the jar with workouts (Goals).'],['programs','Programs','Multi-week plans that schedule your routines and progress each week (Routines).'],['quests','Daily quests','A small mission on Today each day for bonus XP and coins.'],['shop','Wally & Teddy\'s shop','Spend coins from workouts on food, outfits, beach decor and new friends.'],['mystery','Weekly mystery box','Hit your weekly goal to open a surprise box.'],['whatsnew','What\'s new','A quick pop-up listing new features after updates.'],['rating','Rate your workout','Give each workout 1–5 stars and filter History to your best.'],['tags','Tags','Add tags like #sore or #withfriend to workouts and filter by them.'],['location','Location','Pick where you trained (Home, Campus gym…) and see where you train most.'],['checklist','Daily wellness checklist','Your own daily checkboxes on Today, with streaks.'],['supps','Supplement reminders','Mark supplements as taken each day, with an in-app reminder.'],['finals','Finals week mode','A button to lighten goals, protect streaks and get study-break workouts during exams.'],['contrast','High contrast','Stronger text and borders for bright gyms or outdoors.'],['lefty','Left-handed layout','Main buttons on the left for one-thumb use.'],['favorites','Favorites','Star ☆ exercises and they show in a row at the top of Log.'],['repeat','Repeat a workout','One tap to repeat a recent workout (Log and History).'],['undo','Undo after deleting','Delete right away with a 6-second Undo, instead of confirm pop-ups.'],['convert','Real lbs/kg conversion','Switching units converts everything you\'ve logged.'],['howto','Exercise how-to','An ⓘ on each exercise with muscles worked, form videos and your own cues.'],['tour','Welcome tour','A quick intro the first time the app opens (replay it any time).'],['pet','Wally & Teddy','Your pet whale and his teddy bear friend live on Today and react to your consistency.'],['glowup','Glow-up card','Your first month vs your latest month, side by side (Consistency).'],['greeting','Personal greeting','"Good morning, [name] 🌺" on Today.'],['transitions','Smooth page transitions','Pages slide in when you switch tabs.'],['squish','Squishy buttons','Buttons bounce a little when you tap them.'],['outfits','Holiday outfits','Your body map figure and Wally & Teddy dress up for holidays and your birthday.'],['flip','Flip the body','Muscle map shows one side at a time; tap to flip front ↔ back.'],['drinks','Drinks tracker','Private log of alcoholic drinks on Today, with your own patterns (no streaks, no judgment). Off by default.'],['glance','At a glance','A row of mini tiles on Today: weekly goal, streaks, level, badges, challenges and more.'],['loose','Looseness check-in','Rate how loose your body feels each day on Today, and see your loosest day.'],['letters','Letters to future you','Write a note that unlocks in 30, 90 or 180 days (Goals).'],['forecast','Forecasts','"At this rate you\'ll hit 150 by March" on lifts and lift goals.'],['pep','Pep talk button','A 📣 button on the Log tab for a quick hype line.'],['splash','Hibiscus splash','The logo blooms open when the app starts.'],['stickers','Sticker book','Earn stickers and decorate your own scrapbook page (Consistency).'],['pump','Today\'s pump','After saving, the muscles you trained glow on the body map.'],['seasonal','Seasonal themes','Falling petals, sunshine, leaves or snow depending on the season.']].map(([k,n,d])=>`<div class="xt"><div><b>${n}</b><span>${d}</span></div><button class="tgl ${p.extras[k]?'on':''}" data-act="tglExtra" data-v="${k}" aria-label="Toggle ${n}"><i></i></button></div>${k==='timer'&&p.extras.timer?timerSettings(p):''}${k==='checklist'&&p.extras.checklist?listEditor('checkItems','Checklist items','e.g. 🦷 Floss'):''}${k==='supps'&&p.extras.supps?listEditor('supps','Your supplements','e.g. Creatine, Vitamin D')+`<div class="xt sub-xt"><div><b>Reminder time</b><span>Shows a reminder on Today (and a pop-up while the app's open) if you haven't marked them yet.</span></div><input type="time" id="suppTime" value="${esc(p.suppTime)}" style="max-width:120px"></div>`:''}${k==='location'&&p.extras.location?listEditor('locs','Your locations','e.g. Hotel gym'):''}${k==='finals'&&p.extras.finals?`<div class="xt sub-xt"><div><b>Finals week</b><span>${activeFinals()?`On until ${fmtD(activeFinals().to)}`:'Off'}</span></div>${activeFinals()?'<button class="btn sm" data-act="finalsOff">End now</button>':'<button class="btn sm pri" data-act="finalsOn" data-v="7">Start (1 wk)</button><button class="btn sm" data-act="finalsOn" data-v="14">2 wks</button>'}</div>`:''}${k==='drinks'&&p.extras.drinks?`<div class="xt sub-xt"><div><b>Water per drink</b><span>Adds a glass to today's water goal for each drink.</span></div><button class="tgl ${p.waterPerDrink?'on':''}" data-act="wpd"><i></i></button></div>`:''}${k==='pep'&&p.extras.pep?`<div class="xt sub-xt"><div><b>Vibe</b><span>How your pep talks sound.</span></div><div class="seg">${Object.entries(PEP).map(([v,o])=>`<button class="${p.pepVibe===v?'on':''}" data-act="pepVibe" data-v="${v}">${o.label}</button>`).join('')}</div></div>`:''}${k==='seasonal'&&p.extras.seasonal?`<div class="xt sub-xt"><div><b>Season</b><span>Auto follows the calendar.</span></div><div class="seg">${[['auto','Auto'],['spring','🌸'],['summer','🏖️'],['fall','🍂'],['winter','❄️']].map(([v,l])=>`<button class="${p.season===v?'on':''}" data-act="season" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}${k==='water'&&p.extras.water?waterSettings(p):''}${k==='injury'&&p.extras.injury?injurySettings(p):''}${k==='balance'&&p.extras.balance?`<div class="xt sub-xt"><div><b>Body map</b><span>Which figure the muscle map uses.</span></div><div class="seg">${[['f','Female'],['m','Male']].map(([v,l])=>`<button class="${p.bodyType===v?'on':''}" data-act="bodyType" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}`).join('')}</div>
   <div class="set-blk"><h3>Weekly goal</h3><div class="stepper"><button data-act="goal" data-v="-1">−</button><b>${p.goal}</b><button data-act="goal" data-v="1">+</button><span class="sub" style="margin-left:6px">workouts per week</span></div></div>
   <div class="set-blk"><h3>Weight unit</h3><div class="seg">${['lbs','kg'].map(u=>`<button class="${p.unit===u?'on':''}" data-act="unit" data-v="${u}">${u}</button>`).join('')}</div><div class="sub" style="margin-top:6px">Changes the label only. Numbers you've logged aren't converted.</div></div>
   <div class="set-blk"><h3>Measurement unit</h3><div class="seg">${['in','cm'].map(u=>`<button class="${p.lunit===u?'on':''}" data-act="lunit" data-v="${u}">${u}</button>`).join('')}</div><div class="sub" style="margin-top:6px">For waist, hips and the other tape measurements. Label only.</div></div>
@@ -2937,6 +3211,8 @@ function renderSettings(){
     h+=`</div><div class="newex"><input type="text" placeholder="Add to ${esc(c.name)}…" data-addcat="${c.key}"><button class="btn sm" data-act="addCustomSet" data-cat="${c.key}">Add</button></div></div>`;
   }
   h+=`</div><div class="set-blk"><h3>Your recovery activities</h3><div class="sub">Ones you added on rest days. Add more from the Rest day screen.</div><div class="mg-list" style="margin-top:8px">${(p.customRest||[]).length?(p.customRest||[]).map(a=>`<span class="mg-chip cus">${esc(a)}<button data-act="delCustomRest" data-v="${esc(a)}" title="Delete">✕</button></span>`).join(''):'<span class="sub">None yet.</span>'}</div>`;
+  h+=`</div><div class="set-blk"><h3>🧹 Data tidy-up</h3><div class="sub" style="margin-bottom:8px">Finds duplicate workouts, empty sets and mismatched exercise names, and offers to fix them.</div><button class="btn sm" data-act="tidyOpen">Scan my data</button></div>
+  <div class="set-blk"><h3>❓ Help & what's new</h3><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" data-act="helpOpen">❓ Help</button><button class="btn sm" data-act="newsOpen">✨ What's new</button></div>`;
   h+=`</div><div class="set-blk"><h3>Backup</h3><div class="sub" style="margin-bottom:8px">Copy all your data as text, or paste a backup to restore it (adds to what's here). ${p.lastBackup?`Last backup: <b>${fmtD(iso(new Date(p.lastBackup)),{month:'short',day:'numeric',year:'numeric'})}</b>.`:'No backup yet.'} You'll get a reminder after 30 days.</div>
     <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" data-act="exportData">Copy backup</button></div>
     <textarea class="io" id="importTxt" placeholder="Paste a backup here…" style="margin-top:8px"></textarea>
@@ -2944,6 +3220,7 @@ function renderSettings(){
     <div class="sub" style="margin-top:10px">${S.mode==='cloud'?'Your workouts are saved privately to your account and sync across your devices.':'Saving on this device only. Open the app from claude.ai while signed in to sync across devices.'}</div></div>
   </div></div>`;
   $('#modal').innerHTML=h;
+  try{organizeSettings()}catch(e){console.warn(e)}
 }
 function closeModal(){$('#modal').innerHTML='';S.modal=null}
 function confirmBox(msg,yes,label='Delete'){
@@ -3069,7 +3346,7 @@ document.addEventListener('click',ev=>{
     case 'tourStart':closeModal();S.tourI=0;renderTour();break;
     case 'tourNav':S.tourI=Math.max(0,Math.min(TOUR.length-1,(S.tourI||0)+(+t.dataset.v)));renderTour();break;
     case 'tourPreset':applyPreset(t.dataset.v);Store.saveProfile();render();renderTour();break;
-    case 'tourEnd':S.profile.toured=true;Store.saveProfile();closeModal();render();setTimeout(dailySurprises,600);break;
+    case 'tourEnd':S.profile.toured=true;S.profile.seenV=CHANGELOG[0].v;Store.saveProfile();closeModal();render();setTimeout(dailySurprises,600);break;
     case 'favTgl':{const e=entryOf(t),k=e.cat+'|'+e.ex;S.profile.favs=S.profile.favs.includes(k)?S.profile.favs.filter(x=>x!==k):[...S.profile.favs,k];Store.saveProfile();if(S.profile.favs.includes(k))toast(`⭐ ${cap(e.ex)} added to favorites`);render();break}
     case 'repeatW':{const w=S.workouts.find(x=>x.id===t.dataset.id);if(w)repeatWorkout(w);break}
     case 'howto':{const e=entryOf(t);if(e)renderHowto(e);break}
@@ -3092,6 +3369,27 @@ document.addEventListener('click',ev=>{
     case 'finalsWorkout':{const r=buildWorkout('full',20);r.items=r.items.slice(0,3).map(it=>({...it,sets:2}));r.name='Study break · 15 min';S.tab='log';setHash();startRoutine(r);break}
     case 'finalsStretch':renderStretch();break;
     case 'stretchTick':{t.classList.toggle('on');const b=t.querySelector('.ckb');if(b)b.textContent=t.classList.contains('on')?'✓':'';if(document.querySelectorAll('.sheet .ck.on').length===STUDY_STRETCH.length){toast('🧘 Study break done! Brain refreshed.');if(onceToday('cat'))setTimeout(()=>critter('cat'),1300);setTimeout(closeModal,900)}break}
+    case 'helpOpen':renderHelp();break;
+    case 'newsOpen':renderNews(false);break;
+    case 'newsClose':S.profile.seenV=CHANGELOG[0].v;Store.saveProfile();closeModal();break;
+    case 'tidyOpen':renderTidy();break;
+    case 'tidyDups':(async()=>{for(const w of S.tidy.dups){try{await Store.deleteWorkout(w.id)}catch(e){}}toast(`🧹 Removed ${S.tidy.dups.length} duplicate${S.tidy.dups.length>1?'s':''}`);renderTidy();render()})();break;
+    case 'tidyEmpty':(async()=>{for(const id of S.tidy.emptyW){const w=S.workouts.find(x=>x.id===id);if(!w)continue;const doc=clone(w);delete doc.id;doc.entries=(doc.entries||[]).map(e=>({...e,sets:(e.sets||[]).filter(hasVal)})).filter(e=>e.sets.length||e.note);try{await Store.saveWorkout(id,doc)}catch(e){}}toast('🧹 Empty sets cleaned up');renderTidy();render()})();break;
+    case 'tidyMerge':{const m=S.tidy.merges[+t.dataset.i];(async()=>{for(const w of [...S.workouts]){if(!(w.entries||[]).some(e=>m.from.includes(e.ex)))continue;const doc=clone(w);delete doc.id;doc.entries=doc.entries.map(e=>m.from.includes(e.ex)?{...e,ex:m.to}:e);try{await Store.saveWorkout(w.id,doc)}catch(e){}}
+      S.profile.favs=S.profile.favs.map(f=>{const [c,x]=f.split('|');return m.from.includes(x)?c+'|'+m.to:f});for(const k in S.profile.custom)S.profile.custom[k]=S.profile.custom[k].filter(x=>!m.from.includes(x));Store.saveProfile();toast(`🧹 Merged into "${m.to}"`);renderTidy();render()})();break}
+    case 'tidyRest':(async()=>{for(const r of S.tidy.emptyRest){try{await Store.deleteRest(r.id)}catch(e){}}toast('🧹 Empty rest days removed');renderTidy();render()})();break;
+    case 'progStart':{const P=PROGRAMS.find(x=>x.id===t.dataset.id);confirmBox(`Start ${P.name}? It adds ${P.sessions.length} routines and sets your weekly plan to ${P.days.map(d=>DOW[d]).join(', ')}.`,()=>startProgram(P.id),'Start');break}
+    case 'progEnd':confirmBox('End this program? Your routines and history stay.',()=>{S.profile.program=null;Store.saveProfile();render()},'End');break;
+    case 'questDone':{const d=todayISO();S.profile.quests={...S.profile.quests,[d]:{id:t.dataset.id,done:true}};Store.saveProfile();toast('🗺️ Quest complete! +40 XP · +15 🪙');celebrate(.5);checkLevel();render();break}
+    case 'shopOpen':renderShop();break;
+    case 'shopTab':S.shopTab=t.dataset.v;renderShop();break;
+    case 'shopBuy':{const it=shopItem(t.dataset.id);if(!it||coins()<it.p){toast('Not enough coins yet 🪙');break}S.profile.spent=(S.profile.spent||0)+it.p;
+      if(it.cat==='food'){const d=todayISO();S.profile.fed={...S.profile.fed,[d]:[...((S.profile.fed||{})[d]||[]),it.id]};const keep={};for(const k of Object.keys(S.profile.fed).sort().slice(-14))keep[k]=S.profile.fed[k];S.profile.fed=keep;toast(`${it.e} ${it.who==='Teddy'?'Teddy':it.who==='Wally'?'Wally':'Wally & Teddy'} loved it! 💕`)}
+      else{S.profile.owned=[...S.profile.owned,it.id];if(it.cat==='acc'&&!S.profile.petWear.wally)S.profile.petWear={...S.profile.petWear,wally:it.id};toast(it.cat==='friends'?`${it.n} moved in to the beach! 🏖️`:`${it.n} is yours!`);if(it.cat==='friends')celebrate(.6)}
+      Store.saveProfile();renderShop();render();break}
+    case 'wear':{const who=t.dataset.who,id=t.dataset.id;S.profile.petWear={...S.profile.petWear,[who]:S.profile.petWear[who]===id?null:id};Store.saveProfile();renderShop();render();break}
+    case 'decorTgl':{const id=t.dataset.id;S.profile.hiddenDecor=S.profile.hiddenDecor.includes(id)?S.profile.hiddenDecor.filter(x=>x!==id):[...S.profile.hiddenDecor,id];Store.saveProfile();renderShop();render();break}
+    case 'boxOpen':openBox(t.dataset.v);break;
     case 'pep':renderPep();break;
     case 'pepVibe':S.profile.pepVibe=t.dataset.v;Store.saveProfile();renderSettings();break;
     case 'season':S.profile.season=t.dataset.v;Store.saveProfile();seasonShown=null;renderSettings();render();break;
