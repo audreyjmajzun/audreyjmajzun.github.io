@@ -293,6 +293,76 @@ input[type=date]{color-scheme:var(--scheme);min-height:42px}
 .chal i{font-style:normal;font-size:12px;color:var(--mut)}
 .chal em{font-style:normal;font-size:11px;color:var(--up)}
 .chal:hover{border-color:var(--acc)}
+.lvl{display:flex;align-items:center;gap:5px;padding:4px 8px;border-radius:20px;background:var(--s2);border:1px solid var(--line);font-size:12px}
+.lvl b{font-size:12px}
+.lvl i{display:block;width:34px;height:4px;border-radius:3px;background:var(--s3);overflow:hidden}
+.lvl u{display:block;height:100%;background:var(--acc);text-decoration:none}
+.lv-path{display:flex;gap:4px;justify-content:center;margin-top:14px;font-size:20px;flex-wrap:wrap}
+.lv-path span{opacity:.25;filter:grayscale(1)}
+.lv-path span.on{opacity:1;filter:none}
+.confetti{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:90}
+.garden .gbed{box-sizing:border-box;max-width:560px;margin:0 auto;background:linear-gradient(180deg,var(--s2),var(--s1));border:1px solid var(--line);border-radius:14px;padding:10px}
+.gdow,.gdays{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}
+.gdow{margin-bottom:4px}
+.gdow b{font-size:11px;color:var(--dim);font-weight:600}
+.gd{aspect-ratio:1;min-width:0;overflow:hidden;display:grid;place-items:center;font-size:clamp(16px,4vw,26px);border-radius:10px}
+.gd.soil{background:color-mix(in srgb,var(--s3) 70%,#6b4a2b 30%)}
+.gd.soil i{width:5px;height:5px;border-radius:50%;background:var(--dim);opacity:.5}
+.gd.grown{background:color-mix(in srgb,var(--up-bg) 60%,transparent)}
+.gd.fut{background:transparent;border:1px dashed var(--line)}
+.gd.today{box-shadow:0 0 0 2px var(--acc)}
+.garden .legend{margin-top:10px}
+.wrapped-cta{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:14px 16px;border-radius:16px;margin-bottom:14px;background:linear-gradient(120deg,var(--lo-bg),var(--up-bg));border:1px solid var(--acc)}
+.wrapped-cta span{font-size:26px}
+.wrapped-cta b{flex:1;font-family:var(--hfont);font-size:17px}
+.wrapped-cta i{font-style:normal;color:var(--acc);font-weight:600;font-size:13px}
+.wrapped{position:fixed;inset:0;z-index:80;color:var(--tx);display:flex;flex-direction:column;padding:calc(14px + env(safe-area-inset-top)) 18px calc(18px + env(safe-area-inset-bottom))}
+.wr-bars{display:flex;gap:4px}
+.wr-bars i{flex:1;height:3px;border-radius:2px;background:rgba(127,127,127,.35)}
+.wr-bars i.on{background:var(--tx)}
+.wr-x{position:absolute;top:calc(24px + env(safe-area-inset-top));right:16px;z-index:3;font-size:18px;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.2);color:#fff}
+.wr-tap{position:absolute;top:60px;bottom:60px;width:40%;z-index:2}
+.wr-tap.l{left:0} .wr-tap.r{right:0;width:60%}
+.wr-body{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:10px;animation:wrin .45s ease}
+@keyframes wrin{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+.wr-e{font-size:64px}
+.wr-big{font-family:var(--hfont);font-size:clamp(40px,11vw,84px);font-weight:700;line-height:1.05;text-shadow:0 2px 20px rgba(0,0,0,.25)}
+.wr-line{font-size:clamp(18px,4.5vw,26px);font-weight:600}
+.wr-sub{font-size:15px;max-width:440px;opacity:.85}
+.wr-foot{text-align:center;font-size:12px;opacity:.7}
+.gym{position:fixed;inset:0;z-index:35;background:var(--bgfull);background-color:var(--bg);display:flex;flex-direction:column;padding:calc(10px + env(safe-area-inset-top)) 16px calc(16px + env(safe-area-inset-bottom))}
+body.gym-on{overflow:hidden}
+body.gym-on .rt-timer{bottom:calc(96px + env(safe-area-inset-bottom))}
+.gm-top{display:flex;align-items:center;gap:10px}
+.gm-prog{flex:1;display:flex;gap:4px}
+.gm-prog i{flex:1;height:5px;border-radius:3px;background:var(--s3)}
+.gm-prog i.ok{background:var(--up)} .gm-prog i.cur{background:var(--acc)}
+.gm-n{font-size:13px;color:var(--mut);font-weight:600}
+.gm-btn{padding:12px 16px;border-radius:14px;background:var(--s2);border:1px solid var(--line);font-weight:600;font-size:15px}
+.gm-btn.pri{background:var(--pri);color:var(--on-pri);border-color:var(--pri);flex:1}
+.gm-btn:disabled{opacity:.35}
+.gm-main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:10px;overflow:auto;padding:10px 0}
+.gm-cat{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+.gm-ex{font-size:clamp(30px,8vw,52px);line-height:1.1}
+.gm-tgt{color:var(--acc);font-weight:700;font-size:17px}
+.gm-last{color:var(--mut);font-size:14px}
+.gm-warn{font-size:14px;background:var(--ca-bg);border:1px solid var(--ca-bd);padding:6px 10px;border-radius:10px}
+.gm-set{background:var(--s1);border:1px solid var(--line);border-radius:20px;padding:16px;width:100%;max-width:520px;margin-top:6px}
+.gm-lbl{font-size:13px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.gm-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gm-fields.c{grid-template-columns:repeat(3,1fr)}
+.gm-fields label,.gm-f{display:flex;flex-direction:column;gap:6px;align-items:center}
+.gm-fields span{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
+.gm-step{display:flex;align-items:center;gap:6px;width:100%}
+.gm-step button{width:48px;height:64px;border-radius:14px;background:var(--s2);border:1px solid var(--line);font-size:26px;flex:none}
+.gm-step input,.gm-fields.c input{background:var(--s2);border:1px solid var(--line);color:var(--tx);flex:1;min-width:0;width:100%;height:64px;text-align:center;font-family:var(--nfont);font-size:34px;font-weight:700;border-radius:14px;padding:0}
+.gm-eff{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.gm-eff button{padding:8px 12px;border-radius:12px;background:var(--s2);border:1px solid var(--line);font-size:14px}
+.gm-eff button.on{background:var(--acc-bg);border-color:var(--acc)}
+.gm-done{width:100%;max-width:520px;padding:18px;border-radius:18px;background:var(--acc);color:var(--on-acc);font-size:20px;font-weight:800;margin-top:6px}
+.gm-hist{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:520px}
+.gm-hist span{font-size:13px;padding:5px 10px;border-radius:20px;background:var(--up-bg);border:1px solid var(--up-bd)}
+.gm-nav{display:flex;gap:10px}
 .notes{margin-top:18px}
 .notes textarea{width:100%;min-height:64px;resize:vertical}
 .savebar{position:sticky;bottom:calc(72px + env(safe-area-inset-bottom));margin-top:18px;z-index:10;display:flex;gap:10px;align-items:center;background:var(--sbar);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:10px 10px 10px 16px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
@@ -396,7 +466,7 @@ textarea.io{width:100%;min-height:90px;font-size:12px;font-family:ui-monospace,m
     <div class="logo-mark"><svg width="26" height="26" viewBox="-16 -16 32 32" aria-hidden="true"><defs><radialGradient id="hib" cx="0" cy="0" r="15" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5d3a55"/><stop offset=".35" stop-color="#9b5a7f"/><stop offset="1" stop-color="#ecb6c6"/></radialGradient></defs><g fill="url(#hib)" stroke="#16111a" stroke-width=".6"><path transform="rotate(0)" d="M0 0C-7 -2.5 -10.5 -10 -5 -14.2C-3 -15.6 -1.2 -14.4 0 -15.4C1.2 -14.4 3 -15.6 5 -14.2C10.5 -10 7 -2.5 0 0Z"/><path transform="rotate(72)" d="M0 0C-7 -2.5 -10.5 -10 -5 -14.2C-3 -15.6 -1.2 -14.4 0 -15.4C1.2 -14.4 3 -15.6 5 -14.2C10.5 -10 7 -2.5 0 0Z"/><path transform="rotate(144)" d="M0 0C-7 -2.5 -10.5 -10 -5 -14.2C-3 -15.6 -1.2 -14.4 0 -15.4C1.2 -14.4 3 -15.6 5 -14.2C10.5 -10 7 -2.5 0 0Z"/><path transform="rotate(216)" d="M0 0C-7 -2.5 -10.5 -10 -5 -14.2C-3 -15.6 -1.2 -14.4 0 -15.4C1.2 -14.4 3 -15.6 5 -14.2C10.5 -10 7 -2.5 0 0Z"/><path transform="rotate(288)" d="M0 0C-7 -2.5 -10.5 -10 -5 -14.2C-3 -15.6 -1.2 -14.4 0 -15.4C1.2 -14.4 3 -15.6 5 -14.2C10.5 -10 7 -2.5 0 0Z"/></g><circle r="2.6" fill="#4a2c45"/><path d="M0 0L6.5 -8.5" stroke="#d9dba7" stroke-width="1.3" stroke-linecap="round"/><g fill="#d9dba7"><circle cx="6.8" cy="-9.2" r="1.1"/><circle cx="5" cy="-9.6" r=".8"/><circle cx="7.9" cy="-7.6" r=".8"/><circle cx="4.6" cy="-7.8" r=".7"/></g></svg></div>
     <h1>Lift Log</h1>
   </div>
-  <div class="sync" id="sync"><span class="dot"></span><span>Connecting…</span></div>
+  <button class="lvl hidden" id="lvl" data-act="openLevel"></button><div class="sync" id="sync"><span class="dot"></span><span>Connecting…</span></div>
   <button class="icon-btn" data-act="openSettings" aria-label="Settings"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
 </div></header>
 
@@ -412,6 +482,7 @@ textarea.io{width:100%;min-height:90px;font-size:12px;font-family:ui-monospace,m
 <div id="modal"></div>
 <div id="toast" class="toast hidden"></div>
 <div id="timer" class="rt-timer hidden"></div>
+<div id="gym" class="gym hidden"></div>
 
 <script>
 /* ---------------- constants ---------------- */
@@ -451,18 +522,47 @@ const typeCls=t=>(TYPES.find(x=>x[0]===t)||['','Other'])[1];
 const THEMES={"original":{"name":"Original","vars":{"bg":"#16111a","s1":"#201925","s2":"#2a2131","s3":"#352a3e","line":"#3d3147","hover":"#40334a","tx":"#f2eae7","mut":"#b5a5b3","dim":"#7f6f83","lo":"#bf96aa","lo-bg":"rgba(155,123,139,.16)","lo-bd":"rgba(155,123,139,.45)","up":"#a7c163","up-bg":"rgba(142,166,83,.14)","up-bd":"rgba(142,166,83,.45)","full":"#d9dba7","full-bg":"rgba(217,219,167,.12)","full-bd":"rgba(217,219,167,.4)","ca":"#e3a98c","ca-bg":"rgba(227,169,140,.13)","ca-bd":"rgba(227,169,140,.42)","oth":"#c3b6cf","oth-c":"#9d90ab","oth-bg":"rgba(157,144,171,.16)","oth-bd":"rgba(157,144,171,.45)","rest":"#7d6a8f","rest-bg":"rgba(125,106,143,.2)","rest-bg2":"rgba(125,106,143,.25)","rest-bd":"#9c88b0","rest-tx":"#e2d0ec","acc":"#d9dba7","acc-bg":"rgba(217,219,167,.07)","on-acc":"#1d1b12","pri":"#8ea653","pri-h":"#9db862","on-pri":"#1a1d10","focus":"#9b7b8b","under":"#9b7b8b","delta":"#d7c4bd","plum":"#5d3a55","bad":"#e08a8a","hdr":"rgba(22,17,26,.88)","nav":"rgba(32,25,37,.95)","sbar":"rgba(42,33,49,.96)","ov":"rgba(10,7,12,.7)","scheme":"dark","hfont":"\"Space Grotesk\",Inter,sans-serif","h3font":"\"Space Grotesk\",Inter,sans-serif","nfont":"\"Space Grotesk\",Inter,sans-serif","bfont":"Inter,system-ui,sans-serif","bgfull":"#16111a"}},"garden":{"name":"Garden Journal","vars":{"bg":"#f4efe2","s1":"#fbf8ef","s2":"#f1ead9","s3":"#e7dec8","line":"#ddd2b8","hover":"#e2d7bd","tx":"#3b3a2e","mut":"#6f6a55","dim":"#9a937a","lo":"#c8607a","lo-bg":"rgba(200,96,122,.12)","lo-bd":"rgba(200,96,122,.4)","up":"#6f8f5a","up-bg":"rgba(111,143,90,.13)","up-bd":"rgba(111,143,90,.42)","full":"#b08d3c","full-bg":"rgba(176,141,60,.13)","full-bd":"rgba(176,141,60,.4)","ca":"#d98a6a","ca-bg":"rgba(217,138,106,.14)","ca-bd":"rgba(217,138,106,.42)","oth":"#7d7a8c","oth-c":"#9a96ab","oth-bg":"rgba(125,122,140,.12)","oth-bd":"rgba(125,122,140,.35)","rest":"#8fb0a0","rest-bg":"rgba(143,176,160,.2)","rest-bg2":"rgba(143,176,160,.3)","rest-bd":"#8fb0a0","rest-tx":"#3f5e50","acc":"#b0506b","acc-bg":"rgba(200,96,122,.08)","on-acc":"#ffffff","pri":"#6f8f5a","pri-h":"#7f9f69","on-pri":"#ffffff","focus":"#c8607a","under":"#e0aab6","delta":"#8a6a3c","plum":"#b0506b","bad":"#b5443f","hdr":"rgba(244,239,226,.9)","nav":"rgba(251,248,239,.95)","sbar":"rgba(251,248,239,.97)","ov":"rgba(60,50,30,.35)","scheme":"light","hfont":"\"Playfair Display\",Georgia,serif","h3font":"\"Playfair Display\",Georgia,serif","nfont":"\"Playfair Display\",Georgia,serif","bfont":"Inter,system-ui,sans-serif","bgfull":"radial-gradient(circle at 8% 12%,rgba(232,170,185,.35),transparent 32%),radial-gradient(circle at 95% 30%,rgba(160,190,140,.3),transparent 35%),radial-gradient(circle at 85% 92%,rgba(232,170,185,.28),transparent 34%),radial-gradient(circle at 5% 85%,rgba(160,190,140,.25),transparent 30%),repeating-linear-gradient(0deg,rgba(120,100,60,.05) 0 1px,transparent 1px 30px),#f4efe2"}},"neon":{"name":"Neon Flora","vars":{"bg":"#050807","s1":"#0b120f","s2":"#101a16","s3":"#16241e","line":"#1f3a2e","hover":"#1c3328","tx":"#d8ffe9","mut":"#8fc7a8","dim":"#4f7a63","lo":"#b48cff","lo-bg":"rgba(180,140,255,.12)","lo-bd":"rgba(180,140,255,.45)","up":"#3dffa0","up-bg":"rgba(61,255,160,.1)","up-bd":"rgba(61,255,160,.45)","full":"#7af0e0","full-bg":"rgba(122,240,224,.1)","full-bd":"rgba(122,240,224,.4)","ca":"#c8ff4d","ca-bg":"rgba(200,255,77,.1)","ca-bd":"rgba(200,255,77,.4)","oth":"#8aa6b5","oth-c":"#8aa6b5","oth-bg":"rgba(138,166,181,.12)","oth-bd":"rgba(138,166,181,.4)","rest":"#6f9bff","rest-bg":"rgba(111,155,255,.14)","rest-bg2":"rgba(111,155,255,.22)","rest-bd":"#6f9bff","rest-tx":"#d3e0ff","acc":"#3dffa0","acc-bg":"rgba(61,255,160,.07)","on-acc":"#021a0e","pri":"#3dffa0","pri-h":"#6bffb8","on-pri":"#021a0e","focus":"#3dffa0","under":"#2f7f5b","delta":"#9ef5c8","plum":"#1f6b4a","bad":"#ff6b8a","hdr":"rgba(5,8,7,.88)","nav":"rgba(11,18,15,.95)","sbar":"rgba(16,26,22,.96)","ov":"rgba(0,0,0,.75)","scheme":"dark","hfont":"\"JetBrains Mono\",ui-monospace,monospace","h3font":"\"JetBrains Mono\",ui-monospace,monospace","nfont":"\"JetBrains Mono\",ui-monospace,monospace","bfont":"Inter,system-ui,sans-serif","bgfull":"radial-gradient(circle at 85% 0%,rgba(61,255,160,.16),transparent 45%),radial-gradient(circle at 0% 100%,rgba(180,140,255,.12),transparent 40%),linear-gradient(rgba(61,255,160,.05) 1px,transparent 1px) 0 0/28px 28px,linear-gradient(90deg,rgba(61,255,160,.05) 1px,transparent 1px) 0 0/28px 28px,#050807"}},"mocha":{"name":"Mocha Swag","vars":{"bg":"#2b1a16","s1":"#3a241e","s2":"#472e26","s3":"#553830","line":"#6a463b","hover":"#5e3e34","tx":"#fde8ef","mut":"#e0b8c4","dim":"#a8807f","lo":"#f7a6c4","lo-bg":"rgba(247,166,196,.15)","lo-bd":"rgba(247,166,196,.45)","up":"#e9c7a0","up-bg":"rgba(233,199,160,.14)","up-bd":"rgba(233,199,160,.45)","full":"#ffd6e6","full-bg":"rgba(255,214,230,.14)","full-bd":"rgba(255,214,230,.45)","ca":"#ff7eb0","ca-bg":"rgba(255,126,176,.14)","ca-bd":"rgba(255,126,176,.45)","oth":"#c9a38f","oth-c":"#c9a38f","oth-bg":"rgba(201,163,143,.15)","oth-bd":"rgba(201,163,143,.45)","rest":"#c78fa8","rest-bg":"rgba(199,143,168,.2)","rest-bg2":"rgba(199,143,168,.28)","rest-bd":"#c78fa8","rest-tx":"#ffd9e8","acc":"#ff9cc4","acc-bg":"rgba(255,156,196,.08)","on-acc":"#3a1020","pri":"#f7a6c4","pri-h":"#ffbdd5","on-pri":"#3a1e18","focus":"#f7a6c4","under":"#9c6b62","delta":"#ffcfe0","plum":"#8a3e5c","bad":"#ff7b7b","hdr":"rgba(43,26,22,.9)","nav":"rgba(58,36,30,.95)","sbar":"rgba(71,46,38,.96)","ov":"rgba(20,10,8,.7)","scheme":"dark","hfont":"Pacifico,cursive","h3font":"Fredoka,Inter,sans-serif","nfont":"Fredoka,Inter,sans-serif","bfont":"Inter,system-ui,sans-serif","bgfull":"radial-gradient(rgba(247,166,196,.13) 17%,transparent 18%) 0 0/26px 26px,repeating-linear-gradient(90deg,rgba(255,214,230,.035) 0 10px,transparent 10px 40px),repeating-linear-gradient(0deg,rgba(255,214,230,.035) 0 10px,transparent 10px 40px),#2b1a16"}},"retro":{"name":"Retro Bloom","vars":{"bg":"#3a1d12","s1":"#4a2618","s2":"#57301f","s3":"#663a26","line":"#7a4a32","hover":"#6e4029","tx":"#fff1dc","mut":"#f0c9a0","dim":"#b8876a","lo":"#ec4f9b","lo-bg":"rgba(236,79,155,.16)","lo-bd":"rgba(236,79,155,.5)","up":"#f5a524","up-bg":"rgba(245,165,36,.15)","up-bd":"rgba(245,165,36,.5)","full":"#f7d154","full-bg":"rgba(247,209,84,.14)","full-bd":"rgba(247,209,84,.5)","ca":"#ff8fc2","ca-bg":"rgba(255,143,194,.15)","ca-bd":"rgba(255,143,194,.5)","oth":"#e9d7b8","oth-c":"#e9d7b8","oth-bg":"rgba(233,215,184,.14)","oth-bd":"rgba(233,215,184,.45)","rest":"#d58fd0","rest-bg":"rgba(213,143,208,.18)","rest-bg2":"rgba(213,143,208,.26)","rest-bd":"#d58fd0","rest-tx":"#ffe0f6","acc":"#f7d154","acc-bg":"rgba(247,209,84,.08)","on-acc":"#3a1d12","pri":"#ec4f9b","pri-h":"#f46aab","on-pri":"#ffffff","focus":"#f5a524","under":"#a8643f","delta":"#ffd9a8","plum":"#9c2f63","bad":"#ff6b5b","hdr":"rgba(58,29,18,.9)","nav":"rgba(74,38,24,.95)","sbar":"rgba(87,48,31,.96)","ov":"rgba(25,10,5,.7)","scheme":"dark","hfont":"Shrikhand,cursive","h3font":"Righteous,Inter,sans-serif","nfont":"Righteous,Inter,sans-serif","bfont":"Inter,system-ui,sans-serif","bgfull":"radial-gradient(circle at 18% 22%,rgba(236,79,155,.2) 0 22px,transparent 23px) 0 0/300px 300px,radial-gradient(circle at 70% 12%,rgba(245,165,36,.18) 0 14px,transparent 15px) 0 0/300px 300px,radial-gradient(circle at 60% 68%,rgba(247,209,84,.13) 0 34px,rgba(247,209,84,.06) 35px 44px,transparent 45px) 0 0/300px 300px,radial-gradient(circle at 12% 82%,rgba(255,241,220,.08) 0 18px,transparent 19px) 0 0/300px 300px,radial-gradient(circle at 92% 52%,rgba(236,79,155,.14) 0 26px,transparent 27px) 0 0/300px 300px,#3a1d12"}},"sweetpea":{"name":"Sweet Pea","vars":{"bg":"#fde9f0","s1":"#fff6f9","s2":"#fdeef4","s3":"#f9dbe6","line":"#f2c6d6","hover":"#f6d2df","tx":"#5a3442","mut":"#8f6274","dim":"#c095a6","lo":"#e8559a","lo-bg":"rgba(232,85,154,.12)","lo-bd":"rgba(232,85,154,.42)","up":"#7fb83a","up-bg":"rgba(127,184,58,.14)","up-bd":"rgba(127,184,58,.45)","full":"#e9a93a","full-bg":"rgba(233,169,58,.15)","full-bd":"rgba(233,169,58,.45)","ca":"#ff6f7d","ca-bg":"rgba(255,111,125,.13)","ca-bd":"rgba(255,111,125,.42)","oth":"#a08bb0","oth-c":"#a08bb0","oth-bg":"rgba(160,139,176,.14)","oth-bd":"rgba(160,139,176,.4)","rest":"#b18bd6","rest-bg":"rgba(177,139,214,.16)","rest-bg2":"rgba(177,139,214,.24)","rest-bd":"#b18bd6","rest-tx":"#6b4790","acc":"#e8559a","acc-bg":"rgba(232,85,154,.07)","on-acc":"#ffffff","pri":"#7fb83a","pri-h":"#8fc84a","on-pri":"#ffffff","focus":"#e8559a","under":"#f0a8c8","delta":"#b0507c","plum":"#e8559a","bad":"#d9434f","hdr":"rgba(253,233,240,.9)","nav":"rgba(255,246,249,.95)","sbar":"rgba(255,246,249,.97)","ov":"rgba(90,52,66,.35)","scheme":"light","hfont":"Fredoka,Inter,sans-serif","h3font":"Fredoka,Inter,sans-serif","nfont":"Fredoka,Inter,sans-serif","bfont":"Inter,system-ui,sans-serif","bgfull":"radial-gradient(rgba(232,85,154,.17) 19%,transparent 20%) 0 0/36px 36px,radial-gradient(rgba(127,184,58,.16) 13%,transparent 14%) 18px 18px/36px 36px,#fde9f0"}}};
 const COLORS={Lower:'',Upper:'',Full:'',Cardio:'',Other:''};
 const T={};
+function hx(c){c=String(c).trim();if(c[0]!=='#')return null;if(c.length===4)c='#'+c[1]+c[1]+c[2]+c[2]+c[3]+c[3];return [parseInt(c.slice(1,3),16),parseInt(c.slice(3,5),16),parseInt(c.slice(5,7),16)]}
+const toHex=a=>'#'+a.map(x=>Math.max(0,Math.min(255,Math.round(x))).toString(16).padStart(2,'0')).join('');
+const mix=(a,b,t)=>{const A=hx(a),B=hx(b);if(!A||!B)return a;return toHex(A.map((x,i)=>x+(B[i]-x)*t))};
+const rgba=(c,al)=>{const A=hx(c);return A?`rgba(${A[0]},${A[1]},${A[2]},${al})`:c};
+const lum=c=>{const A=hx(c);if(!A)return .5;const f=x=>{x/=255;return x<=.03928?x/12.92:Math.pow((x+.055)/1.055,2.4)};return .2126*f(A[0])+.7152*f(A[1])+.0722*f(A[2])};
+function deriveMode(v,mode){
+  if(mode===v.scheme)return v;
+  const o={...v};const acc=['lo','up','full','ca','oth','oth-c','rest','rest-bd','acc','pri','pri-h','focus','delta','plum','bad','under'];
+  if(mode==='light'){
+    const base=v.lo,ink=mix(v.bg,'#000000',.15);
+    Object.assign(o,{bg:mix(base,'#ffffff',.93),s1:mix(base,'#ffffff',.975),s2:mix(base,'#ffffff',.9),s3:mix(base,'#ffffff',.84),line:mix(base,'#ffffff',.76),hover:mix(base,'#ffffff',.8),
+      tx:ink,mut:mix(ink,'#ffffff',.38),dim:mix(ink,'#ffffff',.55),scheme:'light',on_:1});
+    for(const k of acc){let c=v[k];if(!hx(c))continue;let t=0;while(lum(c)>0.32&&t<8){c=mix(c,'#000000',.12);t++}o[k]=c}
+    o['on-acc']='#ffffff';o['on-pri']='#ffffff';o['rest-tx']=mix(o.rest,'#000000',.35);o.under=mix(o.lo,'#ffffff',.45);
+  }else{
+    const base=v.lo,ink=v.tx;
+    Object.assign(o,{bg:mix(ink,'#000000',.55),s1:mix(ink,'#000000',.45),s2:mix(ink,'#000000',.36),s3:mix(ink,'#000000',.28),line:mix(ink,'#000000',.2),hover:mix(ink,'#000000',.24),
+      tx:mix(v.bg,'#ffffff',.3),mut:mix(v.bg,ink,.35),dim:mix(v.bg,ink,.6),scheme:'dark'});
+    for(const k of acc){let c=v[k];if(!hx(c))continue;let t=0;while(lum(c)<0.28&&t<8){c=mix(c,'#ffffff',.14);t++}o[k]=c}
+    o['on-acc']=mix(ink,'#000000',.5);o['on-pri']=mix(ink,'#000000',.5);o['rest-tx']=mix(o.rest,'#ffffff',.55);o.under=mix(o.lo,o.bg,.45);
+  }
+  for(const [k,b] of [['lo','lo'],['up','up'],['full','full'],['ca','ca'],['oth-c','oth']]){o[b+'-bg']=rgba(o[k],mode==='light'?.12:.16);o[b+'-bd']=rgba(o[k],.45)}
+  o['rest-bg']=rgba(o.rest,.18);o['rest-bg2']=rgba(o.rest,.26);o['acc-bg']=rgba(o.acc,.08);
+  o.hdr=rgba(o.bg,.9);o.nav=rgba(o.s1,.95);o.sbar=rgba(o.s2,.97);o.ov=mode==='light'?rgba(o.tx,.35):'rgba(0,0,0,.7)';
+  o.bgfull=`radial-gradient(circle at 10% 10%,${rgba(o.lo,mode==='light'?.14:.12)},transparent 40%),radial-gradient(circle at 90% 85%,${rgba(o.up,mode==='light'?.12:.1)},transparent 42%),${o.bg}`;
+  delete o.on_;return o;
+}
+function curMode(){try{if(S.loaded){try{localStorage.setItem('liftlog_mode',S.profile.mode||'auto')}catch(e){}return S.profile.mode||'auto'}}catch(e){}try{return localStorage.getItem('liftlog_mode')||'auto'}catch(e){return 'auto'}}
+function themeVars(k){const v=THEMES[k]?.vars||THEMES.original.vars;const m=curMode();return m==='auto'?v:deriveMode(v,m)}
 function applyTheme(k){
   if(!THEMES[k])k='original';
   const st=document.documentElement.style;
-  for(const [n,v] of Object.entries(THEMES[k].vars))st.setProperty('--'+n,v);
-  const v=THEMES[k].vars;
+  const v=themeVars(k);
+  for(const [n,val] of Object.entries(v))st.setProperty('--'+n,val);
   Object.assign(T,{dim:v.dim,acc:v.acc,s1:v.s1,s2:v.s2,s3:v.s3,line:v.line,tx:v.tx,under:v.under,up:v.up,rest:v.rest});
   Object.assign(COLORS,{Lower:v.lo,Upper:v.up,Full:v.full,Cardio:v.ca,Other:v['oth-c']});
-  themeKey=k;
+  themeKey=k;themeModeKey=curMode();
   try{document.querySelector('meta[name=theme-color]').setAttribute('content',v.bg)}catch(e){}
   try{localStorage.setItem('liftlog_theme',k)}catch(e){}
 }
-let themeKey=null;
+let themeKey=null,themeModeKey='auto';
 try{applyTheme(localStorage.getItem('liftlog_theme')||'original')}catch(e){applyTheme('original')}
 const isCardioCat=c=>CATMAP[c]?.group==='Cardio';
 const blankSet=c=>isCardioCat(c)?{t:'',d:'',c:'',l:''}:{r:'',w:''};
@@ -493,7 +593,7 @@ const gid=()=>'w'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 const unit=()=>S.profile.unit||'lbs';
 const clone=o=>JSON.parse(JSON.stringify(o));
 
-function normProfile(p){p=clone(p||{});return {custom:p.custom||{},hidden:p.hidden||[],goal:p.goal||3,unit:p.unit||'lbs',lunit:p.lunit||'in',lastBackup:p.lastBackup||0,snooze:p.snooze||0,customRest:p.customRest||[],theme:p.theme||null,stepsOn:p.stepsOn!==false,stepsAuto:!!p.stepsAuto,bodyGoalsOn:!!p.bodyGoalsOn,goals:{steps:8000,cardio:90,lifts:[],body:{},...(p.goals||{})},routines:Array.isArray(p.routines)?p.routines:[],extras:{effort:true,plates:true,supersets:true,nudges:true,balance:true,badges:true,timer:true,builder:true,injury:true,challenges:true,water:true,...(p.extras||{})},badges:Array.isArray(p.badges)?p.badges:null,bodyType:p.bodyType==='m'?'m':'f',plan:(p.plan&&typeof p.plan==='object')?p.plan:{},rest:{secs:90,auto:true,sound:true,...(p.rest&&typeof p.rest==='object'?p.rest:{})},injuries:Array.isArray(p.injuries)?p.injuries:[],challenges:Array.isArray(p.challenges)?p.challenges:[],pauses:Array.isArray(p.pauses)?p.pauses:[],water:{goal:8,size:'8 oz',nudge:true,from:8,to:22,...(p.water&&typeof p.water==='object'?p.water:{})}}}
+function normProfile(p){p=clone(p||{});return {custom:p.custom||{},hidden:p.hidden||[],goal:p.goal||3,unit:p.unit||'lbs',lunit:p.lunit||'in',lastBackup:p.lastBackup||0,snooze:p.snooze||0,customRest:p.customRest||[],theme:p.theme||null,stepsOn:p.stepsOn!==false,stepsAuto:!!p.stepsAuto,bodyGoalsOn:!!p.bodyGoalsOn,goals:{steps:8000,cardio:90,lifts:[],body:{},...(p.goals||{})},routines:Array.isArray(p.routines)?p.routines:[],extras:{effort:true,plates:true,supersets:true,nudges:true,balance:true,badges:true,timer:true,builder:true,injury:true,challenges:true,water:true,confetti:true,levels:true,garden:true,wrapped:true,gym:true,...(p.extras||{})},badges:Array.isArray(p.badges)?p.badges:null,bodyType:p.bodyType==='m'?'m':'f',plan:(p.plan&&typeof p.plan==='object')?p.plan:{},rest:{secs:90,auto:true,sound:true,...(p.rest&&typeof p.rest==='object'?p.rest:{})},injuries:Array.isArray(p.injuries)?p.injuries:[],mode:['light','dark'].includes(p.mode)?p.mode:'auto',lastLevel:p.lastLevel||0,challenges:Array.isArray(p.challenges)?p.challenges:[],pauses:Array.isArray(p.pauses)?p.pauses:[],water:{goal:8,size:'8 oz',nudge:true,from:8,to:22,...(p.water&&typeof p.water==='object'?p.water:{})}}}
 S.profile=normProfile(S.profile);
 function exercisesFor(cat){
   const hid=new Set(S.profile.hidden||[]);
@@ -551,12 +651,12 @@ const Store={
     S.steps=Object.entries(d.steps||{}).map(([id,v])=>({...v,id}));
     S.water=Object.entries(d.water||{}).map(([id,v])=>({...v,id}));
     if(d.profile)S.profile=normProfile(d.profile);
-    S.loaded=true;render();processPendingSteps();if(S.profile.badges==null)checkBadges(true);
+    S.loaded=true;render();processPendingSteps();if(S.profile.badges==null)checkBadges(true);if(!S.profile.lastLevel)checkLevel();
   },
   subscribe(){
     let gw=false,gp=false;
     const timer=setTimeout(()=>{if(!S.loaded){S.loadNote="Can't reach your saved workouts yet. Keep this open; it'll keep trying.";softRender()}},10000);
-    const done=()=>{if(gw&&gp){clearTimeout(timer);S.loaded=true;S.loadNote=null;setTimeout(()=>{if(S.profile.badges==null)checkBadges(true)},500)}};
+    const done=()=>{if(gw&&gp){clearTimeout(timer);S.loaded=true;S.loadNote=null;setTimeout(()=>{if(S.profile.badges==null)checkBadges(true);if(!S.profile.lastLevel)checkLevel()},500)}};
     this.wcol.onSnapshot(snap=>{
       S.workouts=snap.docs.map(d=>({...clone(d.data()),id:d.id}));
       if(!snap.metadata.fromCache){gw=true;done()}
@@ -664,8 +764,9 @@ function lastFor(ex){
 
 /* ---------------- render ---------------- */
 function render(){
-  if(S.profile.theme&&S.profile.theme!==themeKey)applyTheme(S.profile.theme);
+  if((S.profile.theme&&S.profile.theme!==themeKey)||curMode()!==themeModeKey)applyTheme(S.profile.theme||themeKey||'original');
   document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===S.tab));
+  try{renderLevelChip()}catch(e){}
   const sy=$('#sync');
   sy.innerHTML=S.mode==='cloud'?`<span class="dot ${S.loaded?'ok':''}"></span><span>${S.loaded?'Synced':'Loading…'}</span>`
     :S.mode==='local'?`<span class="dot warn"></span><span>This device only</span>`:`<span class="dot"></span><span>Connecting…</span>`;
@@ -720,7 +821,7 @@ function viewLog(){
   h+=`<div class="notes field"><span>Workout notes</span><textarea data-f="notes" placeholder="How'd it feel? Sleep, energy, anything worth remembering">${esc(d.notes||'')}</textarea></div>`;
   h+=`<div class="savebar"><div class="sum">${nEx?`<b>${nEx}</b> exercise${nEx>1?'s':''} · <b>${nSets}</b> set${nSets!==1?'s':''}`:'Tap exercises above to add them'}</div>
     ${(nEx||d.id)?`<button class="btn ghost sm" data-act="discard">${d.id?'Cancel':'Clear'}</button>`:''}
-    <button class="btn pri" data-act="saveWorkout" ${nEx?'':'disabled style="opacity:.5"'}>${d.id?'Update':'Save workout'}</button></div>`;
+    ${S.profile.extras.gym&&nEx?`<button class="btn sm" data-act="gymOpen" title="Gym mode">⛶ Gym mode</button>`:''}<button class="btn pri" data-act="saveWorkout" ${nEx?'':'disabled style="opacity:.5"'}>${d.id?'Update':'Save workout'}</button></div>`;
   return h;
 }
 function entryHTML(e){
@@ -832,7 +933,7 @@ async function saveRest(){
   if(!doc.acts.length&&!doc.feel&&!doc.note){toast('Add how you feel or what you did');return}
   const id='r'+r.date;
   if(r.loaded&&r.origId&&r.origId!==id){try{await Store.deleteRest(r.origId)}catch(e){}}
-  try{await Store.saveRest(id,doc);S.rDraft=null;S.rNew=false;toast('Rest day saved 🌺');checkBadges();window.scrollTo({top:0});render()}catch(e){toast(errMsg(e))}
+  try{await Store.saveRest(id,doc);S.rDraft=null;S.rNew=false;toast('Rest day saved 🌺');checkBadges();checkLevel();window.scrollTo({top:0});render()}catch(e){toast(errMsg(e))}
 }
 function loadRest(id){const x=S.rest.find(r=>r.id===id);if(!x)return;S.rDraft={date:x.date,acts:[...(x.acts||[])],feel:x.feel||null,note:x.note||'',loaded:true,origId:x.id};S.logMode='rest';S.tab='log';setHash();window.scrollTo({top:0});render()}
 
@@ -950,6 +1051,7 @@ function checkBadges(silent){
   const fresh=earned.filter(b=>!seen.has(b.id));
   if(!fresh.length&&S.profile.badges)return;
   S.profile.badges=earned.map(b=>b.id);Store.saveProfile();
+  if(!silent&&fresh.length)celebrate();
   if(!silent&&fresh.length)setTimeout(()=>toast(`🏅 Badge unlocked: ${fresh[0].icon} ${fresh[0].name}${fresh.length>1?` (+${fresh.length-1} more)`:''}`),1200);
 }
 function badgesCard(){
@@ -1170,6 +1272,152 @@ function challengesCard(){
   const avail=CHAL.filter(c=>chalAvail(c)&&!act.find(x=>x.j.id===c.id));
   if(avail.length)h+=`<div class="sub" style="margin:10px 0 6px">${act.length?'More challenges':'Pick a challenge to start. Progress counts from today.'}</div><div class="chal-grid">${avail.map(c=>`<button class="chal" data-act="chalJoin" data-id="${c.id}"><span>${c.icon}</span><b>${esc(c.name)}</b><i>${esc(c.desc)}</i>${doneList.some(d=>d.id===c.id)?'<em>✓ done before</em>':''}</button>`).join('')}</div>`;
   return h+`</div>`;
+}
+
+
+/* ----- Confetti ----- */
+function celebrate(power=1){
+  if(!S.profile.extras.confetti)return;
+  try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return}catch(e){}
+  const cv=document.createElement('canvas');cv.className='confetti';document.body.appendChild(cv);
+  const dpr=Math.min(2,window.devicePixelRatio||1),W=innerWidth,H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;const c=cv.getContext('2d');c.scale(dpr,dpr);
+  const cols=[COLORS.Lower,COLORS.Upper,COLORS.Full,COLORS.Cardio,T.acc,T.rest];
+  const N=Math.round(110*power),P=[];
+  for(let i=0;i<N;i++){const side=i%2;P.push({x:side?W*0.85:W*0.15,y:H*0.75,vx:(side?-1:1)*(2+Math.random()*6),vy:-(9+Math.random()*9),r:4+Math.random()*6,a:Math.random()*6.28,va:(Math.random()-.5)*.3,col:cols[i%cols.length],petal:Math.random()<.55})}
+  let t0=performance.now();
+  (function fr(t){const dt=Math.min(32,t-t0)/16;t0=t;c.clearRect(0,0,W,H);let alive=0;
+    for(const p of P){p.vy+=0.32*dt;p.vx*=0.99;p.x+=p.vx*dt;p.y+=p.vy*dt;p.a+=p.va*dt;if(p.y<H+20)alive++;
+      c.save();c.translate(p.x,p.y);c.rotate(p.a);c.fillStyle=p.col;
+      if(p.petal){c.beginPath();c.ellipse(0,0,p.r*0.6,p.r*1.2,0,0,6.28);c.fill()}else c.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);c.restore()}
+    if(alive)requestAnimationFrame(fr);else cv.remove()})(t0);
+  setTimeout(()=>cv.remove(),6000);
+}
+
+/* ----- Levels ----- */
+const LEVELS=[[0,'Seedling','🌱'],[300,'Sprout','🌿'],[800,'Bud','🌷'],[1600,'Bloom','🌸'],[2800,'Hibiscus','🌺'],[4500,'Ivy','🍃'],[7000,'Wildflower','🌼'],[10000,'Garden Guardian','🪴'],[14000,'Botanical Beast','🌳'],[19000,'Ivy Queen','👑']];
+function computeXP(){
+  const b={};let sets=0;for(const w of S.workouts)for(const e of w.entries||[])if(!isCardioCat(e.cat))sets+=(e.sets||[]).filter(hasVal).length;
+  b['Sets lifted']=[sets,sets*10];
+  const cm=Math.round(cardioRows().reduce((a,r)=>a+(r.t||0),0));b['Cardio minutes']=[cm,cm];
+  b['Rest days']=[S.rest.length,S.rest.length*25];
+  const wg=S.water.filter(w=>w.n>=S.profile.water.goal).length;if(S.profile.extras.water||wg)b['Water goals hit']=[wg,wg*15];
+  const sg=S.steps.filter(s=>s.n>=(S.profile.goals.steps||8000)).length;if(S.profile.stepsOn||sg)b['Step goals hit']=[sg,sg*20];
+  const pr=computePRs().prs.length;b['PRs']=[pr,pr*50];
+  const ch=S.profile.challenges.filter(j=>j.closed==='done').length;if(ch)b['Challenges']=[ch,ch*200];
+  const bd=(S.profile.badges||[]).length;if(S.profile.extras.badges)b['Badges']=[bd,bd*50];
+  const xp=Object.values(b).reduce((a,x)=>a+x[1],0);return {xp,b};
+}
+function levelOf(xp){let i=0;while(i+1<LEVELS.length&&xp>=LEVELS[i+1][0])i++;
+  if(i===LEVELS.length-1){const extra=Math.floor((xp-LEVELS[i][0])/6000);const base=LEVELS[i][0]+extra*6000;return {n:i+1+extra,name:LEVELS[i][1]+(extra?' '+['','II','III','IV','V','VI','VII','VIII','IX','X'][Math.min(extra,9)]:''),icon:LEVELS[i][2],from:base,to:base+6000}}
+  return {n:i+1,name:LEVELS[i][1],icon:LEVELS[i][2],from:LEVELS[i][0],to:LEVELS[i+1][0],next:LEVELS[i+1]}}
+function renderLevelChip(){const el=$('#lvl');if(!el)return;if(!S.profile.extras.levels||!S.loaded){el.classList.add('hidden');return}
+  const {xp}=computeXP(),L=levelOf(xp);el.classList.remove('hidden');el.innerHTML=`<span>${L.icon}</span><b>Lv ${L.n}</b><i><u style="width:${Math.min(100,(xp-L.from)/(L.to-L.from)*100)}%"></u></i>`;el.title=`${L.name} · ${xp} XP`}
+function checkLevel(){if(!S.profile.extras.levels)return;const L=levelOf(computeXP().xp);
+  if(!S.profile.lastLevel){S.profile.lastLevel=L.n;Store.saveProfile();return}
+  if(L.n>S.profile.lastLevel){S.profile.lastLevel=L.n;Store.saveProfile();setTimeout(()=>{toast(`${L.icon} Level up! You're now a ${L.name} (Lv ${L.n})`);celebrate(1.3)},2200)}}
+function renderLevel(){
+  const {xp,b}=computeXP(),L=levelOf(xp);S.modal='level';
+  $('#modal').innerHTML=`<div class="ov" data-act="closeModal"><div class="sheet" data-stop="1" style="max-width:480px"><div class="sh-h"><h2>${L.icon} Level ${L.n} · ${esc(L.name)}</h2><button class="x" data-act="closeModal">✕</button></div>
+    ${bar((xp-L.from)/(L.to-L.from),T.acc)}<div class="g-row sub"><span>${xp.toLocaleString()} XP</span><span>${(L.to-xp).toLocaleString()} XP to ${L.next?L.next[2]+' '+esc(L.next[1]):'the next level'}</span></div>
+    <div class="list" style="margin-top:10px">${Object.entries(b).map(([k,[n,x]])=>`<div class="row"><div class="nm"><b>${esc(k)}</b><span>${n.toLocaleString()}</span></div><div class="val">+${x.toLocaleString()} XP</div></div>`).join('')}</div>
+    <div class="lv-path">${LEVELS.map(([x,n,i],k)=>`<span class="${k+1<=L.n?'on':''}" title="${n} · ${x} XP">${i}</span>`).join('')}</div>
+    <div class="sub" style="margin-top:8px">XP: 10 per set, 1 per cardio minute, 25 per rest day, 15 per water goal, 20 per step goal, 50 per PR or badge, 200 per challenge.</div></div></div>`;
+}
+
+/* ----- Garden ----- */
+function gardenCard(){
+  const off=S.gardenOff||0,now=new Date(),m=new Date(now.getFullYear(),now.getMonth()+off,1);
+  const y=m.getFullYear(),mo=m.getMonth(),days=new Date(y,mo+1,0).getDate(),lead=(m.getDay()+6)%7,tISO=todayISO();
+  let cells='',bloom=0,past=0;
+  for(let i=0;i<lead;i++)cells+='<span class="gd empty"></span>';
+  for(let d=1;d<=days;d++){
+    const k=`${y}-${pad(mo+1)}-${pad(d)}`,fut=k>tISO;if(!fut)past++;
+    const ws=S.workouts.filter(w=>w.date===k),rs=S.rest.some(r=>r.date===k);
+    let f='';
+    if(ws.length){const t=new Set(ws.map(w=>typeCls(w.type)));f=t.size>1?'💐':t.has('Lower')?'🌷':t.has('Upper')?'🌻':t.has('Cardio')?'🌼':t.has('Full')?'🌺':'🌸'}
+    else if(rs)f='🍀';else if(isPausedDay(k))f='🌙';
+    if(f&&f!=='🌙')bloom++;
+    cells+=`<span class="gd ${fut?'fut':f?'grown':'soil'} ${k===tISO?'today':''}" title="${fmtD(k)}">${f||(fut?'':'<i></i>')}</span>`;
+  }
+  return `<div class="card sec garden"><div class="g-h"><h3>🪴 Your garden · ${m.toLocaleDateString(undefined,{month:'long',year:'numeric'})}</h3><div class="seg"><button data-act="gardenNav" data-v="-1" aria-label="Previous month">‹</button><button data-act="gardenNav" data-v="1" ${off>=0?'disabled style="opacity:.35"':''} aria-label="Next month">›</button></div></div>
+    <div class="gbed"><div class="gdow">${['M','T','W','T','F','S','S'].map(x=>`<b>${x}</b>`).join('')}</div><div class="gdays">${cells}</div></div>
+    <div class="legend"><span>🌷 Lower</span><span>🌻 Upper</span><span>🌺 Full body</span><span>🌼 Cardio</span><span>💐 Mixed</span><span>🍀 Rest day</span><span>🌙 Paused</span></div>
+    <div class="sub" style="margin-top:6px">${bloom} flower${bloom!==1?'s':''} planted${past?` in ${past} day${past!==1?'s':''}`:''}. ${bloom>=past*0.6&&past>3?'Your garden is thriving! 🌿':bloom?'Keep planting 🌱':'Log a workout or rest day to plant your first flower.'}</div></div>`;
+}
+
+/* ----- Wrapped ----- */
+function wrappedData(year){
+  const Y=String(year),W=S.workouts.filter(w=>w.date.startsWith(Y));
+  let lbs=0,sets=0;const exCount={},mus={},month={};
+  for(const w of W){month[w.date.slice(5,7)]=(month[w.date.slice(5,7)]||0)+1;for(const e of w.entries||[]){if(isCardioCat(e.cat))continue;exCount[e.ex]=(exCount[e.ex]||0)+1;for(const s of e.sets||[]){const r=num(s.r),x=num(s.w);if(hasVal(s))sets++;if(r!=null&&x!=null)lbs+=r*x}const n=(e.sets||[]).filter(hasVal).length;for(const m of musclesOf(e))mus[m]=(mus[m]||0)+n}}
+  const fav=Object.entries(exCount).sort((a,b)=>b[1]-a[1])[0];
+  const topM=Object.entries(mus).sort((a,b)=>b[1]-a[1])[0];
+  const bestMo=Object.entries(month).sort((a,b)=>b[1]-a[1])[0];
+  const prs=computePRs().prs.filter(p=>p.date.startsWith(Y));
+  let bigPR=null;for(const p of prs){const g=(p.top-p.prev)/p.prev;if(!bigPR||g>bigPR.g)bigPR={...p,g}}
+  const cr=cardioRows().filter(r=>r.date.startsWith(Y));const cmin=Math.round(cr.reduce((a,r)=>a+(r.t||0),0));
+  const cfav=Object.entries(cr.reduce((o,r)=>(o[r.ex]=(o[r.ex]||0)+(r.t||0),o),{})).sort((a,b)=>b[1]-a[1])[0];
+  const R=S.rest.filter(r=>r.date.startsWith(Y));const ra={};for(const r of R)for(const a of r.acts||[])ra[a]=(ra[a]||0)+1;const rfav=Object.entries(ra).sort((a,b)=>b[1]-a[1])[0];
+  const st=S.steps.filter(s=>s.date.startsWith(Y)).reduce((a,s)=>a+s.n,0);
+  const days=new Set([...W.map(w=>w.date),...R.map(r=>r.date)]).size;
+  return {Y,W,lbs,sets,fav,topM,bestMo,prs,bigPR,cmin,cfav,R,rfav,st,days};
+}
+function wrappedSlides(year){
+  const d=wrappedData(year),u=unit(),slides=[];
+  const S_=(emoji,big,line,sub)=>slides.push({emoji,big,line,sub});
+  S_('🎁',`Your ${d.Y}`,'in Lift Log','Tap to see your year →');
+  S_('🗓️',String(d.W.length),`workouts in ${d.Y}`,`You showed up on ${d.days} day${d.days!==1?'s':''}, workouts and rest days together.`);
+  if(d.lbs){const el=d.lbs/(u==='kg'?5900:13000),car=d.lbs/(u==='kg'?1800:4000);S_('🏋️',Math.round(d.lbs).toLocaleString(),`${u} lifted in total`,el>=1?`That's like lifting ${el>=10?Math.round(el):el.toFixed(1)} elephant${el>=1.5?'s':''}! 🐘`:`That's like lifting ${car.toFixed(1)} cars! 🚗`)}
+  if(d.fav)S_('💖',cap(d.fav[0]),'was your favorite lift',`You did it in ${d.fav[1]} workout${d.fav[1]!==1?'s':''}.`);
+  if(d.bigPR)S_('🏆',`+${Math.round(d.bigPR.g*100)}%`,`on ${cap(d.bigPR.ex)}`,`From ${fw(d.bigPR.prev)} to ${fw(d.bigPR.top)} ${u}. ${d.prs.length} PR${d.prs.length!==1?'s':''} this year in total.`);
+  if(d.topM)S_('💪',cap(d.topM[0]),'got the most love',`${d.topM[1]} sets. Your ${d.topM[0]} thank you.`);
+  if(d.bestMo)S_('📈',new Date(+d.Y,+d.bestMo[0]-1,1).toLocaleDateString(undefined,{month:'long'}),'was your strongest month',`${d.bestMo[1]} workouts that month.`);
+  if(d.cmin)S_('🏃',d.cmin.toLocaleString(),'minutes of cardio',d.cfav?`Mostly on the ${d.cfav[0]}.`:'');
+  if(d.R.length)S_('🌺',String(d.R.length),'rest days logged',d.rfav?`Favorite way to recover: ${d.rfav[0]}.`:'Rest is training too.');
+  if(d.st)S_('👟',d.st.toLocaleString(),'steps logged',`About ${(d.st/2000).toFixed(0)} miles of walking.`);
+  if(S.profile.extras.levels){const L=levelOf(computeXP().xp);S_(L.icon,`Level ${L.n}`,L.name,`${computeXP().xp.toLocaleString()} XP and counting.`)}
+  S_('🌿',`See you in ${+d.Y+1}`,'Keep blooming','Screenshot any slide to share it.');
+  return slides;
+}
+function renderWrapped(){
+  const sl=S.wrapped.slides,i=S.wrapped.i,s=sl[i];S.modal='wrapped';
+  const grads=[[COLORS.Lower,T.rest],[COLORS.Upper,COLORS.Lower],[COLORS.Cardio,COLORS.Lower],[T.rest,COLORS.Upper],[COLORS.Full,COLORS.Cardio]];const g=grads[i%grads.length];
+  $('#modal').innerHTML=`<div class="wrapped" style="background:radial-gradient(circle at 30% 20%,${g[0]},transparent 60%),radial-gradient(circle at 80% 90%,${g[1]},transparent 55%),${T.s1}">
+    <div class="wr-bars">${sl.map((_,k)=>`<i class="${k<=i?'on':''}"></i>`).join('')}</div><button class="wr-x" data-act="wrappedClose" aria-label="Close">✕</button>
+    <div class="wr-tap l" data-act="wrappedNav" data-v="-1"></div><div class="wr-tap r" data-act="wrappedNav" data-v="1"></div>
+    <div class="wr-body"><div class="wr-e">${s.emoji}</div><div class="wr-big">${esc(s.big)}</div><div class="wr-line">${esc(s.line)}</div>${s.sub?`<div class="wr-sub">${esc(s.sub)}</div>`:''}</div>
+    <div class="wr-foot">🌺 Lift Log Wrapped ${esc(String(S.wrapped.year))}</div></div>`;
+}
+
+/* ----- Gym mode ----- */
+function gymCur(e){let i=e.sets.findIndex(s=>!s.done);if(i<0){const l=e.sets[e.sets.length-1]||blankSet(e.cat);e.sets.push({...l,done:'',e:'',auto:'1'});i=e.sets.length-1}return i}
+function gymTidy(){for(const e of S.draft.entries){e.sets=e.sets.filter(s=>!(s.auto&&!s.done));if(!e.sets.length)e.sets=[blankSet(e.cat)]}persistDraft()}
+function renderGym(){
+  const d=S.draft,G=S.gym;const el=$('#gym');
+  if(!G||!d.entries.length){el.classList.add('hidden');el.innerHTML='';document.body.classList.remove('gym-on');return}
+  G.i=Math.max(0,Math.min(G.i,d.entries.length-1));const e=d.entries[G.i],cardio=isCardioCat(e.cat);
+  const done=e.sets.filter(s=>s.done);const ci=gymCur(e),s=e.sets[ci],last=lastFor(e.ex),step=unit()==='kg'?2.5:5;
+  el.classList.remove('hidden');document.body.classList.add('gym-on');
+  el.innerHTML=`<div class="gm-top"><button class="gm-btn" data-act="gymClose">✕ Exit</button><div class="gm-prog">${d.entries.map((x,k)=>`<i class="${k===G.i?'cur':''} ${x.sets.length&&x.sets.every(q=>q.done)?'ok':''}"></i>`).join('')}</div><span class="gm-n">${G.i+1}/${d.entries.length}</span></div>
+  <div class="gm-main">
+    <div class="gm-cat">${esc(CATMAP[e.cat]?.name||'')}</div>
+    <h1 class="gm-ex">${esc(cap(e.ex))}</h1>
+    ${e.target?`<div class="gm-tgt">🎯 ${e.tsets?esc(e.tsets)+' × ':''}${esc(e.target)}</div>`:''}
+    ${last?`<div class="gm-last">Last time: ${esc(summarize(last.sets))}</div>`:''}
+    ${injuryFlag(e.cat,e.ex)?`<div class="gm-warn">⚠️ Careful with your ${esc(injuryFlag(e.cat,e.ex).map(i=>i.area).join(' & '))}</div>`:''}
+    ${cardio?`<div class="gm-set"><div class="gm-lbl">${e.sets.length>1?'Round '+(ci+1):'Session'}</div>
+      <div class="gm-fields c">${[['t','min'],['d',dU()],['c','cal']].map(([f,l])=>`<label><span>${l}</span><input inputmode="decimal" data-gym="${f}" value="${esc(s[f]||'')}" placeholder="—"></label>`).join('')}</div></div>`
+    :`<div class="gm-set"><div class="gm-lbl">Set ${ci+1}</div>
+      <div class="gm-fields">
+        <div class="gm-f"><span>reps</span><div class="gm-step"><button data-act="gymStep" data-f="r" data-v="-1">−</button><input inputmode="numeric" data-gym="r" value="${esc(s.r||'')}" placeholder="${esc(e.target||'0')}"><button data-act="gymStep" data-f="r" data-v="1">+</button></div></div>
+        <div class="gm-f"><span>${esc(unit())}</span><div class="gm-step"><button data-act="gymStep" data-f="w" data-v="${-step}">−</button><input inputmode="decimal" data-gym="w" value="${esc(s.w||'')}" placeholder="BW"><button data-act="gymStep" data-f="w" data-v="${step}">+</button></div></div>
+      </div>
+      ${S.profile.extras.effort?`<div class="gm-eff">${[1,2,3].map(v=>`<button class="${+s.e===v?'on':''}" data-act="gymEff" data-v="${v}">${EFF[v]} ${EFFN[v]}</button>`).join('')}</div>`:''}</div>`}
+    <button class="gm-done" data-act="gymDone">✓ ${cardio?'Done':'Log set '+(ci+1)}</button>
+    ${done.length?`<div class="gm-hist">${done.map((q,k)=>`<span>${cardio?esc(summarize([q])):`${k+1}: ${q.r||'—'} × ${q.w?fw(+q.w):'BW'}${+q.e?' '+EFF[+q.e]:''}`}</span>`).join('')}</div>`:''}
+  </div>
+  <div class="gm-nav"><button class="gm-btn" data-act="gymNav" data-v="-1" ${G.i===0?'disabled':''}>← Prev</button>
+    ${G.i===d.entries.length-1?`<button class="gm-btn pri" data-act="gymFinish">🏁 Finish workout</button>`:`<button class="gm-btn pri" data-act="gymNav" data-v="1">Next →</button>`}</div>`;
 }
 
 /* ----- Goals ----- */
@@ -1455,7 +1703,7 @@ function viewConsistency(){
   const since30=iso(addDays(today,-29));
   const last30=S.workouts.filter(w=>w.date>=since30&&w.date<=tISO);
   const days30=new Set(last30.map(w=>w.date)).size;
-  let h=`<div class="view-title"><h2>Consistency</h2><span class="sub">Goal: ${goal}× per week · <button style="color:var(--acc);font-size:13px" data-act="openSettings">change</button></span></div>`;
+  let h=(S.profile.extras.wrapped&&S.workouts.length?`<button class="wrapped-cta" data-act="wrappedOpen"><span>🎁</span><b>Your ${new Date().getFullYear()} Lift Log Wrapped</b><i>Tap to watch →</i></button>`:'')+`<div class="view-title"><h2>Consistency</h2><span class="sub">Goal: ${goal}× per week · <button style="color:var(--acc);font-size:13px" data-act="openSettings">change</button></span></div>`;
   if(!S.workouts.length&&!S.rest.length)return h+`<div class="card empty"><h3>Nothing logged yet</h3>Your calendar, streaks and weekly bars fill in as you log workouts.<br><br><button class="btn pri" data-act="tab" data-v="log">Log a workout</button></div>`;
   h+=`<div class="tiles">
     <div class="tile"><div class="k">This week</div><div class="v ${thisCount>=goal?'up-t':''}">${thisCount}<small>/ ${goal}</small></div><div class="d">${thisCount>=goal?'Goal hit 🎉':`${goal-thisCount} to go`}</div></div>
@@ -1485,6 +1733,7 @@ function viewConsistency(){
   }
   h+=`<div class="sub" style="margin-top:8px">Highlighted patterns haven't been trained in 2+ weeks.</div></div></div>`;
   h+=planWeekCard(today);
+  if(S.profile.extras.garden)h+=gardenCard();
   if(S.profile.extras.balance)h+=muscleCard(today);
   if(S.profile.extras.badges)h+=badgesCard();
   if(S.rest.length){
@@ -1739,7 +1988,7 @@ function renderSettings(){
   S.modal='settings';
   const p=S.profile;
   let h=`<div class="ov" data-act="closeModal"><div class="sheet" data-stop="1"><div class="sh-h"><h2>Settings</h2><button class="x" data-act="closeModal">✕</button></div>
-  <div class="set-blk"><h3>Theme</h3><div class="themes">${Object.entries(THEMES).map(([k,t])=>{const v=t.vars;return `<button class="theme-opt ${themeKey===k?'on':''}" data-act="theme" data-v="${k}" style="background:${v.bgfull};color:${v.tx};border-color:${themeKey===k?v.acc:v.line}"><span class="tp" style="background:${v.s1};border-color:${v.line}"><b style="font-family:${v.hfont.replace(/"/g,"'")}">${esc(t.name)}</b><span class="sw">${[v.lo,v.up,v.full,v.ca,v.rest].map(c=>`<i style="background:${c}"></i>`).join('')}</span></span></button>`}).join('')}</div></div>
+  <div class="set-blk"><div class="g-h"><h3>Theme</h3><div class="seg">${[['auto','Theme default'],['light','☀️ Light'],['dark','🌙 Dark']].map(([m,l])=>`<button class="${(p.mode||'auto')===m?'on':''}" data-act="mode" data-v="${m}">${l}</button>`).join('')}</div></div><div class="themes">${Object.entries(THEMES).map(([k,t])=>{const v=themeVars(k);return `<button class="theme-opt ${themeKey===k?'on':''}" data-act="theme" data-v="${k}" style="background:${v.bgfull};color:${v.tx};border-color:${themeKey===k?v.acc:v.line}"><span class="tp" style="background:${v.s1};border-color:${v.line}"><b style="font-family:${v.hfont.replace(/"/g,"'")}">${esc(t.name)}</b><span class="sw">${[v.lo,v.up,v.full,v.ca,v.rest].map(c=>`<i style="background:${c}"></i>`).join('')}</span></span></button>`}).join('')}</div></div>
   <div class="set-blk"><div class="g-h"><h3>Step tracking</h3><button class="tgl ${p.stepsOn?'on':''}" data-act="tglSteps" aria-label="Toggle step tracking"><i></i></button></div>
     <div class="sub">${p.stepsOn?'Shows a steps card on the Log tab and a steps goal in Goals.':'Hidden. Turn on to track daily steps.'}</div>
     ${p.stepsOn?`<label class="g-in" style="margin-top:10px">Daily goal <input type="text" inputmode="numeric" data-goal="steps" value="${p.goals.steps||8000}"> steps</label>`:''}
@@ -1748,7 +1997,7 @@ function renderSettings(){
     ${p.stepsAuto?stepsHowTo():''}`:''}</div>
   <div class="set-blk"><h3>⏸ Pause mode</h3>${pauseSettings(p)}</div>
   <div class="set-blk"><h3>✨ Make it sexier</h3><div class="sub" style="margin-bottom:8px">Optional extras. Turn on whatever you like.</div>
-    ${[['timer','Rest timer','Counts down between sets and buzzes when it\'s time to go.'],['effort','Effort rating','Tap 😌 easy / 💪 solid / 🔥 hard on each set.'],['plates','Plate calculator','A 🏋️ Plates button on each lift shows what goes on each side of the bar.'],['supersets','Supersets','Pair exercises (🔗 A, B…) in workouts and routines.'],['nudges','"Go up?" nudges','Suggests adding weight when you hit your reps on every set last time.'],['balance','Muscle balance','A body map in Consistency showing what you trained in the last 7 days.'],['badges','Badges','Milestones to unlock, with a 🏅 pop-up when you earn one.'],['builder','Build me a workout','Makes a workout from your exercises based on time and focus (in Routines).'],['injury','Injury notes','Note a sore spot; risky exercises get ⚠️ and swap ideas.'],['challenges','Challenges','Opt-in 2–4 week challenges in Goals.'],['water','Water tracker','Glasses per day on the Log tab, with in-app reminders.']].map(([k,n,d])=>`<div class="xt"><div><b>${n}</b><span>${d}</span></div><button class="tgl ${p.extras[k]?'on':''}" data-act="tglExtra" data-v="${k}" aria-label="Toggle ${n}"><i></i></button></div>${k==='timer'&&p.extras.timer?timerSettings(p):''}${k==='water'&&p.extras.water?waterSettings(p):''}${k==='injury'&&p.extras.injury?injurySettings(p):''}${k==='balance'&&p.extras.balance?`<div class="xt sub-xt"><div><b>Body map</b><span>Which figure the muscle map uses.</span></div><div class="seg">${[['f','Female'],['m','Male']].map(([v,l])=>`<button class="${p.bodyType===v?'on':''}" data-act="bodyType" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}`).join('')}</div>
+    ${[['timer','Rest timer','Counts down between sets and buzzes when it\'s time to go.'],['effort','Effort rating','Tap 😌 easy / 💪 solid / 🔥 hard on each set.'],['plates','Plate calculator','A 🏋️ Plates button on each lift shows what goes on each side of the bar.'],['supersets','Supersets','Pair exercises (🔗 A, B…) in workouts and routines.'],['nudges','"Go up?" nudges','Suggests adding weight when you hit your reps on every set last time.'],['balance','Muscle balance','A body map in Consistency showing what you trained in the last 7 days.'],['badges','Badges','Milestones to unlock, with a 🏅 pop-up when you earn one.'],['builder','Build me a workout','Makes a workout from your exercises based on time and focus (in Routines).'],['injury','Injury notes','Note a sore spot; risky exercises get ⚠️ and swap ideas.'],['challenges','Challenges','Opt-in 2–4 week challenges in Goals.'],['water','Water tracker','Glasses per day on the Log tab, with in-app reminders.'],['confetti','Confetti','Petals burst for PRs, goals, badges and level-ups.'],['levels','Level up','Earn XP for everything you log and climb from Seedling to Ivy Queen.'],['garden','Your garden','A flower blooms for every day you train or recover (Consistency).'],['wrapped','Lift Log Wrapped','Your year in review, story-style (Consistency).'],['gym','Gym mode','Full-screen, one exercise at a time, big buttons for mid-set logging.']].map(([k,n,d])=>`<div class="xt"><div><b>${n}</b><span>${d}</span></div><button class="tgl ${p.extras[k]?'on':''}" data-act="tglExtra" data-v="${k}" aria-label="Toggle ${n}"><i></i></button></div>${k==='timer'&&p.extras.timer?timerSettings(p):''}${k==='water'&&p.extras.water?waterSettings(p):''}${k==='injury'&&p.extras.injury?injurySettings(p):''}${k==='balance'&&p.extras.balance?`<div class="xt sub-xt"><div><b>Body map</b><span>Which figure the muscle map uses.</span></div><div class="seg">${[['f','Female'],['m','Male']].map(([v,l])=>`<button class="${p.bodyType===v?'on':''}" data-act="bodyType" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}`).join('')}</div>
   <div class="set-blk"><h3>Weekly goal</h3><div class="stepper"><button data-act="goal" data-v="-1">−</button><b>${p.goal}</b><button data-act="goal" data-v="1">+</button><span class="sub" style="margin-left:6px">workouts per week</span></div></div>
   <div class="set-blk"><h3>Weight unit</h3><div class="seg">${['lbs','kg'].map(u=>`<button class="${p.unit===u?'on':''}" data-act="unit" data-v="${u}">${u}</button>`).join('')}</div><div class="sub" style="margin-top:6px">Changes the label only. Numbers you've logged aren't converted.</div></div>
   <div class="set-blk"><h3>Measurement unit</h3><div class="seg">${['in','cm'].map(u=>`<button class="${p.lunit===u?'on':''}" data-act="lunit" data-v="${u}">${u}</button>`).join('')}</div><div class="sub" style="margin-top:6px">For waist, hips and the other tape measurements. Label only.</div></div>
@@ -1811,7 +2060,11 @@ async function saveWorkout(){
   try{
     await Store.saveWorkout(id,doc);
     S.draft=newDraft();setOpenForType(S.draft.type);persistDraft();
-    toast(prs.length?`🏆 New PR: ${prs.join(', ')}`:(old?'Workout updated':'Workout saved ✓'));checkBadges();
+    toast(prs.length?`🏆 New PR: ${prs.join(', ')}`:(old?'Workout updated':'Workout saved ✓'));
+    const wkN=S.workouts.filter(w=>iso(weekStart(parse(w.date)))===iso(weekStart(new Date()))).length;
+    if(!old&&iso(weekStart(parse(doc.date)))===iso(weekStart(new Date()))&&wkN===(S.profile.goal||3)){setTimeout(()=>toast('🎉 Weekly goal hit!'),1600);celebrate()}
+    else if(prs.length)celebrate();
+    checkBadges();checkLevel();
     window.scrollTo({top:0});render();
   }catch(e){toast(errMsg(e));if(btn){btn.disabled=false;btn.textContent='Save workout'}}
 }
@@ -1873,7 +2126,27 @@ document.addEventListener('click',ev=>{
     case 'bSave':{const r=S.builder.result;closeModal();promptBox('Name this routine',r.name,name=>{S.profile.routines.push({...clone(r),id:gid().replace(/^w/,'rt'),name});saveRoutines();toast(`📋 Saved "${name}"`);render()});break}
     case 'chalJoin':{const id=t.dataset.id;S.profile.challenges=[...S.profile.challenges.filter(j=>!(j.id===id&&!j.closed)),{id,start:todayISO()}];Store.saveProfile();const c=CHAL.find(x=>x.id===id);toast(`🏁 ${c.name} started. You've got this!`);render();break}
     case 'chalLeave':{const id=t.dataset.id;confirmBox('Leave this challenge? Progress won\'t be saved.',()=>{S.profile.challenges=S.profile.challenges.filter(j=>!(j.id===id&&!j.closed));Store.saveProfile();render()},'Leave');break}
-    case 'chalClose':{const id=t.dataset.id,v=t.dataset.v;S.profile.challenges=S.profile.challenges.map(j=>j.id===id&&!j.closed?{...j,closed:v,closedOn:todayISO()}:j);Store.saveProfile();if(v==='done')toast('🏅 Challenge complete! So proud of you.');render();checkBadges();break}
+    case 'chalClose':{const id=t.dataset.id,v=t.dataset.v;S.profile.challenges=S.profile.challenges.map(j=>j.id===id&&!j.closed?{...j,closed:v,closedOn:todayISO()}:j);Store.saveProfile();if(v==='done'){toast('🏅 Challenge complete! So proud of you.');celebrate(1.4)}render();checkBadges();break}
+    case 'mode':S.profile.mode=t.dataset.v;try{localStorage.setItem('liftlog_mode',t.dataset.v)}catch(e){}Store.saveProfile();applyTheme(S.profile.theme||themeKey||'original');renderSettings();render();break;
+    case 'openLevel':renderLevel();break;
+    case 'gardenNav':S.gardenOff=Math.min(0,(S.gardenOff||0)+(+t.dataset.v));render();break;
+    case 'wrappedOpen':{const y=new Date().getFullYear();S.wrapped={year:y,i:0,slides:wrappedSlides(y)};renderWrapped();break}
+    case 'wrappedNav':{const n=S.wrapped.i+(+t.dataset.v);if(n>=S.wrapped.slides.length){closeModal();break}S.wrapped.i=Math.max(0,n);renderWrapped();break}
+    case 'wrappedClose':closeModal();break;
+    case 'gymOpen':S.gym={i:0};const fi=S.draft.entries.findIndex(e=>!e.sets.every(s=>s.done));S.gym.i=fi<0?0:fi;renderGym();break;
+    case 'gymClose':gymTidy();S.gym=null;renderGym();render();break;
+    case 'gymNav':gymTidy();S.gym.i+=(+t.dataset.v);renderGym();break;
+    case 'gymStep':{const e=S.draft.entries[S.gym.i],s=e.sets[gymCur(e)],f=t.dataset.f;const cur=num(s[f])??(f==='r'?(parseInt(e.target)||0):0);s[f]=String(Math.max(0,Math.round((cur+(+t.dataset.v))*100)/100));persistDraft();renderGym();break}
+    case 'gymEff':{const e=S.draft.entries[S.gym.i],s=e.sets[gymCur(e)];s.e=String(+s.e===+t.dataset.v?0:+t.dataset.v);persistDraft();renderGym();break}
+    case 'gymDone':{const e=S.draft.entries[S.gym.i],s=e.sets[gymCur(e)];
+      if(!hasVal(s)){toast(isCardioCat(e.cat)?'Enter your time or distance':'Enter reps first');break}
+      s.done='1';persistDraft();
+      if(!isCardioCat(e.cat)&&S.profile.extras.timer)Timer.start();
+      const remaining=e.sets.some(q=>!q.done);
+      if(!remaining&&e.tsets&&e.sets.length>=(parseInt(e.tsets)||0)&&S.gym.i<S.draft.entries.length-1){gymTidy();toast(`✓ ${cap(e.ex)} done! Next up: ${cap(S.draft.entries[S.gym.i+1].ex)}`);S.gym.i++}
+      else if(isCardioCat(e.cat)&&S.gym.i<S.draft.entries.length-1)S.gym.i++;
+      renderGym();break}
+    case 'gymFinish':gymTidy();S.gym=null;renderGym();saveWorkout();break;
     case 'timerStart':Timer.start();break;
     case 'timerAdd':Timer.add(+t.dataset.v);break;
     case 'timerStop':Timer.stop();break;
@@ -1956,6 +2229,7 @@ document.addEventListener('click',ev=>{
 });
 document.addEventListener('input',ev=>{
   const t=ev.target,f=t.dataset.f;
+  if(t.dataset.gym&&S.gym){const e=S.draft.entries[S.gym.i],s=e.sets[gymCur(e)];s[t.dataset.gym]=t.value.replace(/[^\d.]/g,'');persistDraft();return}
   if(t.dataset.rt==='name'&&S.rtEdit){S.rtEdit.name=t.value;return}
   if(t.dataset.rti!=null&&S.rtEdit){const it=S.rtEdit.items[+t.dataset.rti];if(it)it[t.dataset.rtf]=t.value;return}
   if(t.dataset.mf){mD().vals[t.dataset.mf]=t.value.replace(/[^\d.]/g,'');return}
@@ -1997,6 +2271,7 @@ document.addEventListener('keydown',ev=>{
   else if(t.id==='newExIn'){ev.preventDefault();document.querySelector('[data-act="saveNewEx"]')?.click()}
   else if(t.dataset.addcat){ev.preventDefault();document.querySelector(`[data-act="addCustomSet"][data-cat="${t.dataset.addcat}"]`)?.click()}
 });
+(()=>{let sx=null,sy=null;document.addEventListener('touchstart',e=>{if(!S.gym&&S.modal!=='wrapped')return;sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});document.addEventListener('touchend',e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;sx=null;if(Math.abs(dx)<60||Math.abs(dy)>Math.abs(dx))return;const dir=dx<0?1:-1;if(S.gym){gymTidy();S.gym.i=Math.max(0,Math.min(S.draft.entries.length-1,S.gym.i+dir));renderGym()}else if(S.modal==='wrapped'){const n=S.wrapped.i+dir;if(n>=S.wrapped.slides.length)closeModal();else{S.wrapped.i=Math.max(0,n);renderWrapped()}}},{passive:true})})();
 window.addEventListener('hashchange',()=>{if(readStepsHash()){render();processPendingSteps();return}const h=location.hash.slice(1);if(['log','progress','consistency','history'].includes(h)&&h!==S.tab){S.tab=h;render()}});
 
 readStepsHash();
