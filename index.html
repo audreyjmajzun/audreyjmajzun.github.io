@@ -240,7 +240,7 @@ input[type=date]{color-scheme:var(--scheme);min-height:42px}
 .bdg .bp{font-size:11.5px;color:var(--mut)}
 .bpb{width:80%;height:4px;background:var(--s3);border-radius:3px;overflow:hidden}
 .bpb i{display:block;height:100%;background:var(--acc)}
-.rt-timer{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom));z-index:40;display:flex;align-items:center;gap:8px;background:var(--s1);border:1px solid var(--line);border-radius:30px;padding:6px 8px 6px 6px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.rt-timer{position:fixed;left:50%;transform:translateX(-50%);top:calc(66px + env(safe-area-inset-top));bottom:auto;z-index:40;display:flex;align-items:center;gap:8px;background:var(--s1);border:1px solid var(--line);border-radius:30px;padding:6px 8px 6px 6px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .rt-timer .tt{font-size:14px;padding:0 4px;white-space:nowrap}
 .rt-timer .tt b{font-family:var(--nfont);font-size:18px}
 .rt-timer .tb{padding:6px 10px;border-radius:20px;background:var(--s2);border:1px solid var(--line);font-size:13px;font-weight:600}
@@ -332,7 +332,7 @@ input[type=date]{color-scheme:var(--scheme);min-height:42px}
 .wr-foot{text-align:center;font-size:12px;opacity:.7}
 .gym{position:fixed;inset:0;z-index:35;background:var(--bgfull);background-color:var(--bg);display:flex;flex-direction:column;padding:calc(10px + env(safe-area-inset-top)) 16px calc(16px + env(safe-area-inset-bottom))}
 body.gym-on{overflow:hidden}
-body.gym-on .rt-timer{bottom:calc(96px + env(safe-area-inset-bottom))}
+body.gym-on .rt-timer{top:auto;bottom:calc(96px + env(safe-area-inset-bottom))}
 .gm-top{display:flex;align-items:center;gap:10px}
 .gm-prog{flex:1;display:flex;gap:4px}
 .gm-prog i{flex:1;height:5px;border-radius:3px;background:var(--s3)}
@@ -571,6 +571,52 @@ body.squish .tgl:active,body.squish .stk-btn:active{transform:scale(.88)}
 .gl-lab{font-size:13.5px}
 .gv{text-align:center;font-family:var(--nfont);font-weight:600;font-size:15px;padding:6px 0;border-radius:8px;background:var(--s2)}
 .gv em{font-style:normal;color:var(--up);font-size:12px}
+.meta-card{margin-top:14px;padding:12px 14px}
+.meta-row{display:flex;gap:10px;align-items:flex-start;padding:6px 0;flex-wrap:wrap}
+.meta-row+.meta-row{border-top:1px solid var(--line)}
+.meta-l{font-size:13px;color:var(--mut);font-weight:600;min-width:84px;padding-top:6px}
+.meta-row .chips{flex:1}
+.stars{display:inline-flex;gap:2px}
+.stars button{font-size:26px;color:var(--s3);line-height:1;padding:0 1px}
+.stars button.on{color:#f5b301}
+.hm-rate .stars button{font-size:16px}
+.hmeta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}
+.hm{font-size:12px;padding:2px 8px;border-radius:20px;background:var(--s2);border:1px solid var(--line);color:var(--mut)}
+.hm.tg{color:var(--acc)}
+.hm-stars{color:#f5b301;font-size:14px;letter-spacing:1px}
+.hm-stars i{font-style:normal;color:var(--s3)}
+.hfil{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px;align-items:center}
+.hfil select{font-size:13px;padding:6px 8px}
+.ck-card,.supp-card,.finals-card{margin-bottom:14px}
+.ck-list{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.ck{display:flex;align-items:center;gap:10px;text-align:left;padding:9px 10px;border-radius:12px;background:var(--s2);border:1px solid var(--line);font-size:14px}
+.ck.on{background:var(--up-bg);border-color:var(--up-bd);text-decoration:line-through;color:var(--mut)}
+.ckb{width:22px;height:22px;border-radius:7px;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;font-weight:800;flex:none;background:var(--s1)}
+.ck.on .ckb,.supp.on .ckb{background:var(--up);border-color:var(--up);color:var(--on-pri)}
+.supp-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.supp{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;align-items:center;text-align:left;padding:9px 10px;border-radius:12px;background:var(--s2);border:1px solid var(--line)}
+.supp .ckb{grid-row:span 2}
+.supp b{font-size:14px}
+.supp i{font-style:normal;font-size:11.5px;color:var(--mut)}
+.supp.on{background:var(--up-bg);border-color:var(--up-bd)}
+.supp-card.due{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc)}
+.finals-card{border-color:var(--rest-bd);background:linear-gradient(135deg,var(--rest-bg),transparent),var(--s1)}
+body.hc{--mut:var(--tx);--dim:color-mix(in srgb,var(--tx) 78%,var(--bg));--line:color-mix(in srgb,var(--tx) 45%,var(--bg))}
+body.hc .card,body.hc .tile,body.hc .entry,body.hc .chip,body.hc .btn,body.hc input,body.hc select,body.hc textarea,body.hc .gl-t,body.hc .wo{border-width:1.5px}
+body.hc .sub,body.hc .gl-l,body.hc .tile .k{font-weight:600}
+body.hc .chip.on,body.hc .seg button.on{outline:2px solid var(--acc);outline-offset:-2px}
+body.hc .season{display:none}
+body.lefty .savebar{flex-direction:row-reverse;padding:10px 16px 10px 10px}
+body.lefty .savebar .sum{text-align:right}
+body.lefty .set-row,body.lefty .set-hdr{direction:rtl}
+body.lefty .set-row>*,body.lefty .set-hdr>*{direction:ltr}
+body.lefty .e-h{flex-direction:row-reverse}
+body.lefty .e-h b{text-align:right}
+body.lefty .gm-nav{flex-direction:row-reverse}
+body.lefty .rt-timer{left:16px;transform:none}
+body.lefty .rt-timer.done{animation:none}
+body.lefty .wc-top,body.lefty .st-in{flex-direction:row-reverse}
+body.lefty .toast,body.lefty .undo{left:16px;transform:none}
 .notes{margin-top:18px}
 .notes textarea{width:100%;min-height:64px;resize:vertical}
 .savebar{position:sticky;bottom:calc(72px + env(safe-area-inset-bottom));margin-top:18px;z-index:10;display:flex;gap:10px;align-items:center;background:var(--sbar);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:10px 10px 10px 16px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
@@ -789,7 +835,7 @@ const blankSet=c=>isCardioCat(c)?{t:'',d:'',c:'',l:''}:{r:'',w:''};
 const S={
   workouts:[], profile:{custom:{},hidden:[],goal:3,unit:'lbs'},
   tab:'log', draft:null, open:{Lower:true,Upper:false,Cardio:false}, newExCat:null,
-  progEx:null, logMode:'workout', water:[], loose:[], drinks:[], steps:[], stepDate:null, rtEdit:null, rest:[], rDraft:null, rNew:false, progMode:'lifts', cardEx:null, cMetric:'t', measures:[], mSel:'weight', mDraft:null, metric:'top', loaded:false, loadNote:null, mode:'connecting', ptSel:null, heatSel:null,
+  progEx:null, logMode:'workout', water:[], loose:[], drinks:[], checks:[], steps:[], stepDate:null, rtEdit:null, rest:[], rDraft:null, rNew:false, progMode:'lifts', cardEx:null, cMetric:'t', measures:[], mSel:'weight', mDraft:null, metric:'top', loaded:false, loadNote:null, mode:'connecting', ptSel:null, heatSel:null,
 };
 try{ const t=location.hash.slice(1); if(['today','log','progress','consistency','history'].includes(t)) S.tab=t; }catch(e){}
 
@@ -811,7 +857,7 @@ const gid=()=>'w'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 const unit=()=>S.profile.unit||'lbs';
 const clone=o=>JSON.parse(JSON.stringify(o));
 
-function normProfile(p){p=clone(p||{});return {custom:p.custom||{},hidden:p.hidden||[],goal:p.goal||3,unit:p.unit||'lbs',lunit:p.lunit||'in',lastBackup:p.lastBackup||0,snooze:p.snooze||0,customRest:p.customRest||[],theme:p.theme||null,stepsOn:p.stepsOn!==false,stepsAuto:!!p.stepsAuto,bodyGoalsOn:!!p.bodyGoalsOn,goals:{steps:8000,cardio:90,lifts:[],body:{},...(p.goals||{})},routines:Array.isArray(p.routines)?p.routines:[],extras:{effort:true,plates:true,supersets:true,nudges:true,balance:true,badges:true,timer:true,builder:true,injury:true,challenges:true,water:true,confetti:true,levels:true,garden:true,wrapped:true,gym:true,jar:true,letters:true,loose:true,glance:true,drinks:false,favorites:true,repeat:true,undo:true,convert:true,howto:true,tour:true,pet:true,glowup:true,greeting:true,transitions:true,squish:true,outfits:true,flip:true,forecast:true,pep:true,splash:true,stickers:true,pump:true,seasonal:true,...(p.extras||{})},badges:Array.isArray(p.badges)?p.badges:null,bodyType:p.bodyType==='m'?'m':'f',plan:(p.plan&&typeof p.plan==='object')?p.plan:{},rest:{secs:90,auto:true,sound:true,...(p.rest&&typeof p.rest==='object'?p.rest:{})},injuries:Array.isArray(p.injuries)?p.injuries:[],mode:['light','dark'].includes(p.mode)?p.mode:'auto',rewards:Array.isArray(p.rewards)?p.rewards:[],whale:p.whale||null,preset:p.preset||'everything',tabs:{today:true,progress:true,consistency:true,history:true,...(p.tabs||{})},favs:Array.isArray(p.favs)?p.favs:[],formNotes:(p.formNotes&&typeof p.formNotes==='object')?p.formNotes:{},toured:!!p.toured,name:p.name||'',eggs:(p.eggs&&typeof p.eggs==='object')?p.eggs:{},birthday:p.birthday||'',rainbowHawk:!!p.rainbowHawk,jelly:!!p.jelly,waterPerDrink:p.waterPerDrink!==false,letters:Array.isArray(p.letters)?p.letters:[],pepVibe:p.pepVibe||'bestie',season:p.season||'auto',stickerPage:Array.isArray(p.stickerPage)?p.stickerPage:[],lastLevel:p.lastLevel||0,challenges:Array.isArray(p.challenges)?p.challenges:[],pauses:Array.isArray(p.pauses)?p.pauses:[],water:{goal:8,size:'8 oz',nudge:true,from:8,to:22,...(p.water&&typeof p.water==='object'?p.water:{})}}}
+function normProfile(p){p=clone(p||{});return {custom:p.custom||{},hidden:p.hidden||[],goal:p.goal||3,unit:p.unit||'lbs',lunit:p.lunit||'in',lastBackup:p.lastBackup||0,snooze:p.snooze||0,customRest:p.customRest||[],theme:p.theme||null,stepsOn:p.stepsOn!==false,stepsAuto:!!p.stepsAuto,bodyGoalsOn:!!p.bodyGoalsOn,goals:{steps:8000,cardio:90,lifts:[],body:{},...(p.goals||{})},routines:Array.isArray(p.routines)?p.routines:[],extras:{effort:true,plates:true,supersets:true,nudges:true,balance:true,badges:true,timer:true,builder:true,injury:true,challenges:true,water:true,confetti:true,levels:true,garden:true,wrapped:true,gym:true,jar:true,letters:true,loose:true,glance:true,drinks:false,rating:true,tags:true,location:true,checklist:true,supps:true,finals:true,contrast:false,lefty:false,favorites:true,repeat:true,undo:true,convert:true,howto:true,tour:true,pet:true,glowup:true,greeting:true,transitions:true,squish:true,outfits:true,flip:true,forecast:true,pep:true,splash:true,stickers:true,pump:true,seasonal:true,...(p.extras||{})},badges:Array.isArray(p.badges)?p.badges:null,bodyType:p.bodyType==='m'?'m':'f',plan:(p.plan&&typeof p.plan==='object')?p.plan:{},rest:{secs:90,auto:true,sound:true,...(p.rest&&typeof p.rest==='object'?p.rest:{})},injuries:Array.isArray(p.injuries)?p.injuries:[],mode:['light','dark'].includes(p.mode)?p.mode:'auto',rewards:Array.isArray(p.rewards)?p.rewards:[],whale:p.whale||null,preset:p.preset||'everything',customTags:Array.isArray(p.customTags)?p.customTags:[],locs:Array.isArray(p.locs)?p.locs:['Home','Campus gym','Gym','Outdoors'],lastLoc:p.lastLoc||'',checkItems:Array.isArray(p.checkItems)?p.checkItems:['🧘 Stretch','😴 8 hours of sleep','🧴 Skincare','🌳 Time outside','🧠 Meditate'],supps:Array.isArray(p.supps)?p.supps:['💊 Supplements'],suppTime:p.suppTime||'09:00',finals:p.finals||null,tabs:{today:true,progress:true,consistency:true,history:true,...(p.tabs||{})},favs:Array.isArray(p.favs)?p.favs:[],formNotes:(p.formNotes&&typeof p.formNotes==='object')?p.formNotes:{},toured:!!p.toured,name:p.name||'',eggs:(p.eggs&&typeof p.eggs==='object')?p.eggs:{},birthday:p.birthday||'',rainbowHawk:!!p.rainbowHawk,jelly:!!p.jelly,waterPerDrink:p.waterPerDrink!==false,letters:Array.isArray(p.letters)?p.letters:[],pepVibe:p.pepVibe||'bestie',season:p.season||'auto',stickerPage:Array.isArray(p.stickerPage)?p.stickerPage:[],lastLevel:p.lastLevel||0,challenges:Array.isArray(p.challenges)?p.challenges:[],pauses:Array.isArray(p.pauses)?p.pauses:[],water:{goal:8,size:'8 oz',nudge:true,from:8,to:22,...(p.water&&typeof p.water==='object'?p.water:{})}}}
 S.profile=normProfile(S.profile);
 function exercisesFor(cat){
   const hid=new Set(S.profile.hidden||[]);
@@ -870,6 +916,7 @@ const Store={
     S.water=Object.entries(d.water||{}).map(([id,v])=>({...v,id}));
     S.loose=Object.entries(d.loose||{}).map(([id,v])=>({...v,id}));
     S.drinks=Object.entries(d.drinks||{}).map(([id,v])=>({...v,id}));
+    S.checks=Object.entries(d.checks||{}).map(([id,v])=>({...v,id}));
     if(d.profile)S.profile=normProfile(d.profile);
     S.loaded=true;render();processPendingSteps();setTimeout(dailySurprises,1900);if(S.profile.badges==null)checkBadges(true);if(!S.profile.lastLevel)checkLevel();
   },
@@ -882,6 +929,8 @@ const Store={
       if(!snap.metadata.fromCache){gw=true;done()}
       softRender();
     },err=>{clearTimeout(timer);S.loaded=true;S.loadNote="Couldn't load saved workouts ("+err.code+"). Try reopening the page.";softRender()});
+    this.ckcol=this.pref.collection('checks');
+    this.ckcol.onSnapshot(snap=>{S.checks=snap.docs.map(d=>({...clone(d.data()),id:d.id}));softRender()},()=>{});
     this.drcol=this.pref.collection('drinks');
     this.drcol.onSnapshot(snap=>{S.drinks=snap.docs.map(d=>({...clone(d.data()),id:d.id}));softRender()},()=>{});
     this.locol=this.pref.collection('loose');
@@ -911,6 +960,12 @@ const Store={
     if(S.mode==='cloud'){await this.wcol.doc(id).delete()}
     else{const d=Local.read();delete d.workouts[id];Local.write(d)}
     S.workouts=S.workouts.filter(w=>w.id!==id);
+  },
+  async saveChecks(id,doc){
+    if(S.mode==='cloud'){await this.ckcol.doc(id).set(doc)}
+    else{const d=Local.read();(d.checks=d.checks||{})[id]=doc;Local.write(d)}
+    const i=S.checks.findIndex(m=>m.id===id);
+    if(i>=0)S.checks[i]={...doc,id};else S.checks.push({...doc,id});
   },
   async saveDrinks(id,doc){
     if(S.mode==='cloud'){await this.drcol.doc(id).set(doc)}
@@ -981,7 +1036,7 @@ function errMsg(e){
 }
 
 /* ---------------- draft ---------------- */
-function newDraft(){return {id:null,date:todayISO(),type:'Lower',entries:[],notes:''}}
+function newDraft(){let loc='';try{loc=S.profile.lastLoc||''}catch(e){}return {id:null,date:todayISO(),type:'Lower',entries:[],notes:'',rating:0,tags:[],loc}}
 function loadDraft(){try{const d=JSON.parse(localStorage.getItem(DKEY));if(d&&Array.isArray(d.entries))return d}catch(e){}return newDraft()}
 let dTimer;function persistDraft(){clearTimeout(dTimer);dTimer=setTimeout(()=>{try{localStorage.setItem(DKEY,JSON.stringify(S.draft))}catch(e){}},300)}
 S.draft=loadDraft();
@@ -1004,6 +1059,8 @@ function render(){
   if(S.tab!=='log'&&S.profile.tabs&&S.profile.tabs[S.tab]===false)S.tab='log';
   document.querySelectorAll('nav.tabs button').forEach(b=>{b.classList.toggle('on',b.dataset.v===S.tab);b.style.display=(b.dataset.v==='log'||S.profile.tabs[b.dataset.v]!==false)?'':'none'});
   document.body.classList.toggle('squish',!!S.profile.extras.squish);
+  document.body.classList.toggle('hc',!!S.profile.extras.contrast);
+  document.body.classList.toggle('lefty',!!S.profile.extras.lefty);
   try{renderLevelChip()}catch(e){}
   try{renderSeason()}catch(e){}
   try{const hd=holidayToday();const el=$('#holi');if(el)el.textContent=hd?' '+hd.e:(isBirthday()?' 🎂':'')}catch(e){}
@@ -1060,7 +1117,7 @@ function viewLog(){
     }
     h+=`</section>`;
   }
-  h+=`<div class="notes field"><span>Workout notes</span><textarea data-f="notes" placeholder="How'd it feel? Sleep, energy, anything worth remembering">${esc(d.notes||'')}</textarea></div>`;
+  h+=`<div class="notes field"><span>Workout notes</span><textarea data-f="notes" placeholder="How'd it feel? Sleep, energy, anything worth remembering">${esc(d.notes||'')}</textarea></div>`+workoutMeta(d);
   h+=`<div class="savebar"><div class="sum">${nEx?`<b>${nEx}</b> exercise${nEx>1?'s':''} · <b>${nSets}</b> set${nSets!==1?'s':''}`:'Tap exercises above to add them'}</div>
     ${(nEx||d.id)?`<button class="btn ghost sm" data-act="discard">${d.id?'Cancel':'Clear'}</button>`:''}
 <button class="btn pri" data-act="saveWorkout" ${nEx?'':'disabled style="opacity:.5"'}>${d.id?'Update':'Save workout'}</button></div>`;
@@ -1368,7 +1425,7 @@ function planWeekCard(today){
 /* ----- Pause mode ----- */
 const PAUSE_R={sick:'🤒 Sick',travel:'✈️ Travel',other:'🌙 Life'};
 function activePause(){const t=todayISO();return S.profile.pauses.find(p=>p.from<=t&&(!p.to||p.to>=t))}
-function isPausedDay(d){return S.profile.pauses.some(p=>p.from<=d&&(!p.to||p.to>=d)&&d<=todayISO())}
+function isPausedDay(d){return d<=todayISO()&&(S.profile.pauses.some(p=>p.from<=d&&(!p.to||p.to>=d))||(S.profile.extras.finals&&S.profile.finals&&S.profile.finals.from<=d&&S.profile.finals.to>=d))}
 function weekPaused(wk){for(let i=0;i<7;i++)if(isPausedDay(iso(addDays(parse(wk),i))))return true;return false}
 function pausedDaysBetween(a,b){let n=0;for(let d=parse(a);iso(d)<=b;d=addDays(d,1))if(isPausedDay(iso(d)))n++;return n}
 function pauseBanner(){const p=activePause();if(!p)return '';return `<div class="banner pause-b"><span>⏸ <b>Paused · ${esc(PAUSE_R[p.reason]||'Paused')}</b> since ${fmtD(p.from)}${p.to?` until ${fmtD(p.to)}`:''}. Streaks, goals and challenges are on hold. ${p.reason==='sick'?'Rest up 💛':p.reason==='travel'?'Enjoy the trip!':''}</span><button class="btn sm pri" data-act="resume">I'm back</button></div>`}
@@ -1873,10 +1930,10 @@ function drinkTip(){if(!S.profile.extras.drinks)return '';const y=iso(addDays(ne
 
 
 /* ----- Presets ----- */
-const XKEYS=['effort','plates','supersets','nudges','balance','badges','timer','builder','injury','challenges','water','confetti','levels','garden','wrapped','gym','jar','letters','forecast','pep','splash','stickers','pump','seasonal','loose','glance','favorites','repeat','undo','convert','howto','tour','pet','glowup','greeting','transitions','squish','outfits','flip'];
+const XKEYS=['rating','tags','location','checklist','supps','finals','effort','plates','supersets','nudges','balance','badges','timer','builder','injury','challenges','water','confetti','levels','garden','wrapped','gym','jar','letters','forecast','pep','splash','stickers','pump','seasonal','loose','glance','favorites','repeat','undo','convert','howto','tour','pet','glowup','greeting','transitions','squish','outfits','flip'];
 const PRESET_ON={
-  simple:['timer','undo','convert','howto','favorites','repeat','transitions','squish'],
-  standard:['timer','effort','plates','supersets','nudges','balance','badges','builder','injury','water','glance','loose','favorites','repeat','undo','convert','howto','greeting','transitions','squish','confetti','levels','gym','pump','tour'],
+  simple:['timer','undo','convert','howto','favorites','repeat','transitions','squish','rating'],
+  standard:['rating','tags','location','checklist','supps','finals','timer','effort','plates','supersets','nudges','balance','badges','builder','injury','water','glance','loose','favorites','repeat','undo','convert','howto','greeting','transitions','squish','confetti','levels','gym','pump','tour'],
 };
 function applyPreset(k){
   const X={...S.profile.extras};
@@ -1905,7 +1962,7 @@ function repeatRow(){
   return `<div class="rep-row"><span class="fav-l">↻</span>${out.map(w=>`<button class="chip" data-act="repeatW" data-id="${w.id}">${esc(w.routine||w.type)} · ${fmtD(w.date,{weekday:'short'})}</button>`).join('')}</div>`;
 }
 function repeatWorkout(w){
-  const go=()=>{S.draft={id:null,date:todayISO(),type:w.type||'Other',notes:'',routine:w.routine||'',entries:(w.entries||[]).map(e=>({id:gid(),cat:e.cat,ex:e.ex,note:e.note||'',ss:e.ss||'',sets:(e.sets||[]).map(s=>Object.fromEntries(Object.entries(s).filter(([k])=>k!=='e').map(([k,v])=>[k,v==null?'':String(v)])))}))};
+  const go=()=>{S.draft={id:null,date:todayISO(),type:w.type||'Other',notes:'',routine:w.routine||'',rating:0,tags:[],loc:w.loc||S.profile.lastLoc||'',entries:(w.entries||[]).map(e=>({id:gid(),cat:e.cat,ex:e.ex,note:e.note||'',ss:e.ss||'',sets:(e.sets||[]).map(s=>Object.fromEntries(Object.entries(s).filter(([k])=>k!=='e').map(([k,v])=>[k,v==null?'':String(v)])))}))};
     setOpenForType(S.draft.type,true);persistDraft();S.tab='log';S.logMode='workout';setHash();window.scrollTo({top:0});render();toast(`↻ Repeating ${w.routine||w.type} from ${fmtD(w.date)}`)};
   if(S.draft.entries.length&&!S.draft.id)confirmBox('Replace the workout you\'re logging?',go,'Replace');else go();
 }
@@ -2059,6 +2116,78 @@ function glowCard(){
     ${rows.map(([l,x,y,f])=>{const up=x!=null&&y!=null&&y>x;return `<div class="gl-lab">${esc(l)}</div><div class="gv">${f(x)}</div><div class="gv now">${f(y)}${up?' <em>▲</em>':''}</div>`}).join('')}</div></div>`;
 }
 
+
+/* ----- Rating / tags / location ----- */
+const TAGS0=['#sore','#tired','#energized','#newgym','#withfriend','#period','#PRday','#quick'];
+const allTags=()=>[...new Set([...TAGS0,...S.profile.customTags])];
+function stars(v,act,size=''){return `<span class="stars ${size}">${[1,2,3,4,5].map(n=>`<button class="${n<=v?'on':''}" data-act="${act}" data-v="${n}" aria-label="${n} stars">★</button>`).join('')}</span>`}
+function workoutMeta(d){
+  const X=S.profile.extras;if(!X.rating&&!X.tags&&!X.location)return '';
+  let h=`<div class="card meta-card">`;
+  if(X.rating)h+=`<div class="meta-row"><span class="meta-l">How was it?</span>${stars(d.rating||0,'rate')}</div>`;
+  if(X.location)h+=`<div class="meta-row"><span class="meta-l">📍 Where?</span><div class="chips">${S.profile.locs.map(l=>`<button class="chip ${d.loc===l?'on bsel':''}" data-act="loc" data-v="${esc(l)}">${esc(l)}</button>`).join('')}</div></div>`;
+  if(X.tags)h+=`<div class="meta-row"><span class="meta-l">🏷️ Tags</span><div class="chips">${allTags().map(t=>`<button class="chip ${(d.tags||[]).includes(t)?'on bsel':''}" data-act="tag" data-v="${esc(t)}">${esc(t)}</button>`).join('')}<button class="chip new" data-act="tagNew">+ tag</button></div></div>`;
+  return h+`</div>`;
+}
+function histMeta(w){const X=S.profile.extras,p=[];if(X.rating&&w.rating)p.push(`<span class="hm-stars">${'★'.repeat(w.rating)}<i>${'★'.repeat(5-w.rating)}</i></span>`);if(X.location&&w.loc)p.push(`<span class="hm">📍 ${esc(w.loc)}</span>`);if(X.tags&&(w.tags||[]).length)p.push(...w.tags.map(t=>`<span class="hm tg">${esc(t)}</span>`));
+  if(X.rating&&!w.rating)p.push(`<span class="hm-rate">${stars(0,'rateW sm').replace(/data-act="rateW sm"/g,`data-act="rateW" data-id="${w.id}"`)}</span>`);
+  return p.length?`<div class="hmeta">${p.join('')}</div>`:''}
+function histFilters(){
+  const X=S.profile.extras,F=S.hf||{};if(!X.rating&&!X.tags&&!X.location)return '';
+  const used=new Set();for(const w of S.workouts)for(const t of w.tags||[])used.add(t);const locs=new Set(S.workouts.map(w=>w.loc).filter(Boolean));
+  if(!X.rating&&!used.size&&!locs.size)return '';
+  return `<div class="hfil">${X.rating?`<button class="chip ${F.rate?'on bsel':''}" data-act="hf" data-k="rate" data-v="1">⭐ 4★+</button>`:''}
+    ${X.location&&locs.size?`<select data-hf="loc"><option value="">📍 Anywhere</option>${[...locs].map(l=>`<option ${F.loc===l?'selected':''}>${esc(l)}</option>`).join('')}</select>`:''}
+    ${X.tags&&used.size?`<select data-hf="tag"><option value="">🏷️ Any tag</option>${[...used].map(t=>`<option ${F.tag===t?'selected':''}>${esc(t)}</option>`).join('')}</select>`:''}
+    ${(F.rate||F.tag||F.loc)?`<button class="chip" data-act="hfClear">✕ Clear</button>`:''}</div>`;
+}
+function locCard(){
+  if(!S.profile.extras.location)return '';const c={};for(const w of S.workouts)if(w.loc)c[w.loc]=(c[w.loc]||0)+1;const ent=Object.entries(c).sort((a,b)=>b[1]-a[1]);if(!ent.length)return '';
+  const mx=ent[0][1];const rt={};for(const w of S.workouts)if(w.loc&&w.rating){(rt[w.loc]=rt[w.loc]||[]).push(w.rating)}
+  return `<div class="card sec"><h3>📍 Where you train</h3>${ent.map(([l,n])=>`<div class="bal"><span class="nm" style="text-transform:none">${esc(l)}</span><div class="track"><div class="fill" style="width:${n/mx*100}%;background:${COLORS.Upper}"></div></div><span class="ago">${n}×${rt[l]?` · ${(rt[l].reduce((a,b)=>a+b,0)/rt[l].length).toFixed(1)}★`:''}</span></div>`).join('')}</div>`;
+}
+function listEditor(key,title,ph){
+  const arr=S.profile[key]||[];
+  return `<div class="sub-xt" style="padding-top:0"><b style="font-size:13.5px">${title}</b><div class="mg-list" style="margin-top:6px">${arr.map((x,i)=>`<span class="mg-chip cus">${esc(x)}<button data-act="liDel" data-k="${key}" data-i="${i}" aria-label="Remove">✕</button></span>`).join('')||'<span class="sub">None yet.</span>'}</div>
+    <div class="newex"><input type="text" id="li_${key}" placeholder="${esc(ph)}"><button class="btn sm" data-act="liAdd" data-k="${key}">Add</button></div></div>`;
+}
+
+/* ----- Checklist & supplements ----- */
+const ckOf=d=>S.checks.find(x=>x.date===d)||{date:d,done:[],supps:{}};
+function saveCk(d,patch){const cur=ckOf(d);const doc={date:d,done:cur.done||[],supps:cur.supps||{},...patch,updatedAt:Date.now()};return Store.saveChecks('ck'+d,doc)}
+function checkCard(){
+  if(!S.profile.extras.checklist||!S.profile.checkItems.length)return '';
+  const t=todayISO(),c=ckOf(t),items=S.profile.checkItems,done=items.filter(i=>(c.done||[]).includes(i)).length;
+  let streak=0;for(let d=new Date(),g=0;g<400;g++,d=addDays(d,-1)){const k=iso(d),x=ckOf(k);const all=items.every(i=>(x.done||[]).includes(i));if(all)streak++;else if(k===t)continue;else break}
+  return `<div class="card ck-card"><div class="g-h" style="margin-bottom:8px"><h3>✅ Daily checklist</h3><span class="sub">${done}/${items.length}${streak?` · 🔥 ${streak}-day streak`:''}</span></div>
+    ${bar(done/items.length,done===items.length?T.up:COLORS.Lower)}
+    <div class="ck-list">${items.map(i=>`<button class="ck ${(c.done||[]).includes(i)?'on':''}" data-act="ck" data-v="${esc(i)}"><span class="ckb">${(c.done||[]).includes(i)?'✓':''}</span>${esc(i)}</button>`).join('')}</div>
+    <div class="sub" style="margin-top:6px">Edit items in ⚙️ Settings → ✨ Make it sexier → Daily wellness checklist.</div></div>`;
+}
+function suppDue(){if(!S.profile.extras.supps||!S.profile.supps.length)return false;const [hh,mm]=(S.profile.suppTime||'09:00').split(':').map(Number);const n=new Date();if(n.getHours()*60+n.getMinutes()<hh*60+mm)return false;const c=ckOf(todayISO());return S.profile.supps.some(s=>!(c.supps||{})[s])}
+function suppCard(){
+  if(!S.profile.extras.supps||!S.profile.supps.length)return '';
+  const c=ckOf(todayISO()),sp=c.supps||{},all=S.profile.supps.every(s=>sp[s]);
+  return `<div class="card supp-card ${suppDue()?'due':''}"><div class="g-h" style="margin-bottom:8px"><h3>💊 ${S.profile.supps.length===1?'Supplements':'Supplements'}</h3><span class="sub">${all?'All taken ✓':suppDue()?'⏰ Reminder: not taken yet':`Reminder at ${fmtTime(S.profile.suppTime)}`}</span></div>
+    <div class="supp-list">${S.profile.supps.map(s=>`<button class="supp ${sp[s]?'on':''}" data-act="supp" data-v="${esc(s)}"><span class="ckb">${sp[s]?'✓':''}</span><b>${esc(s)}</b>${sp[s]?`<i>taken ${esc(sp[s])}</i>`:'<i>tap when taken</i>'}</button>`).join('')}</div></div>`;
+}
+const fmtTime=t=>{const [h,m]=String(t||'09:00').split(':').map(Number);const d=new Date();d.setHours(h,m,0,0);return d.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'})};
+let lastSuppPing=0;
+setInterval(()=>{try{if(!S.loaded||document.hidden||!suppDue())return;if(Date.now()-lastSuppPing<3*3600e3)return;lastSuppPing=Date.now();toast('💊 Reminder: take your supplements! Mark them on Today.')}catch(e){}},60000);
+
+/* ----- Finals week ----- */
+function activeFinals(){const f=S.profile.finals;if(!S.profile.extras.finals||!f)return null;const t=todayISO();return f.from<=t&&f.to>=t?f:null}
+const STUDY_STRETCH=['🙆 Neck rolls · 30 sec each way','🤸 Standing side bends · 10 each side','🦵 Hip flexor stretch · 30 sec each leg','🐈 Cat-cow · 10 slow reps','🙌 Doorway chest stretch · 30 sec','🚶 Walk + water refill · 2 min'];
+function finalsCard(){
+  const f=activeFinals();if(!f)return '';const g=Math.max(1,Math.ceil((S.profile.goal||3)/2));
+  return `<div class="card finals-card"><div class="g-h" style="margin-bottom:6px"><h3>📚 Finals week mode</h3><span class="sub">until ${fmtD(f.to)}</span></div>
+    <div class="sub" style="margin-bottom:10px">Goal lowered to ${g}× this week and your streaks are protected. Short and sweet counts. You've got this! 💪</div>
+    <div class="today-cta" style="margin-top:0"><button class="btn pri" data-act="finalsWorkout">⚡ 15-min workout</button><button class="btn" data-act="finalsStretch">🧘 5-min study break</button></div></div>`;
+}
+function renderStretch(){S.modal='stretch';$('#modal').innerHTML=`<div class="ov" data-act="closeModal"><div class="sheet" data-stop="1" style="max-width:440px"><div class="sh-h"><h2>🧘 5-minute study break</h2><button class="x" data-act="closeModal">✕</button></div>
+  <div class="ck-list">${STUDY_STRETCH.map((s,i)=>`<button class="ck" data-act="stretchTick" data-i="${i}"><span class="ckb"></span>${esc(s)}</button>`).join('')}</div>
+  <div class="sub" style="margin-top:10px">Tap each one as you go. Then back to the books 📖</div></div></div>`}
+
 /* ----- At a glance ----- */
 function weekStreakNow(){
   const goal=S.profile.goal||3,byWeek={};for(const w of S.workouts){const k=iso(weekStart(parse(w.date)));byWeek[k]=(byWeek[k]||0)+1}
@@ -2071,8 +2200,8 @@ function glanceRow(){
   if(!S.profile.extras.glance)return '';
   const X=S.profile.extras,tiles=[],thisW=iso(weekStart(new Date()));
   const tile=(act,icon,val,label,f,extra='')=>tiles.push(`<button class="gl-t" ${act}><span class="gl-i">${icon}</span><b>${val}</b><span class="gl-l">${label}</span>${f!=null?`<span class="gl-b"><i style="width:${Math.max(0,Math.min(1,f))*100}%"></i></span>`:''}${extra}</button>`);
-  const goal=S.profile.goal||3,wc=S.workouts.filter(w=>iso(weekStart(parse(w.date)))===thisW).length;
-  tile('data-act="tab" data-v="consistency"','🏋️',`${wc}/${goal}`,wc>=goal?'week goal hit 🎉':'workouts this week',wc/goal);
+  const goal=activeFinals()?Math.max(1,Math.ceil((S.profile.goal||3)/2)):(S.profile.goal||3),wc=S.workouts.filter(w=>iso(weekStart(parse(w.date)))===thisW).length;
+  tile('data-act="tab" data-v="consistency"','🏋️',`${wc}/${goal}`,wc>=goal?'week goal hit 🎉':activeFinals()?'finals goal 📚':'workouts this week',wc/goal);
   const ws=weekStreakNow();tile('data-act="tab" data-v="consistency"','🔥',ws,`week streak${activePause()?' · paused':''}`,null);
   if(S.profile.stepsOn){const ss=stepStreakNow();tile('data-act="goGoals"','👟',ss,'day step streak',null)}
   const cg=S.profile.goals.cardio||90,cm=cardioMinutes(thisW);tile('data-act="goGoals"','🏃',`${fw(Math.round(cm))}<small>/${cg}</small>`,'cardio min this week',cm/cg);
@@ -2114,8 +2243,9 @@ function viewToday(){
   const t=todayISO(),ws=S.workouts.filter(w=>w.date===t),rs=S.rest.find(r=>r.date===t);
   let h=`<div class="view-title"><h2>${greeting()}</h2><span class="sub">${fmtD(t,{weekday:'long',month:'long',day:'numeric'})}</span></div>`;
   h+=holidayBanner()+letterBanner()+todayPlanCard()+glanceRow()+petCard();
+  if(S.profile.extras.finals&&!activeFinals()){const m=new Date().getMonth();if(m===11||m===4||m===5||m===2)h+=`<div class="banner"><span>📚 Finals coming up? Turn on <b>finals week mode</b> to lighten your goals and protect your streaks.</span><button class="btn sm" data-act="finalsOn" data-v="7">Turn on</button></div>`}
   if(ws.length||rs)h+=`<div class="banner today-done"><span>✓ <b>Logged today:</b> ${[...ws.map(w=>esc(w.routine||w.type)),...(rs?['🌺 Rest day']:[])].join(' · ')}</span><button class="btn sm ghost" data-act="tab" data-v="history">View</button></div>`;
-  const body=drinkTip()+stepsCard()+waterCard()+looseCard()+drinksCard()+jarMini();
+  const body=finalsCard()+suppCard()+checkCard()+drinkTip()+stepsCard()+waterCard()+looseCard()+drinksCard()+jarMini();
   h+=body;
   if(!body.trim()&&!ws.length&&!rs)h+=`<div class="card empty"><h3>Nothing to track here yet</h3>Turn on step tracking, the water tracker or a reward jar in ⚙️ Settings, and they'll show up on this page.</div>`;
   if(!ws.length&&!rs&&!S.draft.entries.length&&!planFor(dowOf(new Date())))h+=`<div class="today-cta"><button class="btn pri" data-act="tab" data-v="log">🏋️ Log a workout</button><button class="btn" data-act="goRest">🌺 Log a rest day</button></div>`;
@@ -2438,6 +2568,7 @@ function viewConsistency(){
   }
   h+=`<div class="sub" style="margin-top:8px">Highlighted patterns haven't been trained in 2+ weeks.</div></div></div>`;
   h+=planWeekCard(today);
+  h+=locCard();
   if(S.profile.extras.glowup)h+=glowCard();
   if(S.profile.extras.garden)h+=gardenCard();
   if(S.profile.extras.balance)h+=muscleCard(today);
@@ -2520,7 +2651,10 @@ function viewHistory(){
   if(!S.workouts.length&&!S.rest.length)return h+`<div class="card empty"><h3>Nothing yet</h3>Saved workouts and rest days appear here, where you can edit or delete them.</div>`;
   const {set}=computePRs();
   let lastM='';
-  const items=[...S.workouts.map(w=>({k:'w',date:w.date,o:w,c:w.createdAt||0})),...S.rest.map(r=>({k:'r',date:r.date,o:r,c:-1}))].sort((a,b)=>a.date<b.date?1:a.date>b.date?-1:b.c-a.c);
+  h+=histFilters();const F=S.hf||{};const filt=F.rate||F.tag||F.loc;
+  const wOK=w=>(!F.rate||(w.rating||0)>=4)&&(!F.tag||(w.tags||[]).includes(F.tag))&&(!F.loc||w.loc===F.loc);
+  const items=[...S.workouts.filter(wOK).map(w=>({k:'w',date:w.date,o:w,c:w.createdAt||0})),...(filt?[]:S.rest.map(r=>({k:'r',date:r.date,o:r,c:-1})))].sort((a,b)=>a.date<b.date?1:a.date>b.date?-1:b.c-a.c);
+  if(filt&&!items.length)h+=`<div class="card empty">No workouts match these filters.</div>`;
   for(const it of items){
     const w=it.o;
     const m=fmtD(w.date,{month:'long',year:'numeric'});
@@ -2535,7 +2669,7 @@ function viewHistory(){
     h+=`<div class="wo"><div class="wo-h"><h3>${fmtD(w.date,{weekday:'short',month:'short',day:'numeric'})}</h3><span class="pill ${typeCls(w.type)}">${esc(w.type)}</span>${w.routine?`<span class="pill rt">📋 ${esc(w.routine)}</span>`:''}
       ${S.profile.extras.repeat?`<button class="btn sm ghost" data-act="repeatW" data-id="${w.id}" title="Repeat this workout">↻</button>`:''}<button class="btn sm ghost" data-act="saveAsRt" data-id="${w.id}" title="Save as routine">📋 Save</button><button class="btn sm ghost" data-act="editW" data-id="${w.id}">Edit</button><button class="btn sm ghost danger" data-act="delW" data-id="${w.id}">Delete</button></div>
       <div class="wo-l">${(w.entries||[]).map(e=>`<span class="n">${esc(cap(e.ex))} ${set.has(w.id+'|'+e.ex)?'<span class="pr">🏆 PR</span>':''}</span><span class="s">${S.profile.extras.supersets&&e.ss?`<em class="ssl">🔗${esc(e.ss)}</em> `:''}${esc(summarize(e.sets))||'—'}${S.profile.extras.effort&&(e.sets||[]).some(s=>+s.e)?` <span class="effh">${(e.sets||[]).map(s=>+s.e?EFF[+s.e]:'').join('')}</span>`:''}${e.note?` <i>· ${esc(e.note)}</i>`:''}</span>`).join('')}</div>
-      ${w.notes?`<div class="wo-note">${esc(w.notes)}</div>`:''}</div>`;
+      ${histMeta(w)}${w.notes?`<div class="wo-note">${esc(w.notes)}</div>`:''}</div>`;
   }
   return h;
 }
@@ -2615,7 +2749,7 @@ function backupDue(){
   return now-ref>30*864e5;
 }
 function doBackup(){
-  const txt=JSON.stringify({app:'liftlog',v:2,exported:todayISO(),profile:S.profile,workouts:S.workouts,measures:S.measures,rest:S.rest,steps:S.steps,water:S.water,loose:S.loose,drinks:S.drinks});
+  const txt=JSON.stringify({app:'liftlog',v:2,exported:todayISO(),profile:S.profile,workouts:S.workouts,measures:S.measures,rest:S.rest,steps:S.steps,water:S.water,loose:S.loose,drinks:S.drinks,checks:S.checks});
   const mark=()=>{S.profile.lastBackup=Date.now();S.profile.snooze=0;Store.saveProfile()};
   const fallback=()=>{mark();renderSettings();const ta=$('#importTxt');if(ta){ta.value=txt;ta.focus();ta.select()}toast('Copy the text in the box, then paste it somewhere personal')};
   try{navigator.clipboard.writeText(txt).then(()=>{mark();toast('Backup copied. Paste it into a personal note or email.');if(S.modal==='settings')renderSettings();render()}).catch(fallback)}catch(e){fallback()}
@@ -2710,7 +2844,7 @@ function renderSettings(){
   <div class="set-blk"><div class="g-h"><h3>🎂 Birthday</h3><input type="date" id="bday" value="${p.birthday?'2000-'+p.birthday:''}" style="max-width:170px"></div><div class="sub">Optional. Only the month and day are used, for a little surprise. 🎁</div></div>
   <div class="set-blk"><h3>⏸ Pause mode</h3>${pauseSettings(p)}</div>
   <div class="set-blk"><h3>✨ Make it sexier</h3><div class="sub" style="margin-bottom:8px">Optional extras. Turn on whatever you like.</div>
-    ${[['timer','Rest timer','Counts down between sets and buzzes when it\'s time to go.'],['effort','Effort rating','Tap 😌 easy / 💪 solid / 🔥 hard on each set.'],['plates','Plate calculator','A 🏋️ Plates button on each lift shows what goes on each side of the bar.'],['supersets','Supersets','Pair exercises (🔗 A, B…) in workouts and routines.'],['nudges','"Go up?" nudges','Suggests adding weight when you hit your reps on every set last time.'],['balance','Muscle balance','A body map in Consistency showing what you trained in the last 7 days.'],['badges','Badges','Milestones to unlock, with a 🏅 pop-up when you earn one.'],['builder','Build me a workout','Makes a workout from your exercises based on time and focus (in Routines).'],['injury','Injury notes','Note a sore spot; risky exercises get ⚠️ and swap ideas.'],['challenges','Challenges','Opt-in 2–4 week challenges in Goals.'],['water','Water tracker','Glasses per day on the Log tab, with in-app reminders.'],['confetti','Confetti','Petals burst for PRs, goals, badges and level-ups.'],['levels','Level up','Earn XP for everything you log and climb from Seedling to Ivy Queen.'],['garden','Your garden','A flower blooms for every day you train or recover (Consistency).'],['wrapped','Lift Log Wrapped','Your year in review, story-style (Consistency).'],['gym','Gym mode','Full-screen, one exercise at a time, big buttons for mid-set logging.'],['jar','Reward jar','Set a real-life prize and fill the jar with workouts (Goals).'],['favorites','Favorites','Star ☆ exercises and they show in a row at the top of Log.'],['repeat','Repeat a workout','One tap to repeat a recent workout (Log and History).'],['undo','Undo after deleting','Delete right away with a 6-second Undo, instead of confirm pop-ups.'],['convert','Real lbs/kg conversion','Switching units converts everything you\'ve logged.'],['howto','Exercise how-to','An ⓘ on each exercise with muscles worked, form videos and your own cues.'],['tour','Welcome tour','A quick intro the first time the app opens (replay it any time).'],['pet','Wally & Teddy','Your pet whale and his teddy bear friend live on Today and react to your consistency.'],['glowup','Glow-up card','Your first month vs your latest month, side by side (Consistency).'],['greeting','Personal greeting','"Good morning, [name] 🌺" on Today.'],['transitions','Smooth page transitions','Pages slide in when you switch tabs.'],['squish','Squishy buttons','Buttons bounce a little when you tap them.'],['outfits','Holiday outfits','Your body map figure and Wally & Teddy dress up for holidays and your birthday.'],['flip','Flip the body','Muscle map shows one side at a time; tap to flip front ↔ back.'],['drinks','Drinks tracker','Private log of alcoholic drinks on Today, with your own patterns (no streaks, no judgment). Off by default.'],['glance','At a glance','A row of mini tiles on Today: weekly goal, streaks, level, badges, challenges and more.'],['loose','Looseness check-in','Rate how loose your body feels each day on Today, and see your loosest day.'],['letters','Letters to future you','Write a note that unlocks in 30, 90 or 180 days (Goals).'],['forecast','Forecasts','"At this rate you\'ll hit 150 by March" on lifts and lift goals.'],['pep','Pep talk button','A 📣 button on the Log tab for a quick hype line.'],['splash','Hibiscus splash','The logo blooms open when the app starts.'],['stickers','Sticker book','Earn stickers and decorate your own scrapbook page (Consistency).'],['pump','Today\'s pump','After saving, the muscles you trained glow on the body map.'],['seasonal','Seasonal themes','Falling petals, sunshine, leaves or snow depending on the season.']].map(([k,n,d])=>`<div class="xt"><div><b>${n}</b><span>${d}</span></div><button class="tgl ${p.extras[k]?'on':''}" data-act="tglExtra" data-v="${k}" aria-label="Toggle ${n}"><i></i></button></div>${k==='timer'&&p.extras.timer?timerSettings(p):''}${k==='drinks'&&p.extras.drinks?`<div class="xt sub-xt"><div><b>Water per drink</b><span>Adds a glass to today's water goal for each drink.</span></div><button class="tgl ${p.waterPerDrink?'on':''}" data-act="wpd"><i></i></button></div>`:''}${k==='pep'&&p.extras.pep?`<div class="xt sub-xt"><div><b>Vibe</b><span>How your pep talks sound.</span></div><div class="seg">${Object.entries(PEP).map(([v,o])=>`<button class="${p.pepVibe===v?'on':''}" data-act="pepVibe" data-v="${v}">${o.label}</button>`).join('')}</div></div>`:''}${k==='seasonal'&&p.extras.seasonal?`<div class="xt sub-xt"><div><b>Season</b><span>Auto follows the calendar.</span></div><div class="seg">${[['auto','Auto'],['spring','🌸'],['summer','🏖️'],['fall','🍂'],['winter','❄️']].map(([v,l])=>`<button class="${p.season===v?'on':''}" data-act="season" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}${k==='water'&&p.extras.water?waterSettings(p):''}${k==='injury'&&p.extras.injury?injurySettings(p):''}${k==='balance'&&p.extras.balance?`<div class="xt sub-xt"><div><b>Body map</b><span>Which figure the muscle map uses.</span></div><div class="seg">${[['f','Female'],['m','Male']].map(([v,l])=>`<button class="${p.bodyType===v?'on':''}" data-act="bodyType" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}`).join('')}</div>
+    ${[['timer','Rest timer','Counts down between sets and buzzes when it\'s time to go.'],['effort','Effort rating','Tap 😌 easy / 💪 solid / 🔥 hard on each set.'],['plates','Plate calculator','A 🏋️ Plates button on each lift shows what goes on each side of the bar.'],['supersets','Supersets','Pair exercises (🔗 A, B…) in workouts and routines.'],['nudges','"Go up?" nudges','Suggests adding weight when you hit your reps on every set last time.'],['balance','Muscle balance','A body map in Consistency showing what you trained in the last 7 days.'],['badges','Badges','Milestones to unlock, with a 🏅 pop-up when you earn one.'],['builder','Build me a workout','Makes a workout from your exercises based on time and focus (in Routines).'],['injury','Injury notes','Note a sore spot; risky exercises get ⚠️ and swap ideas.'],['challenges','Challenges','Opt-in 2–4 week challenges in Goals.'],['water','Water tracker','Glasses per day on the Log tab, with in-app reminders.'],['confetti','Confetti','Petals burst for PRs, goals, badges and level-ups.'],['levels','Level up','Earn XP for everything you log and climb from Seedling to Ivy Queen.'],['garden','Your garden','A flower blooms for every day you train or recover (Consistency).'],['wrapped','Lift Log Wrapped','Your year in review, story-style (Consistency).'],['gym','Gym mode','Full-screen, one exercise at a time, big buttons for mid-set logging.'],['jar','Reward jar','Set a real-life prize and fill the jar with workouts (Goals).'],['rating','Rate your workout','Give each workout 1–5 stars and filter History to your best.'],['tags','Tags','Add tags like #sore or #withfriend to workouts and filter by them.'],['location','Location','Pick where you trained (Home, Campus gym…) and see where you train most.'],['checklist','Daily wellness checklist','Your own daily checkboxes on Today, with streaks.'],['supps','Supplement reminders','Mark supplements as taken each day, with an in-app reminder.'],['finals','Finals week mode','A button to lighten goals, protect streaks and get study-break workouts during exams.'],['contrast','High contrast','Stronger text and borders for bright gyms or outdoors.'],['lefty','Left-handed layout','Main buttons on the left for one-thumb use.'],['favorites','Favorites','Star ☆ exercises and they show in a row at the top of Log.'],['repeat','Repeat a workout','One tap to repeat a recent workout (Log and History).'],['undo','Undo after deleting','Delete right away with a 6-second Undo, instead of confirm pop-ups.'],['convert','Real lbs/kg conversion','Switching units converts everything you\'ve logged.'],['howto','Exercise how-to','An ⓘ on each exercise with muscles worked, form videos and your own cues.'],['tour','Welcome tour','A quick intro the first time the app opens (replay it any time).'],['pet','Wally & Teddy','Your pet whale and his teddy bear friend live on Today and react to your consistency.'],['glowup','Glow-up card','Your first month vs your latest month, side by side (Consistency).'],['greeting','Personal greeting','"Good morning, [name] 🌺" on Today.'],['transitions','Smooth page transitions','Pages slide in when you switch tabs.'],['squish','Squishy buttons','Buttons bounce a little when you tap them.'],['outfits','Holiday outfits','Your body map figure and Wally & Teddy dress up for holidays and your birthday.'],['flip','Flip the body','Muscle map shows one side at a time; tap to flip front ↔ back.'],['drinks','Drinks tracker','Private log of alcoholic drinks on Today, with your own patterns (no streaks, no judgment). Off by default.'],['glance','At a glance','A row of mini tiles on Today: weekly goal, streaks, level, badges, challenges and more.'],['loose','Looseness check-in','Rate how loose your body feels each day on Today, and see your loosest day.'],['letters','Letters to future you','Write a note that unlocks in 30, 90 or 180 days (Goals).'],['forecast','Forecasts','"At this rate you\'ll hit 150 by March" on lifts and lift goals.'],['pep','Pep talk button','A 📣 button on the Log tab for a quick hype line.'],['splash','Hibiscus splash','The logo blooms open when the app starts.'],['stickers','Sticker book','Earn stickers and decorate your own scrapbook page (Consistency).'],['pump','Today\'s pump','After saving, the muscles you trained glow on the body map.'],['seasonal','Seasonal themes','Falling petals, sunshine, leaves or snow depending on the season.']].map(([k,n,d])=>`<div class="xt"><div><b>${n}</b><span>${d}</span></div><button class="tgl ${p.extras[k]?'on':''}" data-act="tglExtra" data-v="${k}" aria-label="Toggle ${n}"><i></i></button></div>${k==='timer'&&p.extras.timer?timerSettings(p):''}${k==='checklist'&&p.extras.checklist?listEditor('checkItems','Checklist items','e.g. 🦷 Floss'):''}${k==='supps'&&p.extras.supps?listEditor('supps','Your supplements','e.g. Creatine, Vitamin D')+`<div class="xt sub-xt"><div><b>Reminder time</b><span>Shows a reminder on Today (and a pop-up while the app's open) if you haven't marked them yet.</span></div><input type="time" id="suppTime" value="${esc(p.suppTime)}" style="max-width:120px"></div>`:''}${k==='location'&&p.extras.location?listEditor('locs','Your locations','e.g. Hotel gym'):''}${k==='finals'&&p.extras.finals?`<div class="xt sub-xt"><div><b>Finals week</b><span>${activeFinals()?`On until ${fmtD(activeFinals().to)}`:'Off'}</span></div>${activeFinals()?'<button class="btn sm" data-act="finalsOff">End now</button>':'<button class="btn sm pri" data-act="finalsOn" data-v="7">Start (1 wk)</button><button class="btn sm" data-act="finalsOn" data-v="14">2 wks</button>'}</div>`:''}${k==='drinks'&&p.extras.drinks?`<div class="xt sub-xt"><div><b>Water per drink</b><span>Adds a glass to today's water goal for each drink.</span></div><button class="tgl ${p.waterPerDrink?'on':''}" data-act="wpd"><i></i></button></div>`:''}${k==='pep'&&p.extras.pep?`<div class="xt sub-xt"><div><b>Vibe</b><span>How your pep talks sound.</span></div><div class="seg">${Object.entries(PEP).map(([v,o])=>`<button class="${p.pepVibe===v?'on':''}" data-act="pepVibe" data-v="${v}">${o.label}</button>`).join('')}</div></div>`:''}${k==='seasonal'&&p.extras.seasonal?`<div class="xt sub-xt"><div><b>Season</b><span>Auto follows the calendar.</span></div><div class="seg">${[['auto','Auto'],['spring','🌸'],['summer','🏖️'],['fall','🍂'],['winter','❄️']].map(([v,l])=>`<button class="${p.season===v?'on':''}" data-act="season" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}${k==='water'&&p.extras.water?waterSettings(p):''}${k==='injury'&&p.extras.injury?injurySettings(p):''}${k==='balance'&&p.extras.balance?`<div class="xt sub-xt"><div><b>Body map</b><span>Which figure the muscle map uses.</span></div><div class="seg">${[['f','Female'],['m','Male']].map(([v,l])=>`<button class="${p.bodyType===v?'on':''}" data-act="bodyType" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}`).join('')}</div>
   <div class="set-blk"><h3>Weekly goal</h3><div class="stepper"><button data-act="goal" data-v="-1">−</button><b>${p.goal}</b><button data-act="goal" data-v="1">+</button><span class="sub" style="margin-left:6px">workouts per week</span></div></div>
   <div class="set-blk"><h3>Weight unit</h3><div class="seg">${['lbs','kg'].map(u=>`<button class="${p.unit===u?'on':''}" data-act="unit" data-v="${u}">${u}</button>`).join('')}</div><div class="sub" style="margin-top:6px">Changes the label only. Numbers you've logged aren't converted.</div></div>
   <div class="set-blk"><h3>Measurement unit</h3><div class="seg">${['in','cm'].map(u=>`<button class="${p.lunit===u?'on':''}" data-act="lunit" data-v="${u}">${u}</button>`).join('')}</div><div class="sub" style="margin-top:6px">For waist, hips and the other tape measurements. Label only.</div></div>
@@ -2765,13 +2899,13 @@ async function saveWorkout(){
   if(!entries.length){toast('Add at least one set first');return}
   const id=d.id||gid();
   const old=S.workouts.find(w=>w.id===id);
-  const doc={date:d.date,type:d.type,notes:(d.notes||'').trim(),entries,...(d.routine?{routine:d.routine}:{}),createdAt:old?.createdAt||Date.now(),updatedAt:Date.now()};
+  const doc={date:d.date,type:d.type,notes:(d.notes||'').trim(),entries,...(d.rating?{rating:d.rating}:{}),...((d.tags||[]).length?{tags:d.tags}:{}),...(d.loc?{loc:d.loc}:{}),...(d.routine?{routine:d.routine}:{}),createdAt:old?.createdAt||Date.now(),updatedAt:Date.now()};
   // PR check
   const prev={};for(const w of S.workouts){if(w.id===id||w.date>d.date)continue;for(const e of w.entries||[])for(const s of e.sets||[]){const x=num(s.w);if(x!=null)prev[e.ex]=Math.max(prev[e.ex]??-Infinity,x)}}
   const prs=[];for(const e of entries){const t=Math.max(...e.sets.map(s=>s.w??-Infinity));if(isFinite(t)&&prev[e.ex]!=null&&t>prev[e.ex])prs.push(`${cap(e.ex)} ${fw(t)} ${unit()}`)}
   const btn=document.querySelector('[data-act="saveWorkout"]');if(btn){btn.disabled=true;btn.textContent='Saving…'}
   try{
-    await Store.saveWorkout(id,doc);
+    await Store.saveWorkout(id,doc);if(doc.loc&&doc.loc!==S.profile.lastLoc){S.profile.lastLoc=doc.loc;Store.saveProfile()}
     S.draft=newDraft();setOpenForType(S.draft.type);persistDraft();
     toast(prs.length?`🏆 New PR: ${prs.join(', ')}`:(old?'Workout updated':'Workout saved ✓'));
     const wkN=S.workouts.filter(w=>iso(weekStart(parse(w.date)))===iso(weekStart(new Date()))).length;
@@ -2785,7 +2919,7 @@ async function saveWorkout(){
 function startEdit(id){
   const w=S.workouts.find(x=>x.id===id);if(!w)return;
   const go=()=>{
-    S.draft={id:w.id,date:w.date,type:w.type||'Other',notes:w.notes||'',routine:w.routine||'',entries:(w.entries||[]).map(e=>({id:gid(),cat:e.cat,ex:e.ex,note:e.note||'',ss:e.ss||'',sets:(e.sets||[]).map(s=>Object.fromEntries(Object.entries(s).map(([k,v])=>[k,v==null?'':String(v)])))}))};
+    S.draft={id:w.id,date:w.date,type:w.type||'Other',notes:w.notes||'',routine:w.routine||'',rating:w.rating||0,tags:[...(w.tags||[])],loc:w.loc||'',entries:(w.entries||[]).map(e=>({id:gid(),cat:e.cat,ex:e.ex,note:e.note||'',ss:e.ss||'',sets:(e.sets||[]).map(s=>Object.fromEntries(Object.entries(s).map(([k,v])=>[k,v==null?'':String(v)])))}))};
     setOpenForType(S.draft.type,true);persistDraft();S.tab='log';setHash();window.scrollTo({top:0});render();
   };
   if(S.draft.entries.length&&S.draft.id!==id)confirmBox('Discard the workout you were logging and edit this one?',go,'Discard & edit');else go();
@@ -2862,6 +2996,22 @@ document.addEventListener('click',ev=>{
     case 'cueSave':{const v=($('#cueTxt')?.value||'').trim();const f={...S.profile.formNotes};if(v)f[S.howEx]=v;else delete f[S.howEx];S.profile.formNotes=f;Store.saveProfile();closeModal();toast(v?'📝 Cue saved':'Cue removed');render();break}
     case 'flipBody':S.flipped=!S.flipped;{const fi=document.querySelector('.flip-inner');if(fi){fi.classList.toggle('flipped',S.flipped);const lb=document.querySelector('.flip-lbl');if(lb)lb.textContent=(S.flipped?'back':'front')+' · tap to flip ↻'}else render()}break;
     case 'petWally':case 'petTeddy':{const w=a==='petWally';const arr=PET_TAP[w?'wally':'teddy'];S.petLine={mood:petMood(),text:arr[Math.floor(Math.random()*arr.length)]};const tx=document.querySelector('.pet-txt div');if(tx)tx.textContent=S.petLine.text;petBurst(w?'💙':'💛');t.classList.remove('boop');void t.offsetWidth;t.classList.add('boop');break}
+    case 'rate':{const v=+t.dataset.v;S.draft.rating=S.draft.rating===v?0:v;persistDraft();render();break}
+    case 'rateW':{const w=S.workouts.find(x=>x.id===t.dataset.id);if(!w)break;const doc={...clone(w),rating:+t.dataset.v,updatedAt:Date.now()};delete doc.id;Store.saveWorkout(w.id,doc).then(()=>{toast(`${'★'.repeat(+t.dataset.v)} saved`);render()}).catch(e=>toast(errMsg(e)));break}
+    case 'loc':{const v=t.dataset.v;S.draft.loc=S.draft.loc===v?'':v;persistDraft();render();break}
+    case 'tag':{const v=t.dataset.v,tg=S.draft.tags||[];S.draft.tags=tg.includes(v)?tg.filter(x=>x!==v):[...tg,v];persistDraft();render();break}
+    case 'tagNew':promptBox('New tag','#',v=>{let x=v.trim().replace(/\s+/g,'');if(!x||x==='#')return;if(!x.startsWith('#'))x='#'+x;if(!allTags().includes(x)){S.profile.customTags=[...S.profile.customTags,x];Store.saveProfile()}S.draft.tags=[...new Set([...(S.draft.tags||[]),x])];persistDraft();render()},'Add');break;
+    case 'hf':{S.hf={...(S.hf||{}),[t.dataset.k]:S.hf&&S.hf[t.dataset.k]?'':t.dataset.v};render();break}
+    case 'hfClear':S.hf={};render();break;
+    case 'liAdd':{const k=t.dataset.k,inp=$('#li_'+k),v=(inp?.value||'').trim();if(!v)break;if(!(S.profile[k]||[]).includes(v)){S.profile[k]=[...(S.profile[k]||[]),v];Store.saveProfile()}renderSettings();render();break}
+    case 'liDel':{const k=t.dataset.k,i=+t.dataset.i;S.profile[k]=(S.profile[k]||[]).filter((x,j)=>j!==i);Store.saveProfile();renderSettings();render();break}
+    case 'ck':{const d=todayISO(),c=ckOf(d),v=t.dataset.v;const done=(c.done||[]).includes(v)?c.done.filter(x=>x!==v):[...(c.done||[]),v];saveCk(d,{done}).then(()=>{if(S.profile.checkItems.every(i=>done.includes(i))){toast('✅ Checklist complete! Glowing. ✨');celebrate(.7)}render()}).catch(e=>toast(errMsg(e)));break}
+    case 'supp':{const d=todayISO(),c=ckOf(d),v=t.dataset.v,sp={...(c.supps||{})};if(sp[v])delete sp[v];else sp[v]=new Date().toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'});saveCk(d,{supps:sp}).then(()=>{if(sp[v])toast(`💊 ${v.replace(/^\S+\s/,'')} marked as taken`);render()}).catch(e=>toast(errMsg(e)));break}
+    case 'finalsOn':{const n=+t.dataset.v;S.profile.finals={from:todayISO(),to:iso(addDays(new Date(),n-1))};Store.saveProfile();toast('📚 Finals week mode on. Good luck! 🍀');if(S.modal==='settings')renderSettings();render();break}
+    case 'finalsOff':S.profile.finals=null;Store.saveProfile();toast('Finals mode off. You made it! 🎉');if(S.modal==='settings')renderSettings();render();break;
+    case 'finalsWorkout':{const r=buildWorkout('full',20);r.items=r.items.slice(0,3).map(it=>({...it,sets:2}));r.name='Study break · 15 min';S.tab='log';setHash();startRoutine(r);break}
+    case 'finalsStretch':renderStretch();break;
+    case 'stretchTick':{t.classList.toggle('on');const b=t.querySelector('.ckb');if(b)b.textContent=t.classList.contains('on')?'✓':'';if(document.querySelectorAll('.sheet .ck.on').length===STUDY_STRETCH.length){toast('🧘 Study break done! Brain refreshed.');setTimeout(closeModal,900)}break}
     case 'pep':renderPep();break;
     case 'pepVibe':S.profile.pepVibe=t.dataset.v;Store.saveProfile();renderSettings();break;
     case 'season':S.profile.season=t.dataset.v;Store.saveProfile();seasonShown=null;renderSettings();render();break;
@@ -2999,8 +3149,10 @@ document.addEventListener('input',ev=>{
 document.addEventListener('change',ev=>{
   const t=ev.target;
   if(t.dataset.f==='date'||t.dataset.f==='rdate'||t.dataset.f==='stdate'){render()}
+  if(t.id==='suppTime'){S.profile.suppTime=t.value||'09:00';Store.saveProfile();return}
   if(t.id==='pname'){S.profile.name=t.value.trim().slice(0,30);Store.saveProfile();render();return}
   if(t.id==='bday'){S.profile.birthday=t.value?t.value.slice(5):'';Store.saveProfile();toast(t.value?'🎂 Saved! See you on your birthday.':'Birthday cleared');return}
+  if(t.dataset.hf){S.hf={...(S.hf||{}),[t.dataset.hf]:t.value};render();return}
   if(t.dataset.plan!=null){S.profile.plan={...S.profile.plan,[t.dataset.plan]:t.value};if(!t.value)delete S.profile.plan[t.dataset.plan];Store.saveProfile();render();return}
   if(t.dataset.f==='ss'){const e=entryOf(t);if(e){e.ss=t.value;persistDraft();render()}return}
   if(t.dataset.rtf==='ss'&&S.rtEdit){const it=S.rtEdit.items[+t.dataset.rti];if(it)it.ss=t.value;return}
