@@ -413,6 +413,40 @@ body[data-season=summer] .season span{animation-name:floaty;top:auto;bottom:-40p
 .gym-top i{font-style:normal;color:var(--mut);font-size:13px;margin-left:auto}
 .today-done{border-color:var(--up-bd);background:var(--up-bg);color:var(--tx)}
 .today-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.loose-card{margin-bottom:14px}
+.loose-scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.lz{display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 2px;border-radius:12px;background:var(--s2);border:1px solid var(--line);font-size:12px;color:var(--mut)}
+.lz span{font-size:22px;line-height:1.1}
+.lz.on{background:var(--acc-bg);border-color:var(--acc);color:var(--tx);font-weight:600}
+.loose-week{display:grid;grid-template-columns:repeat(14,1fr);gap:4px;margin-top:12px;height:64px}
+.loose-week div{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px;height:100%}
+.loose-week i{display:block;width:100%;max-width:18px;border-radius:5px;min-height:3px}
+.loose-week span{font-size:10px;color:var(--dim)}
+.loose-week .td span{color:var(--acc);font-weight:700}
+.loose-week .best i{box-shadow:0 0 0 2px var(--acc)}
+.loosest{margin-top:10px;font-size:13.5px;background:var(--s2);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.glance{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px;margin-bottom:14px}
+.gl-t{display:flex;flex-direction:column;align-items:flex-start;gap:1px;text-align:left;padding:10px 11px;border-radius:14px;background:var(--s1);border:1px solid var(--line);min-width:0}
+.gl-t:hover{border-color:var(--acc)}
+.gl-i{font-size:20px;line-height:1.2}
+.gl-t b{font-family:var(--nfont);font-size:20px;line-height:1.15}
+.gl-t b small{font-size:13px;color:var(--mut);font-weight:500}
+.gl-l{font-size:11.5px;color:var(--mut);line-height:1.25;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.gl-b{display:block;width:100%;height:4px;border-radius:3px;background:var(--s3);overflow:hidden;margin-top:6px}
+.gl-b i{display:block;height:100%;background:var(--acc)}
+.logo{cursor:pointer;user-select:none;-webkit-user-select:none}
+.whale{position:fixed;left:0;right:0;bottom:calc(70px + env(safe-area-inset-bottom));height:150px;z-index:95;pointer-events:none;overflow:hidden}
+.wh-body{position:absolute;bottom:22px;left:-120px;animation:swim 6s linear forwards}
+.wh-e{display:block;font-size:72px;transform:scaleX(-1);animation:bob 1.2s ease-in-out infinite}
+.wh-spout{position:absolute;left:18px;top:-34px;width:40px;height:40px}
+.wh-spout i{position:absolute;left:12px;bottom:0;font-style:normal;font-size:16px;opacity:0;animation:spout 1.6s ease-out infinite}
+.wh-spout i:nth-child(2){animation-delay:.2s} .wh-spout i:nth-child(3){animation-delay:.4s} .wh-spout i:nth-child(4){animation-delay:.6s}
+.wh-waves{position:absolute;bottom:0;left:0;white-space:nowrap;font-size:30px;opacity:.85;animation:waves 6s ease-in-out forwards}
+@keyframes swim{0%{left:-120px}100%{left:calc(100% + 40px)}}
+@keyframes bob{0%,100%{transform:scaleX(-1) translateY(0) rotate(0)}50%{transform:scaleX(-1) translateY(-8px) rotate(-4deg)}}
+@keyframes spout{0%{opacity:0;transform:translate(0,0)}20%{opacity:1}100%{opacity:0;transform:translate(var(--x,0),-46px)}}
+.wh-spout i:nth-child(1){--x:-14px} .wh-spout i:nth-child(2){--x:-4px} .wh-spout i:nth-child(3){--x:8px} .wh-spout i:nth-child(4){--x:16px}
+@keyframes waves{0%{transform:translateY(40px)}12%,85%{transform:translateY(0)}100%{transform:translateY(40px)}}
 .notes{margin-top:18px}
 .notes textarea{width:100%;min-height:64px;resize:vertical}
 .savebar{position:sticky;bottom:calc(72px + env(safe-area-inset-bottom));margin-top:18px;z-index:10;display:flex;gap:10px;align-items:center;background:var(--sbar);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:10px 10px 10px 16px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
@@ -512,7 +546,7 @@ textarea.io{width:100%;min-height:90px;font-size:12px;font-family:ui-monospace,m
 </head>
 <body>
 <header><div class="wrap">
-  <div class="logo">
+  <div class="logo" data-act="logoTap">
     <div class="logo-mark"><svg width="26" height="26" viewBox="-16 -16 32 32" aria-hidden="true"><defs><radialGradient id="hib" cx="0" cy="0" r="15" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5d3a55"/><stop offset=".35" stop-color="#9b5a7f"/><stop offset="1" stop-color="#ecb6c6"/></radialGradient></defs><g fill="url(#hib)" stroke="#16111a" stroke-width=".6"><path transform="rotate(0)" d="M0 0C-7 -2.5 -10.5 -10 -5 -14.2C-3 -15.6 -1.2 -14.4 0 -15.4C1.2 -14.4 3 -15.6 5 -14.2C10.5 -10 7 -2.5 0 0Z"/><path transform="rotate(72)" d="M0 0C-7 -2.5 -10.5 -10 -5 -14.2C-3 -15.6 -1.2 -14.4 0 -15.4C1.2 -14.4 3 -15.6 5 -14.2C10.5 -10 7 -2.5 0 0Z"/><path transform="rotate(144)" d="M0 0C-7 -2.5 -10.5 -10 -5 -14.2C-3 -15.6 -1.2 -14.4 0 -15.4C1.2 -14.4 3 -15.6 5 -14.2C10.5 -10 7 -2.5 0 0Z"/><path transform="rotate(216)" d="M0 0C-7 -2.5 -10.5 -10 -5 -14.2C-3 -15.6 -1.2 -14.4 0 -15.4C1.2 -14.4 3 -15.6 5 -14.2C10.5 -10 7 -2.5 0 0Z"/><path transform="rotate(288)" d="M0 0C-7 -2.5 -10.5 -10 -5 -14.2C-3 -15.6 -1.2 -14.4 0 -15.4C1.2 -14.4 3 -15.6 5 -14.2C10.5 -10 7 -2.5 0 0Z"/></g><circle r="2.6" fill="#4a2c45"/><path d="M0 0L6.5 -8.5" stroke="#d9dba7" stroke-width="1.3" stroke-linecap="round"/><g fill="#d9dba7"><circle cx="6.8" cy="-9.2" r="1.1"/><circle cx="5" cy="-9.6" r=".8"/><circle cx="7.9" cy="-7.6" r=".8"/><circle cx="4.6" cy="-7.8" r=".7"/></g></svg></div>
     <h1>Lift Log</h1>
   </div>
@@ -625,7 +659,7 @@ const blankSet=c=>isCardioCat(c)?{t:'',d:'',c:'',l:''}:{r:'',w:''};
 const S={
   workouts:[], profile:{custom:{},hidden:[],goal:3,unit:'lbs'},
   tab:'log', draft:null, open:{Lower:true,Upper:false,Cardio:false}, newExCat:null,
-  progEx:null, logMode:'workout', water:[], steps:[], stepDate:null, rtEdit:null, rest:[], rDraft:null, rNew:false, progMode:'lifts', cardEx:null, cMetric:'t', measures:[], mSel:'weight', mDraft:null, metric:'top', loaded:false, loadNote:null, mode:'connecting', ptSel:null, heatSel:null,
+  progEx:null, logMode:'workout', water:[], loose:[], steps:[], stepDate:null, rtEdit:null, rest:[], rDraft:null, rNew:false, progMode:'lifts', cardEx:null, cMetric:'t', measures:[], mSel:'weight', mDraft:null, metric:'top', loaded:false, loadNote:null, mode:'connecting', ptSel:null, heatSel:null,
 };
 try{ const t=location.hash.slice(1); if(['today','log','progress','consistency','history'].includes(t)) S.tab=t; }catch(e){}
 
@@ -647,7 +681,7 @@ const gid=()=>'w'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 const unit=()=>S.profile.unit||'lbs';
 const clone=o=>JSON.parse(JSON.stringify(o));
 
-function normProfile(p){p=clone(p||{});return {custom:p.custom||{},hidden:p.hidden||[],goal:p.goal||3,unit:p.unit||'lbs',lunit:p.lunit||'in',lastBackup:p.lastBackup||0,snooze:p.snooze||0,customRest:p.customRest||[],theme:p.theme||null,stepsOn:p.stepsOn!==false,stepsAuto:!!p.stepsAuto,bodyGoalsOn:!!p.bodyGoalsOn,goals:{steps:8000,cardio:90,lifts:[],body:{},...(p.goals||{})},routines:Array.isArray(p.routines)?p.routines:[],extras:{effort:true,plates:true,supersets:true,nudges:true,balance:true,badges:true,timer:true,builder:true,injury:true,challenges:true,water:true,confetti:true,levels:true,garden:true,wrapped:true,gym:true,jar:true,letters:true,forecast:true,pep:true,splash:true,stickers:true,pump:true,seasonal:true,...(p.extras||{})},badges:Array.isArray(p.badges)?p.badges:null,bodyType:p.bodyType==='m'?'m':'f',plan:(p.plan&&typeof p.plan==='object')?p.plan:{},rest:{secs:90,auto:true,sound:true,...(p.rest&&typeof p.rest==='object'?p.rest:{})},injuries:Array.isArray(p.injuries)?p.injuries:[],mode:['light','dark'].includes(p.mode)?p.mode:'auto',rewards:Array.isArray(p.rewards)?p.rewards:[],letters:Array.isArray(p.letters)?p.letters:[],pepVibe:p.pepVibe||'bestie',season:p.season||'auto',stickerPage:Array.isArray(p.stickerPage)?p.stickerPage:[],lastLevel:p.lastLevel||0,challenges:Array.isArray(p.challenges)?p.challenges:[],pauses:Array.isArray(p.pauses)?p.pauses:[],water:{goal:8,size:'8 oz',nudge:true,from:8,to:22,...(p.water&&typeof p.water==='object'?p.water:{})}}}
+function normProfile(p){p=clone(p||{});return {custom:p.custom||{},hidden:p.hidden||[],goal:p.goal||3,unit:p.unit||'lbs',lunit:p.lunit||'in',lastBackup:p.lastBackup||0,snooze:p.snooze||0,customRest:p.customRest||[],theme:p.theme||null,stepsOn:p.stepsOn!==false,stepsAuto:!!p.stepsAuto,bodyGoalsOn:!!p.bodyGoalsOn,goals:{steps:8000,cardio:90,lifts:[],body:{},...(p.goals||{})},routines:Array.isArray(p.routines)?p.routines:[],extras:{effort:true,plates:true,supersets:true,nudges:true,balance:true,badges:true,timer:true,builder:true,injury:true,challenges:true,water:true,confetti:true,levels:true,garden:true,wrapped:true,gym:true,jar:true,letters:true,loose:true,glance:true,forecast:true,pep:true,splash:true,stickers:true,pump:true,seasonal:true,...(p.extras||{})},badges:Array.isArray(p.badges)?p.badges:null,bodyType:p.bodyType==='m'?'m':'f',plan:(p.plan&&typeof p.plan==='object')?p.plan:{},rest:{secs:90,auto:true,sound:true,...(p.rest&&typeof p.rest==='object'?p.rest:{})},injuries:Array.isArray(p.injuries)?p.injuries:[],mode:['light','dark'].includes(p.mode)?p.mode:'auto',rewards:Array.isArray(p.rewards)?p.rewards:[],whale:p.whale||null,letters:Array.isArray(p.letters)?p.letters:[],pepVibe:p.pepVibe||'bestie',season:p.season||'auto',stickerPage:Array.isArray(p.stickerPage)?p.stickerPage:[],lastLevel:p.lastLevel||0,challenges:Array.isArray(p.challenges)?p.challenges:[],pauses:Array.isArray(p.pauses)?p.pauses:[],water:{goal:8,size:'8 oz',nudge:true,from:8,to:22,...(p.water&&typeof p.water==='object'?p.water:{})}}}
 S.profile=normProfile(S.profile);
 function exercisesFor(cat){
   const hid=new Set(S.profile.hidden||[]);
@@ -704,6 +738,7 @@ const Store={
     S.rest=Object.entries(d.rest||{}).map(([id,v])=>({...v,id}));
     S.steps=Object.entries(d.steps||{}).map(([id,v])=>({...v,id}));
     S.water=Object.entries(d.water||{}).map(([id,v])=>({...v,id}));
+    S.loose=Object.entries(d.loose||{}).map(([id,v])=>({...v,id}));
     if(d.profile)S.profile=normProfile(d.profile);
     S.loaded=true;render();processPendingSteps();if(S.profile.badges==null)checkBadges(true);if(!S.profile.lastLevel)checkLevel();
   },
@@ -716,6 +751,8 @@ const Store={
       if(!snap.metadata.fromCache){gw=true;done()}
       softRender();
     },err=>{clearTimeout(timer);S.loaded=true;S.loadNote="Couldn't load saved workouts ("+err.code+"). Try reopening the page.";softRender()});
+    this.locol=this.pref.collection('loose');
+    this.locol.onSnapshot(snap=>{S.loose=snap.docs.map(d=>({...clone(d.data()),id:d.id}));softRender()},()=>{});
     this.wacol=this.pref.collection('water');
     this.wacol.onSnapshot(snap=>{S.water=snap.docs.map(d=>({...clone(d.data()),id:d.id}));softRender()},()=>{});
     this.scol=this.pref.collection('steps');
@@ -741,6 +778,12 @@ const Store={
     if(S.mode==='cloud'){await this.wcol.doc(id).delete()}
     else{const d=Local.read();delete d.workouts[id];Local.write(d)}
     S.workouts=S.workouts.filter(w=>w.id!==id);
+  },
+  async saveLoose(id,doc){
+    if(S.mode==='cloud'){await this.locol.doc(id).set(doc)}
+    else{const d=Local.read();(d.loose=d.loose||{})[id]=doc;Local.write(d)}
+    const i=S.loose.findIndex(m=>m.id===id);
+    if(i>=0)S.loose[i]={...doc,id};else S.loose.push({...doc,id});
   },
   async saveWater(id,doc){
     if(S.mode==='cloud'){await this.wacol.doc(id).set(doc)}
@@ -1544,6 +1587,7 @@ function renderPep(){S.modal='pep';const o=PEP[S.profile.pepVibe]||PEP.bestie;le
 function earnedStickers(){
   const out=[];const seen=new Set();const add=(e,n)=>{if(!seen.has(e)){seen.add(e);out.push({e,n})}};
   add('🌺','Welcome');
+  if(S.profile.whale)add('🐳','Secret whale');
   if(S.profile.extras.badges)for(const b of computeBadges())if(b.earned)add(b.icon,b.name);
   if(S.profile.extras.levels){const L=levelOf(computeXP().xp);LEVELS.forEach(([x,n,i],k)=>{if(k<L.n)add(i,n)})}
   for(const j of S.profile.challenges.filter(j=>j.closed==='done')){const c=CHAL.find(x=>x.id===j.id);if(c)add(c.icon,c.name)}
@@ -1592,13 +1636,75 @@ function renderSeason(){const el=$('#season');if(!el)return;const on=S.profile.e
   el.innerHTML=h;
 }
 
+/* ----- 🐳 ----- */
+function whale(){
+  if(document.querySelector('.whale'))return;
+  const w=document.createElement('div');w.className='whale';
+  w.innerHTML=`<div class="wh-body"><span class="wh-spout"><i>💧</i><i>💧</i><i>💧</i><i>💦</i></span><span class="wh-e">🐳</span></div><div class="wh-waves">🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊</div>`;
+  document.body.appendChild(w);setTimeout(()=>w.remove(),6200);
+  const first=!S.profile.whale;
+  if(first){S.profile.whale=todayISO();Store.saveProfile()}
+  setTimeout(()=>toast(first?'🐳 You found the secret whale!'+(S.profile.extras.stickers?' New sticker unlocked.':''):'🐳 Splash! Hi again.'),900);
+  if(first&&S.tab==='consistency')setTimeout(render,1200);
+}
+
+/* ----- At a glance ----- */
+function weekStreakNow(){
+  const goal=S.profile.goal||3,byWeek={};for(const w of S.workouts){const k=iso(weekStart(parse(w.date)));byWeek[k]=(byWeek[k]||0)+1}
+  let wk=weekStart(new Date());if((byWeek[iso(wk)]||0)<goal)wk=addDays(wk,-7);let n=0;
+  for(let g=0;g<600;g++){const k=iso(wk);if((byWeek[k]||0)>=goal)n++;else if(!weekPaused(k))break;wk=addDays(wk,-7)}return n;
+}
+function stepStreakNow(){const goal=S.profile.goals.steps||8000,t=todayISO();let n=0;for(let d=new Date(),g=0;g<3650;g++,d=addDays(d,-1)){const k=iso(d),r=stepsOf(k);if(r&&r.n>=goal)n++;else if(k===t||isPausedDay(k))continue;else break}return n}
+function todayFlower(){const t=todayISO(),ws=S.workouts.filter(w=>w.date===t);if(ws.length){const s=new Set(ws.map(w=>typeCls(w.type)));return s.size>1?'💐':s.has('Lower')?'🌷':s.has('Upper')?'🌻':s.has('Cardio')?'🌼':s.has('Full')?'🌺':'🌸'}if(S.rest.some(r=>r.date===t))return '🍀';return null}
+function glanceRow(){
+  if(!S.profile.extras.glance)return '';
+  const X=S.profile.extras,tiles=[],thisW=iso(weekStart(new Date()));
+  const tile=(act,icon,val,label,f,extra='')=>tiles.push(`<button class="gl-t" ${act}><span class="gl-i">${icon}</span><b>${val}</b><span class="gl-l">${label}</span>${f!=null?`<span class="gl-b"><i style="width:${Math.max(0,Math.min(1,f))*100}%"></i></span>`:''}${extra}</button>`);
+  const goal=S.profile.goal||3,wc=S.workouts.filter(w=>iso(weekStart(parse(w.date)))===thisW).length;
+  tile('data-act="tab" data-v="consistency"','🏋️',`${wc}/${goal}`,wc>=goal?'week goal hit 🎉':'workouts this week',wc/goal);
+  const ws=weekStreakNow();tile('data-act="tab" data-v="consistency"','🔥',ws,`week streak${activePause()?' · paused':''}`,null);
+  if(S.profile.stepsOn){const ss=stepStreakNow();tile('data-act="goGoals"','👟',ss,'day step streak',null)}
+  const cg=S.profile.goals.cardio||90,cm=cardioMinutes(thisW);tile('data-act="goGoals"','🏃',`${fw(Math.round(cm))}<small>/${cg}</small>`,'cardio min this week',cm/cg);
+  if(X.levels){const {xp}=computeXP(),L=levelOf(xp);tile('data-act="openLevel"',L.icon,`Lv ${L.n}`,esc(L.name),(xp-L.from)/(L.to-L.from))}
+  if(X.badges){const bs=computeBadges(),got=bs.filter(b=>b.earned).length,next=bs.filter(b=>!b.earned).sort((a,b)=>b.v/b.goal-a.v/a.goal)[0];
+    tile('data-act="tab" data-v="consistency"',next?next.icon:'🏅',next?esc(next.prog):`${got}/${bs.length}`,next?`next badge: ${esc(next.name)}`:'all badges earned!',next?next.v/next.goal:1)}
+  if(X.challenges){const a=S.profile.challenges.filter(j=>!j.closed).map(j=>chalStatus(j)).filter(Boolean)[0];
+    if(a)tile('data-act="goGoals"',a.c.icon,`${a.v}/${a.c.goal}`,`${esc(a.c.name)} · ${a.done?'done!':Math.max(0,a.left+1)+'d left'}`,a.v/a.c.goal);
+    else tile('data-act="goGoals"','🏁','Start one','challenges',null)}
+  if(X.garden){const f=todayFlower();tile('data-act="tab" data-v="consistency"',f||'🌱',f?'Planted':'Not yet',"today's flower",null)}
+  if(X.pep)tile('data-act="pep"','📣','Pep talk','tap for a boost',null);
+  return `<div class="glance">${tiles.join('')}</div>`;
+}
+
+/* ----- Looseness ----- */
+const LOOSE=[[1,'🪨','Stiff'],[2,'🥨','Tight'],[3,'🙂','Okay'],[4,'🌊','Loose'],[5,'🍝','Noodle']];
+const looseOf=d=>S.loose.find(x=>x.date===d)?.v||0;
+function dayActs(d){const out=[];for(const w of S.workouts.filter(w=>w.date===d))out.push(w.routine||w.type);const r=S.rest.find(r=>r.date===d);if(r)out.push(...((r.acts||[]).length?r.acts:['rest day']));return out}
+function loosestDay(days){
+  const L=S.loose.filter(x=>x.v&&(!days||x.date>=iso(addDays(new Date(),-(days-1))))).sort((a,b)=>b.v-a.v||(a.date<b.date?1:-1));
+  return L[0]||null;
+}
+function looseCard(){
+  if(!S.profile.extras.loose)return '';
+  const t=todayISO(),v=looseOf(t),today=new Date();
+  const days=[...Array(14)].map((_,i)=>iso(addDays(today,i-13)));
+  const best=loosestDay(30),ever=loosestDay(0);
+  const why=d=>{const a=[...new Set([...dayActs(d),...dayActs(iso(addDays(parse(d),-1))).map(x=>x)])];return a.length?a.slice(0,4).map(esc).join(', '):''};
+  const logged=S.loose.filter(x=>x.date>=days[0]&&x.v);const avg=logged.length?logged.reduce((a,x)=>a+x.v,0)/logged.length:0;
+  return `<div class="card loose-card"><div class="g-h" style="margin-bottom:8px"><h3>🧘 How loose do you feel today?</h3>${avg?`<span class="sub">2-week avg ${LOOSE[Math.round(avg)-1][1]} ${avg.toFixed(1)}</span>`:''}</div>
+    <div class="loose-scale">${LOOSE.map(([n,e,l])=>`<button class="lz ${v===n?'on':''}" data-act="loose" data-v="${n}"><span>${e}</span>${l}</button>`).join('')}</div>
+    <div class="loose-week">${days.map(d=>{const x=looseOf(d);return `<div title="${fmtD(d)}${x?': '+LOOSE[x-1][2]:''}" class="${d===t?'td':''} ${best&&d===best.date?'best':''}"><i style="height:${x?x*20:6}%;background:${x?(x>=4?T.up:x===3?COLORS.Full:COLORS.Lower):T.s3}"></i><span>${parse(d).toLocaleDateString(undefined,{weekday:'narrow'})}</span></div>`}).join('')}</div>
+    ${best?`<div class="loosest">🏆 <b>Loosest day (30 days):</b> ${fmtD(best.date,{weekday:'short',month:'short',day:'numeric'})} · ${LOOSE[best.v-1][1]} ${LOOSE[best.v-1][2]}${why(best.date)?`<br><span class="sub">That day and the day before: ${why(best.date)}</span>`:''}</div>`:'<div class="sub" style="margin-top:8px">Check in each day to find what makes you feel loosest.</div>'}
+    ${ever&&best&&ever.date!==best.date?`<div class="sub" style="margin-top:4px">All-time loosest: ${fmtD(ever.date,{month:'short',day:'numeric',year:'numeric'})} ${LOOSE[ever.v-1][1]}</div>`:''}</div>`;
+}
+
 /* ----- Today ----- */
 function viewToday(){
   const t=todayISO(),ws=S.workouts.filter(w=>w.date===t),rs=S.rest.find(r=>r.date===t);
   let h=`<div class="view-title"><h2>Today</h2><span class="sub">${fmtD(t,{weekday:'long',month:'long',day:'numeric'})}</span></div>`;
-  h+=letterBanner()+todayPlanCard();
+  h+=letterBanner()+todayPlanCard()+glanceRow();
   if(ws.length||rs)h+=`<div class="banner today-done"><span>✓ <b>Logged today:</b> ${[...ws.map(w=>esc(w.routine||w.type)),...(rs?['🌺 Rest day']:[])].join(' · ')}</span><button class="btn sm ghost" data-act="tab" data-v="history">View</button></div>`;
-  const body=stepsCard()+waterCard()+jarMini();
+  const body=stepsCard()+waterCard()+looseCard()+jarMini();
   h+=body;
   if(!body.trim()&&!ws.length&&!rs)h+=`<div class="card empty"><h3>Nothing to track here yet</h3>Turn on step tracking, the water tracker or a reward jar in ⚙️ Settings, and they'll show up on this page.</div>`;
   if(!ws.length&&!rs&&!S.draft.entries.length&&!planFor(dowOf(new Date())))h+=`<div class="today-cta"><button class="btn pri" data-act="tab" data-v="log">🏋️ Log a workout</button><button class="btn" data-act="goRest">🌺 Log a rest day</button></div>`;
@@ -2097,7 +2203,7 @@ function backupDue(){
   return now-ref>30*864e5;
 }
 function doBackup(){
-  const txt=JSON.stringify({app:'liftlog',v:2,exported:todayISO(),profile:S.profile,workouts:S.workouts,measures:S.measures,rest:S.rest,steps:S.steps,water:S.water});
+  const txt=JSON.stringify({app:'liftlog',v:2,exported:todayISO(),profile:S.profile,workouts:S.workouts,measures:S.measures,rest:S.rest,steps:S.steps,water:S.water,loose:S.loose});
   const mark=()=>{S.profile.lastBackup=Date.now();S.profile.snooze=0;Store.saveProfile()};
   const fallback=()=>{mark();renderSettings();const ta=$('#importTxt');if(ta){ta.value=txt;ta.focus();ta.select()}toast('Copy the text in the box, then paste it somewhere personal')};
   try{navigator.clipboard.writeText(txt).then(()=>{mark();toast('Backup copied. Paste it into a personal note or email.');if(S.modal==='settings')renderSettings();render()}).catch(fallback)}catch(e){fallback()}
@@ -2186,7 +2292,7 @@ function renderSettings(){
     ${p.stepsAuto?stepsHowTo():''}`:''}</div>
   <div class="set-blk"><h3>⏸ Pause mode</h3>${pauseSettings(p)}</div>
   <div class="set-blk"><h3>✨ Make it sexier</h3><div class="sub" style="margin-bottom:8px">Optional extras. Turn on whatever you like.</div>
-    ${[['timer','Rest timer','Counts down between sets and buzzes when it\'s time to go.'],['effort','Effort rating','Tap 😌 easy / 💪 solid / 🔥 hard on each set.'],['plates','Plate calculator','A 🏋️ Plates button on each lift shows what goes on each side of the bar.'],['supersets','Supersets','Pair exercises (🔗 A, B…) in workouts and routines.'],['nudges','"Go up?" nudges','Suggests adding weight when you hit your reps on every set last time.'],['balance','Muscle balance','A body map in Consistency showing what you trained in the last 7 days.'],['badges','Badges','Milestones to unlock, with a 🏅 pop-up when you earn one.'],['builder','Build me a workout','Makes a workout from your exercises based on time and focus (in Routines).'],['injury','Injury notes','Note a sore spot; risky exercises get ⚠️ and swap ideas.'],['challenges','Challenges','Opt-in 2–4 week challenges in Goals.'],['water','Water tracker','Glasses per day on the Log tab, with in-app reminders.'],['confetti','Confetti','Petals burst for PRs, goals, badges and level-ups.'],['levels','Level up','Earn XP for everything you log and climb from Seedling to Ivy Queen.'],['garden','Your garden','A flower blooms for every day you train or recover (Consistency).'],['wrapped','Lift Log Wrapped','Your year in review, story-style (Consistency).'],['gym','Gym mode','Full-screen, one exercise at a time, big buttons for mid-set logging.'],['jar','Reward jar','Set a real-life prize and fill the jar with workouts (Goals).'],['letters','Letters to future you','Write a note that unlocks in 30, 90 or 180 days (Goals).'],['forecast','Forecasts','"At this rate you\'ll hit 150 by March" on lifts and lift goals.'],['pep','Pep talk button','A 📣 button on the Log tab for a quick hype line.'],['splash','Hibiscus splash','The logo blooms open when the app starts.'],['stickers','Sticker book','Earn stickers and decorate your own scrapbook page (Consistency).'],['pump','Today\'s pump','After saving, the muscles you trained glow on the body map.'],['seasonal','Seasonal themes','Falling petals, sunshine, leaves or snow depending on the season.']].map(([k,n,d])=>`<div class="xt"><div><b>${n}</b><span>${d}</span></div><button class="tgl ${p.extras[k]?'on':''}" data-act="tglExtra" data-v="${k}" aria-label="Toggle ${n}"><i></i></button></div>${k==='timer'&&p.extras.timer?timerSettings(p):''}${k==='pep'&&p.extras.pep?`<div class="xt sub-xt"><div><b>Vibe</b><span>How your pep talks sound.</span></div><div class="seg">${Object.entries(PEP).map(([v,o])=>`<button class="${p.pepVibe===v?'on':''}" data-act="pepVibe" data-v="${v}">${o.label}</button>`).join('')}</div></div>`:''}${k==='seasonal'&&p.extras.seasonal?`<div class="xt sub-xt"><div><b>Season</b><span>Auto follows the calendar.</span></div><div class="seg">${[['auto','Auto'],['spring','🌸'],['summer','🏖️'],['fall','🍂'],['winter','❄️']].map(([v,l])=>`<button class="${p.season===v?'on':''}" data-act="season" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}${k==='water'&&p.extras.water?waterSettings(p):''}${k==='injury'&&p.extras.injury?injurySettings(p):''}${k==='balance'&&p.extras.balance?`<div class="xt sub-xt"><div><b>Body map</b><span>Which figure the muscle map uses.</span></div><div class="seg">${[['f','Female'],['m','Male']].map(([v,l])=>`<button class="${p.bodyType===v?'on':''}" data-act="bodyType" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}`).join('')}</div>
+    ${[['timer','Rest timer','Counts down between sets and buzzes when it\'s time to go.'],['effort','Effort rating','Tap 😌 easy / 💪 solid / 🔥 hard on each set.'],['plates','Plate calculator','A 🏋️ Plates button on each lift shows what goes on each side of the bar.'],['supersets','Supersets','Pair exercises (🔗 A, B…) in workouts and routines.'],['nudges','"Go up?" nudges','Suggests adding weight when you hit your reps on every set last time.'],['balance','Muscle balance','A body map in Consistency showing what you trained in the last 7 days.'],['badges','Badges','Milestones to unlock, with a 🏅 pop-up when you earn one.'],['builder','Build me a workout','Makes a workout from your exercises based on time and focus (in Routines).'],['injury','Injury notes','Note a sore spot; risky exercises get ⚠️ and swap ideas.'],['challenges','Challenges','Opt-in 2–4 week challenges in Goals.'],['water','Water tracker','Glasses per day on the Log tab, with in-app reminders.'],['confetti','Confetti','Petals burst for PRs, goals, badges and level-ups.'],['levels','Level up','Earn XP for everything you log and climb from Seedling to Ivy Queen.'],['garden','Your garden','A flower blooms for every day you train or recover (Consistency).'],['wrapped','Lift Log Wrapped','Your year in review, story-style (Consistency).'],['gym','Gym mode','Full-screen, one exercise at a time, big buttons for mid-set logging.'],['jar','Reward jar','Set a real-life prize and fill the jar with workouts (Goals).'],['glance','At a glance','A row of mini tiles on Today: weekly goal, streaks, level, badges, challenges and more.'],['loose','Looseness check-in','Rate how loose your body feels each day on Today, and see your loosest day.'],['letters','Letters to future you','Write a note that unlocks in 30, 90 or 180 days (Goals).'],['forecast','Forecasts','"At this rate you\'ll hit 150 by March" on lifts and lift goals.'],['pep','Pep talk button','A 📣 button on the Log tab for a quick hype line.'],['splash','Hibiscus splash','The logo blooms open when the app starts.'],['stickers','Sticker book','Earn stickers and decorate your own scrapbook page (Consistency).'],['pump','Today\'s pump','After saving, the muscles you trained glow on the body map.'],['seasonal','Seasonal themes','Falling petals, sunshine, leaves or snow depending on the season.']].map(([k,n,d])=>`<div class="xt"><div><b>${n}</b><span>${d}</span></div><button class="tgl ${p.extras[k]?'on':''}" data-act="tglExtra" data-v="${k}" aria-label="Toggle ${n}"><i></i></button></div>${k==='timer'&&p.extras.timer?timerSettings(p):''}${k==='pep'&&p.extras.pep?`<div class="xt sub-xt"><div><b>Vibe</b><span>How your pep talks sound.</span></div><div class="seg">${Object.entries(PEP).map(([v,o])=>`<button class="${p.pepVibe===v?'on':''}" data-act="pepVibe" data-v="${v}">${o.label}</button>`).join('')}</div></div>`:''}${k==='seasonal'&&p.extras.seasonal?`<div class="xt sub-xt"><div><b>Season</b><span>Auto follows the calendar.</span></div><div class="seg">${[['auto','Auto'],['spring','🌸'],['summer','🏖️'],['fall','🍂'],['winter','❄️']].map(([v,l])=>`<button class="${p.season===v?'on':''}" data-act="season" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}${k==='water'&&p.extras.water?waterSettings(p):''}${k==='injury'&&p.extras.injury?injurySettings(p):''}${k==='balance'&&p.extras.balance?`<div class="xt sub-xt"><div><b>Body map</b><span>Which figure the muscle map uses.</span></div><div class="seg">${[['f','Female'],['m','Male']].map(([v,l])=>`<button class="${p.bodyType===v?'on':''}" data-act="bodyType" data-v="${v}">${l}</button>`).join('')}</div></div>`:''}`).join('')}</div>
   <div class="set-blk"><h3>Weekly goal</h3><div class="stepper"><button data-act="goal" data-v="-1">−</button><b>${p.goal}</b><button data-act="goal" data-v="1">+</button><span class="sub" style="margin-left:6px">workouts per week</span></div></div>
   <div class="set-blk"><h3>Weight unit</h3><div class="seg">${['lbs','kg'].map(u=>`<button class="${p.unit===u?'on':''}" data-act="unit" data-v="${u}">${u}</button>`).join('')}</div><div class="sub" style="margin-top:6px">Changes the label only. Numbers you've logged aren't converted.</div></div>
   <div class="set-blk"><h3>Measurement unit</h3><div class="seg">${['in','cm'].map(u=>`<button class="${p.lunit===u?'on':''}" data-act="lunit" data-v="${u}">${u}</button>`).join('')}</div><div class="sub" style="margin-top:6px">For waist, hips and the other tape measurements. Label only.</div></div>
@@ -2316,6 +2422,8 @@ document.addEventListener('click',ev=>{
     case 'chalJoin':{const id=t.dataset.id;S.profile.challenges=[...S.profile.challenges.filter(j=>!(j.id===id&&!j.closed)),{id,start:todayISO()}];Store.saveProfile();const c=CHAL.find(x=>x.id===id);toast(`🏁 ${c.name} started. You've got this!`);render();break}
     case 'chalLeave':{const id=t.dataset.id;confirmBox('Leave this challenge? Progress won\'t be saved.',()=>{S.profile.challenges=S.profile.challenges.filter(j=>!(j.id===id&&!j.closed));Store.saveProfile();render()},'Leave');break}
     case 'chalClose':{const id=t.dataset.id,v=t.dataset.v;S.profile.challenges=S.profile.challenges.map(j=>j.id===id&&!j.closed?{...j,closed:v,closedOn:todayISO()}:j);Store.saveProfile();if(v==='done'){toast('🏅 Challenge complete! So proud of you.');celebrate(1.4)}render();checkBadges();break}
+    case 'loose':{const d=todayISO(),n=+t.dataset.v,cur=looseOf(d);const v=cur===n?0:n;Store.saveLoose('lo'+d,{date:d,v,updatedAt:Date.now()}).then(()=>{if(v){const b=loosestDay(30);if(v===5)toast('🍝 Full noodle! Love that for you.');else if(b&&b.date===d&&S.loose.filter(x=>x.v).length>2)toast('🏆 Loosest day this month!')}render()}).catch(e=>toast(errMsg(e)));break}
+    case 'logoTap':{const now=Date.now();S.taps=(S.taps||[]).filter(x=>now-x<2000);S.taps.push(now);if(S.taps.length>=5){S.taps=[];whale()}break}
     case 'pep':renderPep();break;
     case 'pepVibe':S.profile.pepVibe=t.dataset.v;Store.saveProfile();renderSettings();break;
     case 'season':S.profile.season=t.dataset.v;Store.saveProfile();seasonShown=null;renderSettings();render();break;
@@ -2420,6 +2528,7 @@ document.addEventListener('click',ev=>{
     case 'importData':{let d;try{d=JSON.parse($('#importTxt').value)}catch(e){toast("That doesn't look like a backup");break}
       if(!d||!Array.isArray(d.workouts)){toast("That doesn't look like a backup");break}
       (async()=>{let n=0;for(const w of d.workouts){if(!w||!w.date||!Array.isArray(w.entries))continue;const {id,...rest}=w;try{await Store.saveWorkout(id&&/^[\w.-]+$/.test(id)?id:gid(),rest);n++}catch(e){toast(errMsg(e));break}}
+        for(const s of (Array.isArray(d.loose)?d.loose:[])){if(!s||!s.date||!s.v)continue;try{await Store.saveLoose('lo'+s.date,{date:s.date,v:+s.v,updatedAt:Date.now()})}catch(e){}}
         for(const s of (Array.isArray(d.steps)?d.steps:[])){if(!s||!s.date||num(s.n)==null)continue;try{await Store.saveSteps('st'+s.date,{date:s.date,n:num(s.n),src:s.src||'manual',updatedAt:Date.now()})}catch(e){}}
         if(d.profile){const q=normProfile(d.profile);if(q.routines.length){const names=new Set(S.profile.routines.map(r=>r.name));S.profile.routines=[...S.profile.routines,...q.routines.filter(r=>!names.has(r.name))]}if(q.goals.lifts.length&&!S.profile.goals.lifts.length)S.profile.goals.lifts=q.goals.lifts}
         for(const r of (Array.isArray(d.rest)?d.rest:[])){if(!r||!r.date)continue;try{await Store.saveRest('r'+r.date,{date:r.date,acts:r.acts||[],feel:r.feel||null,note:r.note||'',updatedAt:Date.now()})}catch(e){}}
