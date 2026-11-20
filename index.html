@@ -407,6 +407,12 @@ body[data-season=summer] .season span{animation-name:floaty;top:auto;bottom:-40p
 @keyframes pump{0%,100%{filter:brightness(1)}50%{filter:brightness(1.5) saturate(1.3)}}
 .pump-list{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px}
 .pump-list span{font-size:13px;padding:4px 10px;border-radius:20px;background:var(--lo-bg);border:1px solid var(--lo-bd);text-transform:capitalize}
+.gym-top{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:12px 14px;border-radius:14px;margin:0 0 14px;background:var(--acc-bg);border:1px solid var(--acc)}
+.gym-top span{font-size:20px}
+.gym-top b{font-size:15px}
+.gym-top i{font-style:normal;color:var(--mut);font-size:13px;margin-left:auto}
+.today-done{border-color:var(--up-bd);background:var(--up-bg);color:var(--tx)}
+.today-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .notes{margin-top:18px}
 .notes textarea{width:100%;min-height:64px;resize:vertical}
 .savebar{position:sticky;bottom:calc(72px + env(safe-area-inset-bottom));margin-top:18px;z-index:10;display:flex;gap:10px;align-items:center;background:var(--sbar);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:10px 10px 10px 16px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
@@ -518,8 +524,9 @@ textarea.io{width:100%;min-height:90px;font-size:12px;font-family:ui-monospace,m
 <main><div class="wrap" id="main"></div></main>
 
 <nav class="tabs"><div class="wrap">
-  <button data-act="tab" data-v="log"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Log</button>
+  <button data-act="tab" data-v="today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>Today</button>
   <button data-act="tab" data-v="progress"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>Progress</button>
+  <button data-act="tab" data-v="log"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Log</button>
   <button data-act="tab" data-v="consistency"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17.5h.01M12 17.5h.01"/></svg>Consistency</button>
   <button data-act="tab" data-v="history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>History</button>
 </div></nav>
@@ -620,7 +627,7 @@ const S={
   tab:'log', draft:null, open:{Lower:true,Upper:false,Cardio:false}, newExCat:null,
   progEx:null, logMode:'workout', water:[], steps:[], stepDate:null, rtEdit:null, rest:[], rDraft:null, rNew:false, progMode:'lifts', cardEx:null, cMetric:'t', measures:[], mSel:'weight', mDraft:null, metric:'top', loaded:false, loadNote:null, mode:'connecting', ptSel:null, heatSel:null,
 };
-try{ const t=location.hash.slice(1); if(['log','progress','consistency','history'].includes(t)) S.tab=t; }catch(e){}
+try{ const t=location.hash.slice(1); if(['today','log','progress','consistency','history'].includes(t)) S.tab=t; }catch(e){}
 
 /* ---------------- helpers ---------------- */
 const $=s=>document.querySelector(s);
@@ -819,7 +826,7 @@ function render(){
   sy.innerHTML=S.mode==='cloud'?`<span class="dot ${S.loaded?'ok':''}"></span><span>${S.loaded?'Synced':'Loading…'}</span>`
     :S.mode==='local'?`<span class="dot warn"></span><span>This device only</span>`:`<span class="dot"></span><span>Connecting…</span>`;
   const m=$('#main');
-  const html=({log:viewLog,progress:viewProgress,consistency:viewConsistency,history:viewHistory}[S.tab]||viewLog)();
+  const html=({today:viewToday,log:viewLog,progress:viewProgress,consistency:viewConsistency,history:viewHistory}[S.tab]||viewLog)();
   m.innerHTML=(S.loadNote?`<div class="banner">${esc(S.loadNote)}</div>`:'')+pauseBanner()+(backupDue()?`<div class="banner remind"><span>📦 <b>Time for a backup.</b> ${S.profile.lastBackup?`Your last one was ${fmtD(iso(new Date(S.profile.lastBackup)))}.`:`You haven't made one yet.`} Copy it and paste it into a personal note or email, so your data isn't stuck on your school account.</span><button class="btn sm pri" data-act="backupNow">Copy backup</button><button class="btn sm ghost" data-act="backupLater">Later</button></div>`:'')+html;
 }
 function softRender(){
@@ -831,12 +838,12 @@ function softRender(){
 
 /* ----- Log view ----- */
 function viewLog(){
-  if(S.logMode==='rest')return stepsCard()+waterCard()+todayPlanCard()+viewRest();
+  if(S.logMode==='rest')return viewRest();
   if(S.logMode==='routines')return S.rtEdit?viewRoutineEdit():viewRoutines();
   const d=S.draft;
   const nEx=d.entries.length,nSets=d.entries.reduce((a,e)=>a+e.sets.filter(s=>hasVal(s)).length,0);
   const groups=d.type==='Cardio'?['Cardio','Lower','Upper']:d.type==='Upper'?['Upper','Lower','Cardio']:['Lower','Upper','Cardio'];
-  let h=letterBanner()+stepsCard()+waterCard()+jarMini()+injuryBanner()+todayPlanCard()+`<div class="view-title"><h2>${d.id?'Edit workout':'Log workout'}${S.profile.extras.pep?` <button class="pep-btn" data-act="pep" title="Pep talk">📣</button>`:''}</h2><span class="sub">${d.routine?`<span class="pill rt">📋 ${esc(d.routine)}</span> `:''}${fmtD(d.date,{weekday:'long',month:'long',day:'numeric'})}</span></div>`+logModeSeg();
+  let h=injuryBanner()+`<div class="view-title"><h2>${d.id?'Edit workout':'Log workout'}${S.profile.extras.pep?` <button class="pep-btn" data-act="pep" title="Pep talk">📣</button>`:''}</h2><span class="sub">${d.routine?`<span class="pill rt">📋 ${esc(d.routine)}</span> `:''}${fmtD(d.date,{weekday:'long',month:'long',day:'numeric'})}</span></div>`+logModeSeg()+(S.profile.extras.gym&&nEx?`<button class="gym-top" data-act="gymOpen"><span>⛶</span><b>Gym mode</b><i>Full screen, one exercise at a time →</i></button>`:'');
   if(d.id)h+=`<div class="banner edit"><span>Editing the ${fmtD(d.date)} workout. Saving overwrites it.</span><button class="btn sm ghost" data-act="discard">Cancel edit</button></div>`;
   h+=`<div class="card"><div class="top-row">
     <label class="field"><span>Date</span><input type="date" data-f="date" value="${esc(d.date)}"></label>
@@ -869,7 +876,7 @@ function viewLog(){
   h+=`<div class="notes field"><span>Workout notes</span><textarea data-f="notes" placeholder="How'd it feel? Sleep, energy, anything worth remembering">${esc(d.notes||'')}</textarea></div>`;
   h+=`<div class="savebar"><div class="sum">${nEx?`<b>${nEx}</b> exercise${nEx>1?'s':''} · <b>${nSets}</b> set${nSets!==1?'s':''}`:'Tap exercises above to add them'}</div>
     ${(nEx||d.id)?`<button class="btn ghost sm" data-act="discard">${d.id?'Cancel':'Clear'}</button>`:''}
-    ${S.profile.extras.gym&&nEx?`<button class="btn sm" data-act="gymOpen" title="Gym mode">⛶ Gym mode</button>`:''}<button class="btn pri" data-act="saveWorkout" ${nEx?'':'disabled style="opacity:.5"'}>${d.id?'Update':'Save workout'}</button></div>`;
+<button class="btn pri" data-act="saveWorkout" ${nEx?'':'disabled style="opacity:.5"'}>${d.id?'Update':'Save workout'}</button></div>`;
   return h;
 }
 function entryHTML(e){
@@ -993,8 +1000,8 @@ function readStepsHash(){
   const m=(location.hash||'').match(/^#steps-(\d{1,6})(?:-(\d{4})-(\d{2})-(\d{2}))?$/);
   let q=null;try{const u=new URLSearchParams(location.search);if(u.get('steps'))q={n:+u.get('steps'),date:u.get('date')||todayISO()}}catch(e){}
   if(m)pendingSteps={n:+m[1],date:m[2]?`${m[2]}-${m[3]}-${m[4]}`:todayISO()};else if(q&&isFinite(q.n))pendingSteps=q;else return false;
-  try{history.replaceState(null,'',location.pathname+'#log')}catch(e){}
-  S.tab='log';return true;
+  try{history.replaceState(null,'',location.pathname+'#today')}catch(e){}
+  S.tab='today';return true;
 }
 async function processPendingSteps(){
   if(!pendingSteps||S.mode==='connecting')return;
@@ -1149,10 +1156,11 @@ function dayDone(dateISO,pl){
   return ws.length>0;
 }
 function todayPlanCard(){
-  if(S.draft.id||S.draft.entries.length||activePause())return '';
+  if(activePause())return '';
+  if(!S.draft.id&&S.draft.entries.length)return `<div class="banner today-plan"><span>🏋️ <b>Workout in progress</b>${S.draft.routine?` · ${esc(S.draft.routine)}`:''} · ${S.draft.entries.length} exercise${S.draft.entries.length!==1?'s':''}</span><button class="btn sm pri" data-act="tab" data-v="log">Continue →</button></div>`;
   const t=todayISO(),pl=planFor(dowOf(new Date()));if(!pl)return '';
   const done=dayDone(t,pl);
-  if(pl.rest)return `<div class="banner today-plan"><span>📅 <b>Today: rest day 🌺</b>${done?' · logged ✓':''}</span>${done?'':'<button class="btn sm pri" data-act="logMode" data-v="rest">Log rest day</button>'}</div>`;
+  if(pl.rest)return `<div class="banner today-plan"><span>📅 <b>Today: rest day 🌺</b>${done?' · logged ✓':''}</span>${done?'':'<button class="btn sm pri" data-act="goRest">Log rest day</button>'}</div>`;
   return `<div class="banner today-plan"><span>📅 <b>Today: ${esc(pl.name)}</b>${done?' · done ✓':''}</span>${done?'':`<button class="btn sm pri" data-act="planStart">▶ Start</button>`}</div>`;
 }
 function planWeekCard(today){
@@ -1207,7 +1215,7 @@ function waterSettings(p){const W=p.water;return `<div class="xt sub-xt"><div><b
   <div class="xt sub-xt"><div><b>In-app reminders</b><span>Tells you when you're behind pace (between ${W.from}:00 and ${W.to}:00) and pops a reminder every 2 hours while the app is open.</span></div><button class="tgl ${W.nudge?'on':''}" data-act="waterNudge"><i></i></button></div>
   <div class="sub" style="padding:0 0 10px 14px">Web apps can't send phone notifications on their own. For reminders when the app is closed, set a repeating reminder in your iPhone's Reminders app.</div>`}
 let lastWaterPing=Date.now();
-setInterval(()=>{try{const W=S.profile.water;if(!S.profile.extras.water||!W.nudge||activePause()||document.hidden)return;const hr=new Date().getHours();if(hr<W.from||hr>=W.to)return;if(Date.now()-lastWaterPing<2*3600e3)return;lastWaterPing=Date.now();if(waterOf(todayISO())<W.goal)toast('💧 Water break! Tap + Glass on the Log tab.')}catch(e){}},60000);
+setInterval(()=>{try{const W=S.profile.water;if(!S.profile.extras.water||!W.nudge||activePause()||document.hidden)return;const hr=new Date().getHours();if(hr<W.from||hr>=W.to)return;if(Date.now()-lastWaterPing<2*3600e3)return;lastWaterPing=Date.now();if(waterOf(todayISO())<W.goal)toast('💧 Water break! Tap + Glass on the Today tab.')}catch(e){}},60000);
 
 /* ----- Injury notes ----- */
 const INJ={
@@ -1582,6 +1590,19 @@ function renderSeason(){const el=$('#season');if(!el)return;const on=S.profile.e
   document.body.dataset.season=key;const em=SEASON[key];let h='';
   for(let i=0;i<16;i++){const l=Math.round(Math.random()*100),d=(12+Math.random()*14).toFixed(1),dl=(-Math.random()*20).toFixed(1),sz=(14+Math.random()*14).toFixed(0);h+=`<span style="left:${l}%;animation-duration:${d}s;animation-delay:${dl}s;font-size:${sz}px">${em[i%em.length]}</span>`}
   el.innerHTML=h;
+}
+
+/* ----- Today ----- */
+function viewToday(){
+  const t=todayISO(),ws=S.workouts.filter(w=>w.date===t),rs=S.rest.find(r=>r.date===t);
+  let h=`<div class="view-title"><h2>Today</h2><span class="sub">${fmtD(t,{weekday:'long',month:'long',day:'numeric'})}</span></div>`;
+  h+=letterBanner()+todayPlanCard();
+  if(ws.length||rs)h+=`<div class="banner today-done"><span>✓ <b>Logged today:</b> ${[...ws.map(w=>esc(w.routine||w.type)),...(rs?['🌺 Rest day']:[])].join(' · ')}</span><button class="btn sm ghost" data-act="tab" data-v="history">View</button></div>`;
+  const body=stepsCard()+waterCard()+jarMini();
+  h+=body;
+  if(!body.trim()&&!ws.length&&!rs)h+=`<div class="card empty"><h3>Nothing to track here yet</h3>Turn on step tracking, the water tracker or a reward jar in ⚙️ Settings, and they'll show up on this page.</div>`;
+  if(!ws.length&&!rs&&!S.draft.entries.length&&!planFor(dowOf(new Date())))h+=`<div class="today-cta"><button class="btn pri" data-act="tab" data-v="log">🏋️ Log a workout</button><button class="btn" data-act="goRest">🌺 Log a rest day</button></div>`;
+  return h;
 }
 
 /* ----- Goals ----- */
@@ -2332,7 +2353,8 @@ document.addEventListener('click',ev=>{
     case 'timerStop':Timer.stop();break;
     case 'restSecs':S.profile.rest={...S.profile.rest,secs:+t.dataset.v};Store.saveProfile();renderSettings();break;
     case 'restTgl':{const k=t.dataset.v;S.profile.rest={...S.profile.rest,[k]:!S.profile.rest[k]};Store.saveProfile();renderSettings();break}
-    case 'planStart':{const pl=planFor(dowOf(new Date()));if(pl&&pl.r)startRoutine(pl.r);break}
+    case 'planStart':{const pl=planFor(dowOf(new Date()));if(pl&&pl.r){S.tab='log';setHash();startRoutine(pl.r)}break}
+    case 'goRest':S.tab='log';S.logMode='rest';setHash();window.scrollTo({top:0});render();break;
     case 'effort':{const e=entryOf(t),s=e.sets[+t.dataset.i];s.e=String(((+s.e||0)+1)%4);persistDraft();t.textContent=EFF[+s.e];t.className='effb e'+s.e;break}
     case 'useNudge':{const e=entryOf(t);e.sets.forEach(s=>{s.w=t.dataset.w});persistDraft();render();toast(`⬆️ Going up to ${fw(+t.dataset.w)} ${unit()}`);break}
     case 'plates':{const e=entryOf(t);const ws=e.sets.map(s=>num(s.w)).filter(x=>x!=null);const l=lastFor(e.ex);const lw=l?l.sets.map(s=>num(s.w)).filter(x=>x!=null):[];
@@ -2452,7 +2474,7 @@ document.addEventListener('keydown',ev=>{
   else if(t.dataset.addcat){ev.preventDefault();document.querySelector(`[data-act="addCustomSet"][data-cat="${t.dataset.addcat}"]`)?.click()}
 });
 (()=>{let sx=null,sy=null;document.addEventListener('touchstart',e=>{if(!S.gym&&S.modal!=='wrapped')return;sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});document.addEventListener('touchend',e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;sx=null;if(Math.abs(dx)<60||Math.abs(dy)>Math.abs(dx))return;const dir=dx<0?1:-1;if(S.gym){gymTidy();S.gym.i=Math.max(0,Math.min(S.draft.entries.length-1,S.gym.i+dir));renderGym()}else if(S.modal==='wrapped'){const n=S.wrapped.i+dir;if(n>=S.wrapped.slides.length)closeModal();else{S.wrapped.i=Math.max(0,n);renderWrapped()}}},{passive:true})})();
-window.addEventListener('hashchange',()=>{if(readStepsHash()){render();processPendingSteps();return}const h=location.hash.slice(1);if(['log','progress','consistency','history'].includes(h)&&h!==S.tab){S.tab=h;render()}});
+window.addEventListener('hashchange',()=>{if(readStepsHash()){render();processPendingSteps();return}const h=location.hash.slice(1);if(['today','log','progress','consistency','history'].includes(h)&&h!==S.tab){S.tab=h;render()}});
 
 readStepsHash();
 render();
