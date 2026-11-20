@@ -617,6 +617,42 @@ body.lefty .rt-timer{left:16px;transform:none}
 body.lefty .rt-timer.done{animation:none}
 body.lefty .wc-top,body.lefty .st-in{flex-direction:row-reverse}
 body.lefty .toast,body.lefty .undo{left:16px;transform:none}
+.critter{position:fixed;left:0;right:0;bottom:calc(70px + env(safe-area-inset-bottom));height:160px;z-index:96;pointer-events:none;overflow:hidden}
+.critter .cr{position:absolute;bottom:14px;left:-80px;font-size:54px;line-height:1}
+.fx-walk .cr{animation:crWalk 5.2s linear forwards}
+.fx-walk .cr{transform:scaleX(-1)}
+@keyframes crWalk{0%{left:-80px;transform:scaleX(-1) translateY(0)}10%{transform:scaleX(-1) translateY(-4px)}20%{transform:scaleX(-1) translateY(0)}30%{transform:scaleX(-1) translateY(-4px)}40%{transform:scaleX(-1) translateY(0)}50%{transform:scaleX(-1) translateY(-4px)}60%{transform:scaleX(-1) translateY(0)}70%{transform:scaleX(-1) translateY(-4px)}80%{transform:scaleX(-1) translateY(0)}100%{left:calc(100% + 40px);transform:scaleX(-1) translateY(0)}}
+.fx-crawl .cr{font-size:46px;animation:crCrawl 5.4s linear forwards;transform:scaleX(-1)}
+@keyframes crCrawl{0%{left:-70px}100%{left:55%}}
+.fx-hop .cr{animation:crHopX 5s linear forwards,crHopY .5s ease-in-out infinite alternate}
+@keyframes crHopX{0%{left:-80px}100%{left:calc(100% + 40px)}}
+@keyframes crHopY{from{bottom:14px}to{bottom:80px}}
+.fx-scuttle .cr{animation:crHopX 5s linear forwards,crShake .18s linear infinite alternate}
+@keyframes crShake{from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.fx-stand .cr{left:50%;bottom:-70px;font-size:80px;transform:translateX(-50%);animation:crRise 5.4s ease forwards}
+@keyframes crRise{0%{bottom:-90px}15%,80%{bottom:10px}45%{transform:translateX(-50%) rotate(-6deg)}60%{transform:translateX(-50%) rotate(6deg)}100%{bottom:-90px}}
+.fx-swim .cr,.fx-ducks .cr{bottom:26px;animation:crHopX 5.4s linear forwards,crBob 1.1s ease-in-out infinite;animation-delay:calc(var(--i) * .45s),0s}
+.fx-ducks .cr{font-size:calc(46px - var(--i) * 12px);transform:scaleX(-1)}
+@keyframes crBob{0%,100%{margin-bottom:0}50%{margin-bottom:8px}}
+.cr-waves{position:absolute;bottom:0;left:0;white-space:nowrap;font-size:28px;opacity:.85;animation:waves 5.4s ease-in-out forwards}
+.fx-hang,.fx-swing{height:100vh;top:0;bottom:auto}
+.fx-hang .cr{left:70%;bottom:auto;top:-90px;font-size:64px;animation:crHang 5.4s ease forwards}
+@keyframes crHang{0%{top:-90px}20%,80%{top:120px}50%{transform:rotate(8deg)}65%{transform:rotate(-8deg)}100%{top:-90px}}
+.fx-hang .vine,.fx-swing .vine{position:absolute;top:0;width:3px;height:140px;background:#5c940d;border-radius:2px;animation:vineIn 5.4s ease forwards}
+.fx-hang .vine{left:calc(70% + 30px)}
+@keyframes vineIn{0%{height:0}20%,80%{height:130px}100%{height:0}}
+.fx-swing .cr{top:110px;bottom:auto;left:50%;font-size:60px;transform-origin:50% -110px;animation:crSwing 1.4s ease-in-out infinite alternate,fadeout 5.4s forwards}
+.fx-swing .vine{left:calc(50% + 28px);height:120px;transform-origin:top center;animation:vineSwing 1.4s ease-in-out infinite alternate}
+@keyframes crSwing{from{transform:rotate(35deg)}to{transform:rotate(-35deg)}}
+@keyframes vineSwing{from{transform:rotate(35deg)}to{transform:rotate(-35deg)}}
+@keyframes fadeout{0%,85%{opacity:1}100%{opacity:0}}
+.fx-buzz{height:60vh;bottom:auto;top:20vh}
+.fx-buzz .cr{font-size:34px;top:calc(20% + var(--i) * 15%);bottom:auto;animation:crBuzz 5s linear forwards;animation-delay:calc(var(--i) * .3s)}
+@keyframes crBuzz{0%{left:-50px;transform:translateY(0)}20%{transform:translateY(-30px)}40%{transform:translateY(20px)}60%{transform:translateY(-25px)}80%{transform:translateY(15px)}100%{left:calc(100% + 40px);transform:translateY(0)}}
+.fx-stomp .cr{font-size:72px;animation:crStomp 5.4s linear forwards}
+@keyframes crStomp{0%{left:-90px}100%{left:calc(100% + 40px)}}
+body.quake #main{animation:quake .35s ease-in-out 5}
+@keyframes quake{0%,100%{transform:translate(0)}25%{transform:translate(-3px,1px)}50%{transform:translate(3px,-1px)}75%{transform:translate(-2px,2px)}}
 .notes{margin-top:18px}
 .notes textarea{width:100%;min-height:64px;resize:vertical}
 .savebar{position:sticky;bottom:calc(72px + env(safe-area-inset-bottom));margin-top:18px;z-index:10;display:flex;gap:10px;align-items:center;background:var(--sbar);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:10px 10px 10px 16px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
@@ -1232,7 +1268,7 @@ async function saveRest(){
   if(!doc.acts.length&&!doc.feel&&!doc.note){toast('Add how you feel or what you did');return}
   const id='r'+r.date;
   if(r.loaded&&r.origId&&r.origId!==id){try{await Store.deleteRest(r.origId)}catch(e){}}
-  try{await Store.saveRest(id,doc);S.rDraft=null;S.rNew=false;toast('Rest day saved 🌺');checkBadges();checkLevel();window.scrollTo({top:0});render()}catch(e){toast(errMsg(e))}
+  try{await Store.saveRest(id,doc);S.rDraft=null;S.rNew=false;toast('Rest day saved 🌺');checkBadges();checkLevel();setTimeout(()=>{const A=(doc.acts||[]).join(' ');const k=/swim|splash|beach/.test(A)&&onceToday('duck')?'duck':doc.feel===1&&onceToday('sloth')?'sloth':/yoga|stretch/.test(A)&&onceToday('cat')?'cat':null;if(k)critter(k)},1400);window.scrollTo({top:0});render()}catch(e){toast(errMsg(e))}
 }
 function loadRest(id){const x=S.rest.find(r=>r.id===id);if(!x)return;S.rDraft={date:x.date,acts:[...(x.acts||[])],feel:x.feel||null,note:x.note||'',loaded:true,origId:x.id};S.logMode='rest';S.tab='log';setHash();window.scrollTo({top:0});render()}
 
@@ -1364,7 +1400,7 @@ function badgesCard(){
 /* ----- Rest timer ----- */
 const Timer={end:0,dur:0,iv:null,done:false,ctx:null,
   start(secs){secs=secs||S.profile.rest.secs||90;this.dur=secs;this.end=Date.now()+secs*1000;this.done=false;this.unlock();clearInterval(this.iv);this.iv=setInterval(()=>this.tick(),250);this.tick()},
-  add(s){if(!this.end)return;this.end+=s*1000;this.dur=Math.max(5,this.dur+s);if(this.end<Date.now()+1000)this.end=Date.now()+1000;this.done=false;this.tick()},
+  add(s){if(!this.end)return;this.end+=s*1000;this.dur=Math.max(5,this.dur+s);if(s>0&&this.end-Date.now()>240000&&onceToday('turtle'))setTimeout(()=>critter('turtle'),300);if(this.end<Date.now()+1000)this.end=Date.now()+1000;this.done=false;this.tick()},
   stop(){clearInterval(this.iv);this.iv=null;this.end=0;this.done=false;const el=$('#timer');el.classList.add('hidden');el.innerHTML='';try{document.title='Lift Log'}catch(e){}},
   unlock(){try{if(!this.ctx){const A=window.AudioContext||window.webkitAudioContext;if(A)this.ctx=new A()}if(this.ctx&&this.ctx.state==='suspended')this.ctx.resume()}catch(e){}},
   beep(){if(!S.profile.rest.sound)return;try{const c=this.ctx;if(!c)return;[0,0.22,0.44].forEach((t,i)=>{const o=c.createOscillator(),g=c.createGain();o.frequency.value=i===2?1046:784;o.connect(g);g.connect(c.destination);const s=c.currentTime+t;g.gain.setValueAtTime(0.0001,s);g.gain.exponentialRampToValueAtTime(0.35,s+0.02);g.gain.exponentialRampToValueAtTime(0.0001,s+0.18);o.start(s);o.stop(s+0.2)})}catch(e){}try{navigator.vibrate&&navigator.vibrate([200,100,200])}catch(e){}},
@@ -1855,7 +1891,7 @@ function whale(){
 
 
 /* ----- Easter eggs ----- */
-const EGGS={whale:'🐳 Secret whale',owl:'🦉 Night owl',early:'🌅 Early bird',splash:'💦 Splash',rainbow:'🌈 Rainbow mohawk',stamp:'💯 Stamp',jelly:'🪼 Jellyfish timer',noodle:'🍝 Noodle dance',birthday:'🎂 Birthday',holiday:'🎉 Holiday'};
+const EGGS={monkey:'🐒 Monkey',flamingo:'🦩 Flamingo',crab:'🦀 Crab',bunny:'🐇 Bunny',dog:'🐕 Dog',octopus:'🐙 Octopus',snail:'🐌 Snail',trex:'🦖 T-rex',duck:'🦆 Ducks',sloth:'🦥 Sloth',cat:'🐈 Cat',bee:'🐝 Bees',turtle:'🐢 Turtle',whale:'🐳 Secret whale',owl:'🦉 Night owl',early:'🌅 Early bird',splash:'💦 Splash',rainbow:'🌈 Rainbow mohawk',stamp:'💯 Stamp',jelly:'🪼 Jellyfish timer',noodle:'🍝 Noodle dance',birthday:'🎂 Birthday',holiday:'🎉 Holiday'};
 function eggsFound(){const e=S.profile.eggs||{};return Object.keys(e).filter(k=>EGGS[k]).length+(S.profile.whale&&!e.whale?1:0)}
 function foundEgg(id,quiet){
   if(S.profile.eggs[id])return false;
@@ -1870,15 +1906,59 @@ function popEgg(o){
   el.addEventListener('click',()=>el.remove());document.body.appendChild(el);setTimeout(()=>el.classList.add('out'),(o.ms||2600));setTimeout(()=>el.remove(),(o.ms||2600)+500);
 }
 function afterSaveEggs(doc,id){
-  const hr=new Date().getHours(),isToday=doc.date===todayISO();
+  const hr=new Date().getHours(),isToday=doc.date===todayISO();let delay=0;
   if(isToday&&(hr>=18||hr<10)){const k='liftlog_tod_'+todayISO();let seen=null;try{seen=localStorage.getItem(k)}catch(e){}
-    if(!seen){try{localStorage.setItem(k,'1')}catch(e){}
+    if(!seen){try{localStorage.setItem(k,'1')}catch(e){}delay=2900;
       if(hr>=18){popEgg({e:'🦉',title:'Night owl',sub:'Lifting after dark. Respect. 🌙',rain:['✨','⭐','🌙'],n:14,cls:'night'});foundEgg('owl')}
       else{popEgg({e:'🌅',title:'Early bird',sub:'Up and at it before 10. Look at you! ☀️',rain:['☀️','🐦','✨'],n:14,cls:'morning'});foundEgg('early')}}}
-  for(const e of doc.entries||[])for(const s of e.sets||[])if(num(s.w)===100){
+  let stamped=false;
+  for(const e of doc.entries||[]){if(stamped)break;for(const s of e.sets||[])if(num(s.w)===100){
     const before=S.workouts.some(w=>w.id!==id&&(w.entries||[]).some(x=>x.ex===e.ex&&(x.sets||[]).some(q=>num(q.w)===100)));
-    if(!before){setTimeout(()=>{popEgg({e:'💯',title:`${cap(e.ex)} at 100!`,sub:'Triple digits, baby.',cls:'stamp',ms:2400});foundEgg('stamp')},hr>=18||hr<10?2900:0);return}
-  }
+    if(!before){const d0=delay;setTimeout(()=>{popEgg({e:'💯',title:`${cap(e.ex)} at 100!`,sub:'Triple digits, baby.',cls:'stamp',ms:2400});foundEgg('stamp')},d0);delay+=2900;stamped=true;break}}}
+  const a=animalFor(doc,id);if(a)setTimeout(()=>critter(a),delay);
+}
+function beeCheck(){try{const c=ckOf(todayISO());const ckDone=!S.profile.extras.checklist||S.profile.checkItems.every(i=>(c.done||[]).includes(i));const spDone=!S.profile.extras.supps||S.profile.supps.every(s=>(c.supps||{})[s]);if(S.profile.extras.checklist&&S.profile.extras.supps&&ckDone&&spDone&&onceToday('bee'))setTimeout(()=>critter('bee'),1500)}catch(e){}}
+/* ----- Animal friends ----- */
+const CRIT={
+  monkey:{e:'🐒',m:'🐒 Pull-up power! Swinging like a monkey.',fx:'swing'},
+  flamingo:{e:'🦩',m:'🦩 Single-leg work! Balanced like a flamingo.',fx:'stand'},
+  crab:{e:'🦀',m:'🦀 Lateral moves! Scuttling sideways like a crab.',fx:'scuttle'},
+  bunny:{e:'🐇',m:'🐇 Hop hop! Jump rope bunny.',fx:'hop'},
+  dog:{e:'🐕',m:'🐕 Walkies! Your walking buddy says hi.',fx:'walk'},
+  octopus:{e:'🐙',m:'🐙 8+ exercises? You need eight arms for that!',fx:'swim'},
+  snail:{e:'🐌',m:'🐌 Slow days count too. You still showed up.',fx:'crawl'},
+  trex:{e:'🦖',m:'🦖 Deadlift PR! Absolute dino strength. RAWR.',fx:'stomp'},
+  duck:{e:'🦆',m:'🦆 Splish splash! The ducks approve of your water day.',fx:'ducks'},
+  sloth:{e:'🦥',m:'🦥 Drained? Be a sloth today. Rest is productive.',fx:'hang'},
+  cat:{e:'🐈',m:'🐈 Meow. Even the cat approves of your stretching.',fx:'walk'},
+  bee:{e:'🐝',m:'🐝 Busy bee! Checklist and supplements all done.',fx:'buzz'},
+  turtle:{e:'🐢',m:'🐢 Long rest? Slow and steady wins the race.',fx:'crawl'},
+};
+function onceToday(k){const key='liftlog_crit_'+k+'_'+todayISO();try{if(localStorage.getItem(key))return false;localStorage.setItem(key,'1')}catch(e){}return true}
+function animalFor(doc,id){
+  const ex=new Set((doc.entries||[]).map(e=>e.ex)),has=(...a)=>a.some(x=>ex.has(x));
+  const cands=[];
+  const dl=(doc.entries||[]).filter(e=>/deadlift/.test(e.ex));
+  for(const e of dl){const top=Math.max(...(e.sets||[]).map(s=>num(s.w)??-1));let prev=-1;for(const w of S.workouts)if(w.id!==id)for(const x of w.entries||[])if(x.ex===e.ex)for(const s of x.sets||[]){const v=num(s.w);if(v!=null&&v>prev)prev=v}
+    if(prev>0&&top>prev){cands.push('trex');break}}
+  if((doc.entries||[]).length>=8)cands.push('octopus');
+  if(has('pull-up','chin-up','assisted pull-up'))cands.push('monkey');
+  if(has('bulgarian split squat','step-up','walking lunge','reverse lunge'))cands.push('flamingo');
+  if(has('lateral lunge','lateral raise'))cands.push('crab');
+  if(has('jump rope'))cands.push('bunny');
+  if(has('walking','hiking'))cands.push('dog');
+  if(doc.rating===1)cands.push('snail');
+  for(const c of cands)if(onceToday(c))return c;
+  return null;
+}
+function critter(k){
+  const c=CRIT[k];if(!c)return;if(document.querySelector('.critter')||document.querySelector('.egg-pop')){(S.critQ=S.critQ||[]).push(k);setTimeout(()=>{const n=S.critQ.shift();if(n)critter(n)},2500);return}
+  const el=document.createElement('div');el.className='critter fx-'+c.fx;
+  const n=c.fx==='ducks'?3:c.fx==='buzz'?4:1;
+  el.innerHTML=[...Array(n)].map((_,i)=>`<span class="cr" style="--i:${i}">${k==='duck'&&i>0?'🐤':c.e}</span>`).join('')+(c.fx==='hang'||c.fx==='swing'?'<i class="vine"></i>':'')+(c.fx==='ducks'||c.fx==='swim'?'<div class="cr-waves">🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊</div>':'')+(c.fx==='stomp'?'<div class="cr-shake"></div>':'');
+  document.body.appendChild(el);if(c.fx==='stomp')document.body.classList.add('quake');
+  setTimeout(()=>{el.remove();document.body.classList.remove('quake')},5600);
+  setTimeout(()=>toast(c.m),500);foundEgg(k);
 }
 function splashEgg(){popEgg({e:'💦',title:'Splash!',sub:'Water goal hit. You\'re basically a fish now. 🐟',rain:['💧','💦','💧','🫧'],n:28,cls:'splash'});foundEgg('splash')}
 function noodleDance(){popEgg({e:'<span class="ndl">🍝</span>',title:'Noodle mode activated',sub:'Wiggly, loose and thriving.',cls:'noodle',ms:2800});foundEgg('noodle')}
@@ -3005,13 +3085,13 @@ document.addEventListener('click',ev=>{
     case 'hfClear':S.hf={};render();break;
     case 'liAdd':{const k=t.dataset.k,inp=$('#li_'+k),v=(inp?.value||'').trim();if(!v)break;if(!(S.profile[k]||[]).includes(v)){S.profile[k]=[...(S.profile[k]||[]),v];Store.saveProfile()}renderSettings();render();break}
     case 'liDel':{const k=t.dataset.k,i=+t.dataset.i;S.profile[k]=(S.profile[k]||[]).filter((x,j)=>j!==i);Store.saveProfile();renderSettings();render();break}
-    case 'ck':{const d=todayISO(),c=ckOf(d),v=t.dataset.v;const done=(c.done||[]).includes(v)?c.done.filter(x=>x!==v):[...(c.done||[]),v];saveCk(d,{done}).then(()=>{if(S.profile.checkItems.every(i=>done.includes(i))){toast('✅ Checklist complete! Glowing. ✨');celebrate(.7)}render()}).catch(e=>toast(errMsg(e)));break}
-    case 'supp':{const d=todayISO(),c=ckOf(d),v=t.dataset.v,sp={...(c.supps||{})};if(sp[v])delete sp[v];else sp[v]=new Date().toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'});saveCk(d,{supps:sp}).then(()=>{if(sp[v])toast(`💊 ${v.replace(/^\S+\s/,'')} marked as taken`);render()}).catch(e=>toast(errMsg(e)));break}
+    case 'ck':{const d=todayISO(),c=ckOf(d),v=t.dataset.v;const done=(c.done||[]).includes(v)?c.done.filter(x=>x!==v):[...(c.done||[]),v];saveCk(d,{done}).then(()=>{if(S.profile.checkItems.every(i=>done.includes(i))){toast('✅ Checklist complete! Glowing. ✨');celebrate(.7);beeCheck()}render()}).catch(e=>toast(errMsg(e)));break}
+    case 'supp':{const d=todayISO(),c=ckOf(d),v=t.dataset.v,sp={...(c.supps||{})};if(sp[v])delete sp[v];else sp[v]=new Date().toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'});saveCk(d,{supps:sp}).then(()=>{beeCheck();if(sp[v])toast(`💊 ${v.replace(/^\S+\s/,'')} marked as taken`);render()}).catch(e=>toast(errMsg(e)));break}
     case 'finalsOn':{const n=+t.dataset.v;S.profile.finals={from:todayISO(),to:iso(addDays(new Date(),n-1))};Store.saveProfile();toast('📚 Finals week mode on. Good luck! 🍀');if(S.modal==='settings')renderSettings();render();break}
     case 'finalsOff':S.profile.finals=null;Store.saveProfile();toast('Finals mode off. You made it! 🎉');if(S.modal==='settings')renderSettings();render();break;
     case 'finalsWorkout':{const r=buildWorkout('full',20);r.items=r.items.slice(0,3).map(it=>({...it,sets:2}));r.name='Study break · 15 min';S.tab='log';setHash();startRoutine(r);break}
     case 'finalsStretch':renderStretch();break;
-    case 'stretchTick':{t.classList.toggle('on');const b=t.querySelector('.ckb');if(b)b.textContent=t.classList.contains('on')?'✓':'';if(document.querySelectorAll('.sheet .ck.on').length===STUDY_STRETCH.length){toast('🧘 Study break done! Brain refreshed.');setTimeout(closeModal,900)}break}
+    case 'stretchTick':{t.classList.toggle('on');const b=t.querySelector('.ckb');if(b)b.textContent=t.classList.contains('on')?'✓':'';if(document.querySelectorAll('.sheet .ck.on').length===STUDY_STRETCH.length){toast('🧘 Study break done! Brain refreshed.');if(onceToday('cat'))setTimeout(()=>critter('cat'),1300);setTimeout(closeModal,900)}break}
     case 'pep':renderPep();break;
     case 'pepVibe':S.profile.pepVibe=t.dataset.v;Store.saveProfile();renderSettings();break;
     case 'season':S.profile.season=t.dataset.v;Store.saveProfile();seasonShown=null;renderSettings();render();break;
